@@ -105,17 +105,18 @@ main {
     &.right-section {
       max-width: 30.3rem;
     }
+
+    & > * {
+      width: 100%;
+    }
   }
 
   .menu-block {
-    width: 100%;
     margin-bottom: 4rem;
     // include .menu-radio
   }
 
   .categories-block {
-    width: 100%;
-
     .category-list {
       @include flexColumn;
       margin-top: 1.6rem;
@@ -133,6 +134,23 @@ main {
     margin-bottom: 2.8rem;
     p {
       margin-top: .8rem;
+    }
+  }
+
+  .visited-block {
+    margin-bottom: 2.8rem;
+    // include .visited-users
+  }
+
+  .powered-by-block {
+    .mustard-logo {
+      display: block;
+      width: 14.2rem;
+      height: 2.4rem;
+      margin: .8rem 0 2.4rem;
+    }
+    .button {
+      margin-bottom: .8rem;
     }
   }
 }
@@ -264,6 +282,55 @@ main {
     }
   }
 
+}
+
+.visited-users {
+  @include flex;
+  margin-top: .8rem;
+
+  & > *:not(:first-child) {
+    margin-left: -1rem;
+  }
+
+  .user {
+    @include flexCenter;
+    width: 4.4rem;
+    height: 4.4rem;
+    background: $orange-pale;
+    border: 2px solid $background;
+    border-radius: 50%;
+    overflow: hidden;
+
+    img {
+      width: 100%;
+      height: 100%;
+    }
+
+    span {
+      font-weight: 700;
+      font-size: 1.4rem;
+      line-height: 1.6rem;
+      letter-spacing: .02rem;
+      color: $orange-light;
+    }
+  }
+}
+
+.button {
+  font-family: 'Poppins', sans-serif;
+  font-weight: 700;
+  width: 100%;
+  height: 4.8rem;
+  background: $orange-light;
+  border-radius: .8rem;
+  border: none;
+  box-shadow: none;
+  cursor: pointer;
+
+  &.light {
+    background: $orange-pale;
+    color: $orange;
+  }
 }
 
 
