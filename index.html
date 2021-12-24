@@ -22,6 +22,7 @@
                 <div class='select-list' id='select-list'>
                     <h2 id='LA'>LA</h2>
                     <h2 id='NY'>NY</h2>
+                    <h2 id='SF'>SF</h2>
                 </div>
                 <img class='icon' src='./shared/icons/arrow-blue.svg' width='24' height='24' alt='^' />
             </div>
@@ -61,28 +62,28 @@
     </div>
 </header>
 <main>
-    <section class='left-section'>
+    <div class='left-column column'>
         <div class='menu-block'>
             <span class='title'>Menu:</span>
             <div class='menu-radio'>
-                <label for='breakfast'>
-                    <input type='radio' id='breakfast' name='menu' />
+                <label for='breakfast-menu'>
+                    <input type='radio' id='breakfast-menu' name='menu' />
                     <div class='custom-radio'></div>
                     <div class='menu-info'>
                         <p class='menu-type'>Breakfast menu</p>
                         <p class='menu-time'>6:00 AM – 7:30 AM</p>
                     </div>
                 </label>
-                <label for='dinner'>
-                    <input type='radio' id='dinner' name='menu' checked />
+                <label for='dinner-menu'>
+                    <input type='radio' id='dinner-menu' name='menu' checked />
                     <div class='custom-radio'></div>
                     <div class='menu-info'>
                         <p class='menu-type'>Dinner menu</p>
                         <p class='menu-time'>6:00 PM – 10:00 PM</p>
                     </div>
                 </label>
-                <label for='wine'>
-                    <input type='radio' id='wine' name='menu' />
+                <label for='wine-menu'>
+                    <input type='radio' id='wine-menu' name='menu' />
                     <div class='custom-radio'></div>
                     <div class='menu-info'>
                         <p class='menu-type'>Wine menu</p>
@@ -105,11 +106,99 @@
                 <a href='#Organic-teas'>Organic teas</a>
             </div>
         </div>
-    </section>
-    <section class='center-section'>
-
-    </section>
-    <section class='right-section'>
+    </div>
+    <div class='center-column column'>
+        <section class='category-section' id='foodies-favorites'>
+            <h3>Foodies’ favorites</h3>
+            <div class='cards-slider'>
+                <div class='card'>
+                    <div class='img-wrapper gradient'>
+                        <img src='./shared/mocks/food-1.png' width='195' height='266' alt='img' />
+                    </div>
+                    <div class='user-wrapper'>
+                        <div class='avatar'>
+                            <img src='./shared/images/1.png' width='40' height='40' alt='avatar' />
+                        </div>
+                        <span class='username'>@Nastasia_super</span>
+                    </div>
+                </div>
+                <div class='card'>
+                    <div class='img-wrapper gradient'>
+                        <img src='./shared/mocks/food-2.png' width='195' height='266' alt='img' />
+                    </div>
+                    <div class='user-wrapper'>
+                        <div class='avatar'>
+                            <img src='./shared/images/2.png' width='40' height='40' alt='avatar' />
+                        </div>
+                        <span class='username'>@Nastasia_super</span>
+                    </div>
+                </div>
+                <div class='card'>
+                    <div class='img-wrapper gradient'>
+                        <img src='./shared/mocks/food-3.png' width='195' height='266' alt='img' />
+                    </div>
+                    <div class='user-wrapper'>
+                        <div class='avatar'>
+                            <img src='./shared/images/3.png' width='40' height='40' alt='avatar' />
+                        </div>
+                        <span class='username'>@Nastasia_super</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class='category-section' id='Cocktails'>
+            <h3>Cocktails</h3>
+            <div class='cards-slider'>
+                <div class='card'>
+                    <div class='img-wrapper'>
+                        <img src='./shared/mocks/coctail-1.png' width='195' height='266' alt='img' />
+                    </div>
+                    <h4>D4 Pork Soup Dumplings</h4>
+                    <p class='description'>Espresso Bean infused Broken Shed Vodka, Oat Milk, Vanilla, Cold Brew Nitro,
+                        Cinnamon Dust</p>
+                    <p class='cost'>$14</p>
+                </div>
+                <div class='card'>
+                    <div class='img-wrapper'>
+                        <img src='./shared/mocks/coctail-2.png' width='195' height='266' alt='img' />
+                    </div>
+                    <h4>D4 Pork Soup</h4>
+                    <p class='description'>Espresso Bean infused Broken Shed Vodka, Oat Milk, Vanilla, Cold Brew Nitro,
+                        Cinnamon Dust, and more and more</p>
+                    <p class='cost'>$14</p>
+                </div>
+                <div class='card'>
+                    <div class='img-wrapper'>
+                        <img src='./shared/mocks/coctail-2.png' width='195' height='266' alt='img' />
+                    </div>
+                    <h4>D4 Pork Soup Dumplings Long Title and more and more</h4>
+                    <p class='description'>Espresso Bean infused Broken Shed Vodka, Oat Milk, Vanilla</p>
+                    <p class='cost'>$14</p>
+                </div>
+            </div>
+        </section>
+        <section class='category-section' id='Wine'>
+            <h3>Wine</h3>
+            <div class='cards-slider'>
+                <div class='card'>
+                    <h4>Castiglion del Bosco, Merlot/Sangiovese...</h4>
+                    <p class='description small'>$64 / bottle</p>
+                    <p class='cost'>$14</p>
+                </div>
+                <div class='card'>
+                    <h4>Argiano NC, Cabernet</h4>
+                    <p class='description small'>$64 / bottle</p>
+                    <p class='cost'>$14</p>
+                </div>
+                <div class='card'>
+                    <h4>La Spinetta, Nebbiolo Langhe 2018 Piemonte</h4>
+                    <p class='description small'>$64 / bottle</p>
+                    <p class='cost'>$14</p>
+                </div>
+            </div>
+        </section>
+    </div>
+    <div class='right-column column'>
         <div class='address-block'>
             <span class='title'>Address:</span>
             <p>1534 N McCadden Place, Los Angeles, CA 90028</p>
@@ -137,7 +226,7 @@
             <button class='button'>Order</button>
             <button class='button light'>Share with friends</button>
         </div>
-    </section>
+    </div>
 </main>
 <footer>
     <div class='footer-content'>
