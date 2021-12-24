@@ -17,10 +17,15 @@
     <div class='info'>
         <div class='name'>
             <h1>Pizzeria Da Michele</h1>
-            <div class='select' id='select-places'>
-                <h2>LA</h2>
-                <div class='select_list'></div>
-<!--            <img src='./shared/icons/arrow-blue.svg' width='24' height='24' alt='^' />-->
+            <div class='select' id='select'>
+                <h2 id='current-select'>LA</h2>
+                <div class='select-list' id='select-list'>
+                    <h2 id='LA'>LA</h2>
+                    <h2 id='NY'>NY</h2>
+                    <h2 id='XX'>XX</h2>
+                    <h2 id='ZZ'>ZZ</h2>
+                </div>
+                <img class='icon' src='./shared/icons/arrow-blue.svg' width='24' height='24' alt='^' />
             </div>
         </div>
         <div class='meta'>
@@ -61,7 +66,7 @@
     <section class='left-section'>
         <div class='menu-block'>
             <span class='title'>Menu:</span>
-            <div class='list'>
+            <div class='menu-radio'>
                 <label for='breakfast'>
                     <input type='radio' id='breakfast' name='menu' />
                     <div class='custom-radio'></div>
@@ -115,7 +120,7 @@
 
         </div>
         <div class='powered-by-block'>
-            
+
         </div>
     </section>
 </main>

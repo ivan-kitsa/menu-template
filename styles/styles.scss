@@ -60,10 +60,12 @@ header {
     .name {
       display: flex;
       margin-bottom: .8rem;
+      z-index: 2;
 
       h1 {
         margin-right: .8rem;
       }
+      // include .select
     }
 
     .meta {
@@ -80,39 +82,7 @@ header {
     .tags-list {
       display: flex;
       margin-top: 2.4rem;
-
-      .tag {
-        display: flex;
-        align-items: center;
-        justify-content: flex-start;
-        padding: .8rem;
-        border-radius: .8rem;
-        background: $white;
-
-        &:not(:last-child) {
-          margin-right: .8rem;
-        }
-
-        &.closed {
-          background: $red;
-
-          span {
-            color: $white;
-          }
-        }
-
-        img {
-          width: 2rem;
-          height: 2rem;
-          margin-right: .8rem;
-        }
-
-        span {
-          font-size: 1.4rem;
-          line-height: 1.4rem;
-          white-space: nowrap;
-        }
-      }
+      // include .tag
     }
   }
 }
@@ -140,53 +110,7 @@ main {
   .menu-block {
     width: 100%;
     margin-bottom: 4rem;
-
-    .list {
-      @include flexColumn;
-      width: 100%;
-
-      label {
-        @include flex;
-        width: 100%;
-        margin-top: 1.6rem;
-        cursor: pointer;
-
-        .custom-radio {
-          width: 2rem;
-          height: 2rem;
-          background: transparent;
-          border: 2px solid $border;
-          border-radius: 50%;
-          margin-right: 1rem;
-        }
-
-        .menu-info {
-          p {
-            color: $sub-txt;
-
-            &.menu-time {
-              font-size: 1.2rem;
-              line-height: 1.2rem;
-              margin-top: .4rem;
-            }
-          }
-        }
-
-        input {
-          display: none;
-
-          &:checked ~ .custom-radio {
-            background: $white;
-            border: 6px solid $orange-light;
-          }
-          &:checked ~ .menu-info .menu-type {
-            color: $txt;
-            font-weight: 700;
-          }
-        }
-      }
-
-    }
+    // include .menu-radio
   }
 
   .categories-block {
@@ -211,6 +135,135 @@ main {
       margin-top: .8rem;
     }
   }
+}
+
+// Components
+.select {
+  background: $background;
+  cursor: pointer;
+
+  &.open {
+    .select-list {
+      display: block;
+    }
+    .icon {
+      transform: rotate(180deg) translateY(50%);
+    }
+  }
+
+  & > h2 {
+    pointer-events: none;
+    width: 7.8rem;
+    padding-right: 2.4rem;
+  }
+
+  .icon {
+    position: absolute;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    pointer-events: none;
+  }
+
+  .select-list {
+    display: none;
+    position: absolute;
+    left: 0;
+    top: 0;
+    background: $white;
+    box-shadow: 0 .4rem 2.7rem 0 rgba(0, 0, 0, 0.05);
+    border-radius: .8rem;
+    overflow: hidden;
+
+    h2 {
+      width: 7.8rem;
+      padding-right: 2.4rem;
+
+      &:hover {
+        background: $orange-pale;
+      }
+    }
+  }
+}
+
+.tag {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  padding: .8rem;
+  border-radius: .8rem;
+  background: $white;
+
+  &:not(:last-child) {
+    margin-right: .8rem;
+  }
+
+  &.closed {
+    background: $red;
+
+    span {
+      color: $white;
+    }
+  }
+
+  img {
+    width: 2rem;
+    height: 2rem;
+    margin-right: .8rem;
+  }
+
+  span {
+    font-size: 1.4rem;
+    line-height: 1.4rem;
+    white-space: nowrap;
+  }
+}
+
+.menu-radio {
+  @include flexColumn;
+  width: 100%;
+
+  label {
+    @include flex;
+    width: 100%;
+    margin-top: 1.6rem;
+    cursor: pointer;
+
+    .custom-radio {
+      width: 2rem;
+      height: 2rem;
+      background: transparent;
+      border: 2px solid $border;
+      border-radius: 50%;
+      margin-right: 1rem;
+    }
+
+    .menu-info {
+      p {
+        color: $sub-txt;
+
+        &.menu-time {
+          font-size: 1.2rem;
+          line-height: 1.2rem;
+          margin-top: .4rem;
+        }
+      }
+    }
+
+    input {
+      display: none;
+
+      &:checked ~ .custom-radio {
+        background: $white;
+        border: 6px solid $orange-light;
+      }
+      &:checked ~ .menu-info .menu-type {
+        color: $txt;
+        font-weight: 700;
+      }
+    }
+  }
+
 }
 
 
