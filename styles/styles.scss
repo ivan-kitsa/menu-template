@@ -11,7 +11,7 @@
 body {
   width: 100%;
   min-height: 100vh;
-  background: $background;
+  background: $orange-30;
   overflow-x: hidden;
 }
 
@@ -75,7 +75,7 @@ header {
         line-height: 1.6rem;
         font-weight: 700;
         letter-spacing: .02rem;
-        color: $gray;
+        color: $gray-500;
       }
     }
 
@@ -134,7 +134,7 @@ main {
       a {
         font-family: 'Poppins', sans-serif;
         padding: .9rem 0;
-        color: $sub-txt;
+        color: $black-40;
         text-decoration: none;
       }
     }
@@ -178,7 +178,7 @@ footer {
     bottom: 100%;
     transform: translate(-50%, 50%);
     border-radius: 200vw/20vw;
-    background: $orange-pale;
+    background: $orange-50;
   }
 
   &:before {
@@ -186,7 +186,7 @@ footer {
     width: 100vw;
     height: 100%;
     @include absoluteCenter;
-    background: $orange-pale;
+    background: $orange-50;
   }
 
   .footer-content {
@@ -217,11 +217,11 @@ footer {
 
       a {
         margin-left: 2.1rem;
-        color: $orange-light;
+        color: $orange-500;
         text-decoration: none;
 
         &:hover {
-          color: $orange;
+          color: $orange-700;
         }
       }
     }
@@ -238,7 +238,7 @@ footer {
 
 // Components
 .select {
-  background: $background;
+  background: $orange-30;
   cursor: pointer;
 
   &.open {
@@ -279,7 +279,7 @@ footer {
       padding-right: 2.4rem;
 
       &:hover {
-        background: $orange-pale;
+        background: $orange-50;
       }
     }
   }
@@ -332,14 +332,14 @@ footer {
       width: 2rem;
       height: 2rem;
       background: transparent;
-      border: 2px solid $border;
+      border: 2px solid $gray-300;
       border-radius: 50%;
       margin-right: 1rem;
     }
 
     .menu-info {
       p {
-        color: $sub-txt;
+        color: $black-40;
 
         &.menu-time {
           font-size: 1.2rem;
@@ -354,10 +354,10 @@ footer {
 
       &:checked ~ .custom-radio {
         background: $white;
-        border: 6px solid $orange-light;
+        border: 6px solid $orange-500;
       }
       &:checked ~ .menu-info .menu-type {
-        color: $txt;
+        color: $gray-800;
         font-weight: 700;
       }
     }
@@ -377,8 +377,8 @@ footer {
     @include flexCenter;
     width: 4.4rem;
     height: 4.4rem;
-    background: $orange-pale;
-    border: 2px solid $background;
+    background: $orange-50;
+    border: 2px solid $orange-30;
     border-radius: 50%;
     overflow: hidden;
 
@@ -392,7 +392,7 @@ footer {
       font-size: 1.4rem;
       line-height: 1.6rem;
       letter-spacing: .02rem;
-      color: $orange-light;
+      color: $orange-500;
     }
   }
 }
@@ -402,19 +402,19 @@ footer {
   font-weight: 700;
   width: 100%;
   height: 4.8rem;
-  background: $orange-light;
+  background: $orange-500;
   border-radius: .8rem;
   border: none;
   box-shadow: none;
   cursor: pointer;
 
   &:hover {
-    background: $orange;
+    background: $orange-700;
   }
 
   &.light {
-    background: $orange-pale;
-    color: $orange;
+    background: $orange-50;
+    color: $orange-700;
   }
 }
 
@@ -459,7 +459,7 @@ footer {
         width: 4rem;
         height: 4rem;
         margin-right: .8rem;
-        border: 1px solid fade-out($orange, .4);
+        border: 1px solid fade-out($orange-700, .4);
         border-radius: 50%;
         overflow: hidden;
 
@@ -468,7 +468,7 @@ footer {
           @include absoluteCenter;
           width: 3.2rem;
           height: 3.2rem;
-          border: 4px solid $background;
+          border: 4px solid $orange-30;
           border-radius: 50%;
         }
       }
