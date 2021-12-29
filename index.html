@@ -110,91 +110,127 @@
     <div class='center-column column'>
         <section class='category-section' id='foodies-favorites'>
             <h3>Foodies’ favorites</h3>
-            <div class='cards-slider'>
-                <div class='card'>
-                    <div class='img-wrapper gradient'>
-                        <img src='./shared/mocks/food-1.png' width='195' height='266' alt='img' />
-                    </div>
-                    <div class='user-wrapper'>
-                        <div class='avatar'>
-                            <img src='./shared/images/1.png' width='40' height='40' alt='avatar' />
+            <div class='cards-slider' id='foodies-slider'>
+                <div class='cards'>
+                    <button class='left-button'><</button>
+                    <div class='card' data-id='1'>
+                        <div class='img-wrapper gradient'>
+                            <img src='./shared/mocks/food-1.png' width='195' height='266' alt='img' />
                         </div>
-                        <span class='username'>@Nastasia_super</span>
-                    </div>
-                </div>
-                <div class='card'>
-                    <div class='img-wrapper gradient'>
-                        <img src='./shared/mocks/food-2.png' width='195' height='266' alt='img' />
-                    </div>
-                    <div class='user-wrapper'>
-                        <div class='avatar'>
-                            <img src='./shared/images/2.png' width='40' height='40' alt='avatar' />
+                        <div class='user-wrapper'>
+                            <div class='avatar'>
+                                <img src='./shared/images/1.png' width='40' height='40' alt='avatar' />
+                            </div>
+                            <span class='username'>@Nastasia_super</span>
                         </div>
-                        <span class='username'>@Nastasia_super</span>
                     </div>
-                </div>
-                <div class='card'>
-                    <div class='img-wrapper gradient'>
-                        <img src='./shared/mocks/food-3.png' width='195' height='266' alt='img' />
-                    </div>
-                    <div class='user-wrapper'>
-                        <div class='avatar'>
-                            <img src='./shared/images/3.png' width='40' height='40' alt='avatar' />
+                    <div class='card' data-id='2'>
+                        <div class='img-wrapper gradient'>
+                            <img src='./shared/mocks/food-2.png' width='195' height='266' alt='img' />
                         </div>
-                        <span class='username'>@Nastasia_super</span>
+                        <div class='user-wrapper'>
+                            <div class='avatar'>
+                                <img src='./shared/images/2.png' width='40' height='40' alt='avatar' />
+                            </div>
+                            <span class='username'>@Nastasia_super</span>
+                        </div>
                     </div>
+                    <div class='card' data-id='3'>
+                        <div class='img-wrapper gradient'>
+                            <img src='./shared/mocks/food-3.png' width='195' height='266' alt='img' />
+                        </div>
+                        <div class='user-wrapper'>
+                            <div class='avatar'>
+                                <img src='./shared/images/3.png' width='40' height='40' alt='avatar' />
+                            </div>
+                            <span class='username'>@Nastasia_super</span>
+                        </div>
+                    </div>
+                    <div class='card' data-id='4'>
+                        <div class='img-wrapper gradient'>
+                            <img src='./shared/mocks/food-2.png' width='195' height='266' alt='img' />
+                        </div>
+                        <div class='user-wrapper'>
+                            <div class='avatar'>
+                                <img src='./shared/images/2.png' width='40' height='40' alt='avatar' />
+                            </div>
+                            <span class='username'>@Nastasia_super</span>
+                        </div>
+                    </div>
+                    <button class='right-button'>></button>
                 </div>
             </div>
         </section>
         <section class='category-section' id='Cocktails'>
             <h3>Cocktails</h3>
-            <div class='cards-slider'>
-                <div class='card'>
-                    <div class='img-wrapper'>
-                        <img src='./shared/mocks/coctail-1.png' width='195' height='266' alt='img' />
+            <div class='cards-slider' id='cocktails-slider'>
+                <button class='left-button'><</button>
+                <div class='cards'>
+                    <div class='card' data-id='1'>
+                        <div class='img-wrapper'>
+                            <img src='./shared/mocks/coctail-1.png' width='195' height='266' alt='img' />
+                        </div>
+                        <h4>D4 Pork Soup Dumplings</h4>
+                        <p class='description'>Espresso Bean infused Broken Shed Vodka, Oat Milk, Vanilla, Cold Brew Nitro,
+                            Cinnamon Dust</p>
+                        <p class='cost'>$14</p>
                     </div>
-                    <h4>D4 Pork Soup Dumplings</h4>
-                    <p class='description'>Espresso Bean infused Broken Shed Vodka, Oat Milk, Vanilla, Cold Brew Nitro,
-                        Cinnamon Dust</p>
-                    <p class='cost'>$14</p>
-                </div>
-                <div class='card'>
-                    <div class='img-wrapper'>
-                        <img src='./shared/mocks/coctail-2.png' width='195' height='266' alt='img' />
+                    <div class='card' data-id='2'>
+                        <div class='img-wrapper'>
+                            <img src='./shared/mocks/coctail-2.png' width='195' height='266' alt='img' />
+                        </div>
+                        <h4>D4 Pork Soup</h4>
+                        <p class='description'>Espresso Bean infused Broken Shed Vodka, Oat Milk, Vanilla, Cold Brew Nitro,
+                            Cinnamon Dust, and more and more</p>
+                        <p class='cost'>$14</p>
                     </div>
-                    <h4>D4 Pork Soup</h4>
-                    <p class='description'>Espresso Bean infused Broken Shed Vodka, Oat Milk, Vanilla, Cold Brew Nitro,
-                        Cinnamon Dust, and more and more</p>
-                    <p class='cost'>$14</p>
-                </div>
-                <div class='card'>
-                    <div class='img-wrapper'>
-                        <img src='./shared/mocks/coctail-2.png' width='195' height='266' alt='img' />
+                    <div class='card' data-id='3'>
+                        <div class='img-wrapper'>
+                            <img src='./shared/mocks/coctail-2.png' width='195' height='266' alt='img' />
+                        </div>
+                        <h4>D4 Pork Soup Dumplings Long Title and more and more</h4>
+                        <p class='description'>Espresso Bean infused Broken Shed Vodka, Oat Milk, Vanilla</p>
+                        <p class='cost'>$14</p>
                     </div>
-                    <h4>D4 Pork Soup Dumplings Long Title and more and more</h4>
-                    <p class='description'>Espresso Bean infused Broken Shed Vodka, Oat Milk, Vanilla</p>
-                    <p class='cost'>$14</p>
+                    <div class='card' data-id='4'>
+                        <div class='img-wrapper'>
+                            <img src='./shared/mocks/coctail-2.png' width='195' height='266' alt='img' />
+                        </div>
+                        <h4>D4 Pork Soup Dumplings Long Title and more and more</h4>
+                        <p class='description'>Espresso Bean infused Broken Shed Vodka, Oat Milk, Vanilla</p>
+                        <p class='cost'>$14</p>
+                    </div>
                 </div>
+                <button class='right-button'>></button>
             </div>
         </section>
         <section class='category-section' id='Wine'>
             <h3>Wine</h3>
-            <div class='cards-slider'>
-                <div class='card'>
-                    <h4>Castiglion del Bosco, Merlot/Sangiovese...</h4>
-                    <p class='description small'>$64 / bottle</p>
-                    <p class='cost'>$14</p>
+            <div class='cards-slider' id='wine-slider'>
+                <button class='left-button'><</button>
+                <div class='cards'>
+                    <div class='card' data-id='1'>
+                        <h4>Castiglion del Bosco, Merlot/Sangiovese...</h4>
+                        <p class='description small'>$64 / bottle</p>
+                        <p class='cost'>$14</p>
+                    </div>
+                    <div class='card' data-id='2'>
+                        <h4>Argiano NC, Cabernet</h4>
+                        <p class='description small'>$64 / bottle</p>
+                        <p class='cost'>$14</p>
+                    </div>
+                    <div class='card' data-id='3'>
+                        <h4>La Spinetta, Nebbiolo Langhe 2018 Piemonte</h4>
+                        <p class='description small'>$64 / bottle</p>
+                        <p class='cost'>$14</p>
+                    </div>
+                    <div class='card' data-id='4'>
+                        <h4>Argiano NC, Cabernet</h4>
+                        <p class='description small'>$64 / bottle</p>
+                        <p class='cost'>$14</p>
+                    </div>
                 </div>
-                <div class='card'>
-                    <h4>Argiano NC, Cabernet</h4>
-                    <p class='description small'>$64 / bottle</p>
-                    <p class='cost'>$14</p>
-                </div>
-                <div class='card'>
-                    <h4>La Spinetta, Nebbiolo Langhe 2018 Piemonte</h4>
-                    <p class='description small'>$64 / bottle</p>
-                    <p class='cost'>$14</p>
-                </div>
+                <button class='right-button'>></button>
             </div>
         </section>
     </div>
@@ -242,6 +278,7 @@
         <img class='footer-img' src='./shared/images/footer-hands.png' width='933' height='657' alt='img' />
     </div>
 </footer>
+<script src='./scripts/slider.js'></script>
 <script src='./scripts/scripts.js'></script>
 </body>
 </html>

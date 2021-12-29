@@ -164,7 +164,7 @@ main {
     main > .column.left-column {
       max-width: 19.4rem; }
     main > .column.center-column {
-      max-width: 62.4rem; }
+      max-width: 65.5rem; }
     main > .column.right-column {
       max-width: 30.3rem; }
     main > .column > * {
@@ -453,14 +453,89 @@ footer {
     color: #EB6C24; }
 
 .cards-slider {
-  width: 100%;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex; }
+  width: 100%; }
+  .cards-slider button {
+    position: absolute;
+    top: 11.1rem;
+    width: 4rem;
+    height: 4rem;
+    border-radius: 50%;
+    border: none;
+    background: rgba(255, 255, 255, 0.5);
+    -webkit-box-shadow: 0 0.2rem 0.8rem 0 rgba(255, 255, 255, 0.1);
+    box-shadow: 0 0.2rem 0.8rem 0 rgba(255, 255, 255, 0.1);
+    color: #77797B;
+    cursor: pointer;
+    z-index: 2; }
+    .cards-slider button.left-button {
+      left: 0; }
+    .cards-slider button.right-button {
+      right: 0; }
+  .cards-slider .cards {
+    width: 100%;
+    max-width: 100%;
+    overflow: hidden;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex; }
+    .cards-slider .cards:before, .cards-slider .cards:after {
+      content: '';
+      position: absolute;
+      right: 0;
+      top: 0;
+      width: 4.1rem;
+      height: 100%;
+      background: -webkit-gradient(linear, right top, left top, color-stop(6.44%, #F9F4E9), color-stop(97.22%, rgba(249, 244, 233, 0)));
+      background: -webkit-linear-gradient(right, #F9F4E9 6.44%, rgba(249, 244, 233, 0) 97.22%);
+      background: -o-linear-gradient(right, #F9F4E9 6.44%, rgba(249, 244, 233, 0) 97.22%);
+      background: linear-gradient(270deg, #F9F4E9 6.44%, rgba(249, 244, 233, 0) 97.22%);
+      pointer-events: none;
+      z-index: 2; }
+    .cards-slider .cards:before {
+      opacity: 0;
+      right: auto;
+      left: 0;
+      background: -webkit-gradient(linear, left top, right top, color-stop(6.44%, #F9F4E9), color-stop(97.22%, rgba(249, 244, 233, 0)));
+      background: -webkit-linear-gradient(left, #F9F4E9 6.44%, rgba(249, 244, 233, 0) 97.22%);
+      background: -o-linear-gradient(left, #F9F4E9 6.44%, rgba(249, 244, 233, 0) 97.22%);
+      background: linear-gradient(90deg, #F9F4E9 6.44%, rgba(249, 244, 233, 0) 97.22%); }
+
+@-webkit-keyframes firstCard {
+  from {
+    -webkit-transform: translateX(-100%);
+    transform: translateX(-100%); }
+  to {
+    -webkit-transform: translateX(0%);
+    transform: translateX(0%); } }
+
+@keyframes firstCard {
+  from {
+    -webkit-transform: translateX(-100%);
+    transform: translateX(-100%); }
+  to {
+    -webkit-transform: translateX(0%);
+    transform: translateX(0%); } }
+
+@-webkit-keyframes lastCard {
+  from {
+    -webkit-transform: translateX(0);
+    transform: translateX(0); }
+  to {
+    -webkit-transform: translateX(-100%);
+    transform: translateX(-100%); } }
+
+@keyframes lastCard {
+  from {
+    -webkit-transform: translateX(0);
+    transform: translateX(0); }
+  to {
+    -webkit-transform: translateX(-100%);
+    transform: translateX(-100%); } }
   .cards-slider .card {
-    width: 19.5rem; }
-    .cards-slider .card:not(:last-child) {
-      margin-right: 1.6rem; }
+    width: 19.5rem;
+    position: absolute;
+    top: 0;
+    left: 0; }
     .cards-slider .card .img-wrapper {
       width: 19.5rem;
       height: 26.6rem;
