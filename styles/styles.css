@@ -279,7 +279,8 @@ footer {
     left: 110%;
     bottom: 3.2rem;
     width: 93.3rem;
-    height: 65.7rem; }
+    height: 65.7rem;
+    pointer-events: none; }
 
 .select {
   background: #F9F4E9;
@@ -455,8 +456,18 @@ footer {
 .cards-slider {
   width: 100%; }
   .cards-slider button {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
     position: absolute;
     top: 11.1rem;
+    right: 0;
     width: 4rem;
     height: 4rem;
     border-radius: 50%;
@@ -467,10 +478,19 @@ footer {
     color: #77797B;
     cursor: pointer;
     z-index: 2; }
+    .cards-slider button.center {
+      top: 50%;
+      -webkit-transform: translateY(-50%);
+      -ms-transform: translateY(-50%);
+      transform: translateY(-50%); }
     .cards-slider button.left-button {
+      display: none;
+      right: auto;
       left: 0; }
-    .cards-slider button.right-button {
-      right: 0; }
+      .cards-slider button.left-button img {
+        -webkit-transform: rotate(180deg);
+        -ms-transform: rotate(180deg);
+        transform: rotate(180deg); }
   .cards-slider .cards {
     width: 100%;
     max-width: 100%;
@@ -483,7 +503,7 @@ footer {
       position: absolute;
       right: 0;
       top: 0;
-      width: 4.1rem;
+      width: 4rem;
       height: 100%;
       background: -webkit-gradient(linear, right top, left top, color-stop(6.44%, #F9F4E9), color-stop(97.22%, rgba(249, 244, 233, 0)));
       background: -webkit-linear-gradient(right, #F9F4E9 6.44%, rgba(249, 244, 233, 0) 97.22%);
@@ -492,7 +512,7 @@ footer {
       pointer-events: none;
       z-index: 2; }
     .cards-slider .cards:before {
-      opacity: 0;
+      display: none;
       right: auto;
       left: 0;
       background: -webkit-gradient(linear, left top, right top, color-stop(6.44%, #F9F4E9), color-stop(97.22%, rgba(249, 244, 233, 0)));

@@ -56,8 +56,8 @@ class Slider {
         const leftButton = this.slider.querySelector('.left-button')
         const rightButton = this.slider.querySelector('.right-button')
 
-        rightButton.addEventListener('mousedown', () => this.#debounce(this.moveToLeft, 180))
-        leftButton.addEventListener('mousedown', () => this.#debounce(this.moveToRight, 180))
+        rightButton.addEventListener('mousedown', () => this.#debounce(this.moveToLeft, 200))
+        leftButton.addEventListener('mousedown', () => this.#debounce(this.moveToRight, 200))
 
         this.setHeight()
         this.setCardPosition()
