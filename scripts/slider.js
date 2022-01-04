@@ -5,7 +5,6 @@ class Slider {
         this.id = id
         this.slider = document.getElementById(this.id)
         this.cards = this.slider.querySelectorAll('.card')
-        this.timer = 0
         this.leftButton = this.slider.querySelector('.left-button')
         this.rightButton = this.slider.querySelector('.right-button')
     }
@@ -24,13 +23,13 @@ class Slider {
         for (let i = 0, dataId = 0; i < this.cards.length; i++) {
             dataId = +this.cards[i].getAttribute('data-id')
 
-            if (dataId === this.cards.length)  {
-                this.cards[i].style.cssText = `transition: left 0s ease-out 0s; animation: firstCard .25s ease-out 0s`
-                this.cards[i].setAttribute('data-id', '1')
-                continue
-            }
-            this.cards[i].style.cssText = `transition: left .25s ease-out 0s;`
             this.cards[i].setAttribute('data-id', `${dataId + 1}`)
+
+            this.rightButton.classList.remove('hidden')
+
+            if (i === dataId) {
+                this.leftButton.classList.add('hidden')
+            }
         }
         this.setCardPosition()
     }
@@ -38,34 +37,20 @@ class Slider {
         for (let i = 0, dataId = 0; i < this.cards.length; i++) {
             dataId = +this.cards[i].getAttribute('data-id')
 
-            // if (dataId !== i) {
-            //     this.leftButton.classList.remove('hidden')
-            // }
-            //
-            // if (dataId === this.cards.length) {
-            //     this.rightButton.classList.add('hidden')
-            // }
-
-            if (dataId === 1)  {
-                this.cards[i].style.cssText = `transition: left 0s ease-out .25s; animation: lastCard .25s ease-out 0s`
-                this.cards[i].setAttribute('data-id', `${this.cards.length}`)
-                continue
-            }
-            this.cards[i].style.cssText = `transition: left .25s ease-out 0s;`
             this.cards[i].setAttribute('data-id', `${dataId - 1}`)
+
+            this.leftButton.classList.remove('hidden')
+
+            if (i === this.cards.length - 2 && dataId === 3) {
+                this.rightButton.classList.add('hidden')
+            }
         }
         this.setCardPosition()
     }
 
-    #debounce (func, ms) {
-        clearTimeout(this.timer)
-        this.timer = setTimeout(func.bind(this), ms)
-    }
-
     init() {
-        this.rightButton.addEventListener('mousedown', () => this.#debounce(this.moveToLeft, 200))
-        this.leftButton.addEventListener('mousedown', () => this.#debounce(this.moveToRight, 200))
-
+        this.rightButton.addEventListener('mousedown', () => this.moveToLeft())
+        this.leftButton.addEventListener('mousedown', () => this.moveToRight())
         this.setHeight()
         this.setCardPosition()
     }
@@ -80,9 +65,6 @@ function getAllSlidersIds() {
 
 function initSliders() {
     const idArr = getAllSlidersIds()
-
-    if (!idArr.length) return
-
     for (let i = 0; i < idArr.length; i++) {
         new Slider(idArr[i]).init()
     }

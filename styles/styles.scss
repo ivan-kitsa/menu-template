@@ -652,10 +652,15 @@ footer {
     border-radius: 50%;
     border: none;
     background: $white-50;
-    box-shadow: 0 .2rem .8rem 0 $white-10;
+    box-shadow: 0 .2rem .8rem 0 $black-10;
     color: $gray-500;
     cursor: pointer;
-    z-index: 2;
+    z-index: 3;
+    transition: .15s ease-in-out;
+
+    &:hover {
+      background: $white;
+    }
 
     &.center {
       top: 50%;
@@ -702,6 +707,7 @@ footer {
       z-index: 2;
     }
     &:before {
+      display: none; // temporary
       right: auto;
       left: 0;
       background: linear-gradient(90deg, #F9F4E9 0%, rgba(249, 244, 233, 0) 100%);
@@ -713,6 +719,11 @@ footer {
     position: absolute;
     top: 0;
     left: 0;
+    transition: left .25s ease-out 0s;
+
+    img {
+      user-select: none;
+    }
 
     .img-wrapper {
       width: 19.5rem;
