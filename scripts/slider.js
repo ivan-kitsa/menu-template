@@ -24,7 +24,6 @@ class Slider {
             dataId = +this.cards[i].getAttribute('data-id')
 
             this.cards[i].setAttribute('data-id', `${dataId + 1}`)
-
             this.rightButton.classList.remove('hidden')
 
             if (i === dataId) {
@@ -38,7 +37,6 @@ class Slider {
             dataId = +this.cards[i].getAttribute('data-id')
 
             this.cards[i].setAttribute('data-id', `${dataId - 1}`)
-
             this.leftButton.classList.remove('hidden')
 
             if (i === this.cards.length - 2 && dataId === 3) {

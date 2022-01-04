@@ -41,6 +41,84 @@ body {
   transition: height $main-transition;
   z-index: 5;
 
+  .header {
+    @include flex;
+
+    * {
+      transition: $main-transition;
+    }
+
+    .logo {
+      width: 8.8rem;
+      height: 8.8rem;
+      border-radius: 2.8rem;
+      box-shadow: 0 .4rem 2.7rem 0 rgba(0, 0, 0, 0.05);
+      background: $white;
+
+      img {
+        width: 6.8rem;
+        height: 6.8rem;
+        @include absoluteCenter;
+      }
+    }
+
+    .info {
+      @include flexColumn;
+      margin-left: 3rem;
+
+      .name {
+        display: flex;
+        z-index: 2;
+
+        h1 {
+          margin-right: .8rem;
+        }
+        // include .select
+      }
+
+      .meta {
+        @include flexCenter;
+        margin-top: .8rem;
+        margin-bottom: .8rem;
+
+        .cost-check {
+          margin-right: .4rem;
+
+          &[data-cost='1'] {
+            .c1 {
+              font-weight: 700;
+            }
+          }
+          &[data-cost='2'] {
+            .c1, .c2 {
+              font-weight: 700;
+            }
+          }
+          &[data-cost='3'] {
+            .c1, .c2, .c3 {
+              font-weight: 700;
+            }
+          }
+          span {
+            color: $black-40;
+          }
+        }
+
+        .option {
+          line-height: 1.6rem;
+          font-weight: 700;
+          letter-spacing: .02rem;
+          color: $black-40;
+        }
+      }
+
+      .tags-list {
+        display: flex;
+        margin-top: 2.4rem;
+        // include .tag
+      }
+    }
+  }
 
   &.header-min {
     height: 8.2rem;
@@ -82,61 +160,6 @@ body {
           transform: scale(0.5) translate(-15%, -400%);
           transform-origin: left;
         }
-      }
-    }
-  }
-
-  .header {
-    @include flex;
-
-    * {
-      transition: $main-transition;
-    }
-
-    .logo {
-      width: 8.8rem;
-      height: 8.8rem;
-      border-radius: 2.8rem;
-      box-shadow: 0 .4rem 2.7rem 0 rgba(0, 0, 0, 0.05);
-      background: $white;
-
-      img {
-        width: 6.8rem;
-        height: 6.8rem;
-        @include absoluteCenter;
-      }
-    }
-
-    .info {
-      @include flexColumn;
-      margin-left: 3rem;
-
-      .name {
-        display: flex;
-        z-index: 2;
-
-        h1 {
-          margin-right: .8rem;
-        }
-        // include .select
-      }
-
-      .meta {
-        margin-top: .8rem;
-        margin-bottom: .8rem;
-
-        span {
-          line-height: 1.6rem;
-          font-weight: 700;
-          letter-spacing: .02rem;
-          color: $gray-500;
-        }
-      }
-
-      .tags-list {
-        display: flex;
-        margin-top: 2.4rem;
-        // include .tag
       }
     }
   }
