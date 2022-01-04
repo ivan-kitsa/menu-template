@@ -30,3 +30,14 @@
   align-items: center;
   justify-content: center;
 }
+
+@mixin textEclipsis ($line) {
+  @supports (-webkit-line-clamp: $line) {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: initial;
+    display: -webkit-box;
+    -webkit-line-clamp: $line;
+    -webkit-box-orient: vertical;
+  }
+}

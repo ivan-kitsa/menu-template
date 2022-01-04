@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang='en'>
+<head>
+    <meta charset='UTF-8'>
+    <meta name='viewport'
+          content='width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0'>
+    <meta http-equiv='X-UA-Compatible' content='ie=edge'>
+    <link rel='stylesheet' href='./styles/fonts.css'>
+    <link rel='stylesheet' href='./styles/styles.css'>
+    <title>Video</title>
+</head>
+<body>
+<div class='video-page-wrapper'>
+    <a href='./index.html' class='forward-link'>
+        <img src='./shared/icons/arrow-left-white.svg' width='24' height='24' alt='<'>
+    </a>
+    <div class='video-slider-block'>
+        <div class='video current-video' id='current-video'>
+            <div class='meta'>
+                <div class='avatar'>
+                    <img src='./shared/images/1.png' alt='photo'>
+                    <a href='#subscribe' class='subscribe'>+</a>
+                </div>
+                <div class='info'>
+                    <p class='name'>@Nastasia_super</p>
+                    <div class='views'>
+                        <span class='uploaded'>2 hours ago</span>
+                        <span class='amt'>246 views</span>
+                    </div>
+                </div>
+            </div>
+            <video src='./shared/videos/food-1.mp4' autoplay muted loop></video>
+        </div>
+        <button class='mute-button muted' id='mute-button'>
+            <img src='./shared/icons/volume-white.svg' width='24' height='24' alt='volume'>
+        </button>
+    </div>
+    <div class='video-info-block'>
+        <div class='head-block'>
+            <h6>Mentioned items</h6>
+            <button class='button small'>Order</button>
+        </div>
+        <div class='cards-block'>
+            <div class='mentioned-card'>
+                <div class='icon'>
+                    <img src='./shared/icons/categories/cocktails.svg' width='24' height='24' alt='ico'>
+                </div>
+                <div class='info'>
+                    <p class='name'>Bright-Eyed & Bushy-Tailed</p>
+                    <p class='description'>Espresso Bean infused Broken Shed Vodka, Oat Milk, Vanilla, Cold Brew Nitro, Cinnamon Dust</p>
+                </div>
+                <div class='cost'>$24</div>
+            </div>
+        </div>
+        <div class='footer-block'>
+            <span class='share-title'>Share:</span>
+            <a href='#share-link' class='share share-link'>
+                <img src='./shared/icons/share-link-white.svg' width='24' height='24' alt='share'>
+            </a>
+            <a href='#share-message' class='share share-message'>
+                <img src='./shared/icons/message-white.svg' width='24' height='24' alt='share'>
+            </a>
+        </div>
+    </div>
+</div>
+<script>
+    const muteButton = document.getElementById('mute-button')
+    muteButton.addEventListener('click', (e) => {
+        const currentVideo = document.getElementById('current-video').querySelector('video')
+        currentVideo.muted = !currentVideo.muted
+        if (e.target.classList.contains('muted')) {
+            e.target.classList.remove('muted')
+            return
+        }
+        e.target.classList.add('muted')
+    })
+</script>
+</body>
+</html>

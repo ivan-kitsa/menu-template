@@ -15,6 +15,7 @@ body {
   overflow-x: hidden;
 }
 
+// Main page
 header, main, footer {
   width: 100%;
   max-width: calc(128rem + 4.8rem);
@@ -237,6 +238,208 @@ footer {
   }
 }
 
+// Video page
+.video-page-wrapper {
+  @include flex;
+  width: 100%;
+
+  .forward-link {
+    @include flexCenter;
+    position: absolute;
+    left: 2.4rem;
+    top: 2.4rem;
+    width: 6.4rem;
+    height: 6.4rem;
+    border-radius: 50%;
+    background: $white-10;
+    z-index: 2;
+
+    img {
+      width: 2.4rem;
+      height: 2.4rem;
+    }
+  }
+
+  .mute-button {
+    @include flexCenter;
+    position: absolute;
+    right: 2.4rem;
+    top: 2.4rem;
+    width: 4rem;
+    height: 4rem;
+    border-radius: 50%;
+    background: $white-10;
+    z-index: 2;
+    cursor: pointer;
+    border: none;
+
+    &.muted:after {
+      content: '';
+      @include absoluteCenter;
+      width: 100%;
+      height: 2px;
+      background: $white;
+      transform: translate(-50%, -50%) rotate(-45deg);
+      transform-origin: center;
+    }
+
+    img {
+      width: 2.4rem;
+      height: 2.4rem;
+      pointer-events: none;
+    }
+  }
+
+  .video-slider-block {
+    @include flexCenter;
+    width: calc(100% - 54.3rem);
+    min-height: 100vh;
+    background: #1D2023;
+
+    .video {
+      .meta {
+        @include flex;
+        position: absolute;
+        left: 2rem;
+        top: 2.8rem;
+        width: 100%;
+        z-index: 2;
+
+        .avatar {
+          @include flexCenter;
+          width: 5.2rem;
+          height: 5.2rem;
+          border-radius: 50%;
+          border: 2px solid fade-out(#FF7A00, .6);
+          margin-right: 1.2rem;
+
+          img {
+            width: 4rem;
+            height: 4rem;
+            border-radius: 50%;
+          }
+
+          .subscribe {
+            @include flexCenter;
+            position: absolute;
+            right: 0;
+            bottom: 0;
+            width: 2rem;
+            height: 2rem;
+            font-size: 1.2rem;
+            line-height: 2rem;
+            color: $orange-30;
+            background: $orange-700;
+            border-radius: 50%;
+            text-decoration: none;
+          }
+        }
+
+        .name {
+          color: $white;
+          font-size: 1.4rem;
+          line-height: 1.4rem;
+          letter-spacing: .02rem;
+          margin: .8rem 0 .4rem;
+        }
+        .views span {
+          font-size: 1.2rem;
+          line-height: 2rem;
+          letter-spacing: .02rem;
+          color: $white-60;
+
+          &.uploaded {
+            font-weight: 700;
+            padding-right: .8rem;
+
+            &:after {
+              content: '';
+              position: absolute;
+              right: 0;
+              top: 50%;
+              transform: translateY(-50%);
+              width: .4rem;
+              height: .4rem;
+              border-radius: 50%;
+              background: $white-60;
+            }
+          }
+        }
+      }
+
+      video {
+        max-height: 100vh;
+      }
+    }
+  }
+
+  .video-info-block {
+    @include flexColumn;
+    width: 54.3rem;
+    background: $white;
+
+    .head-block {
+      @include flexCenter;
+      justify-content: space-between;
+      width: 100%;
+      padding: 4rem 4rem 2.4rem;
+    }
+
+    .cards-block {
+      @include flexColumn;
+      width: 100%;
+      padding: 0 4rem;
+      margin-bottom: 2.4rem;
+
+      & > .mentioned-card:not(:last-child) {
+        margin-bottom: 1.6rem;
+      }
+
+      // include .mentioned-card
+    }
+
+    .footer-block {
+      @include flexCenter;
+      justify-content: flex-end;
+      width: 100%;
+      padding: 1.6rem 4rem;
+      border-top: 1px solid $gray-200;
+
+      .share-title {
+        font-family: 'Poppins', sans-serif;
+        font-weight: 700;
+        font-size: 1.4rem;
+        line-height: 2rem;
+        margin-right: 1.2rem;
+      }
+
+      .share {
+        @include flexCenter;
+        width: 3.2rem;
+        height: 3.2rem;
+        border-radius: 50%;
+        cursor: pointer;
+
+        img {
+          width: 2.4rem;
+          height: 2.4rem;
+        }
+
+        &:not(:last-child) {
+          margin-right: .8rem;
+        }
+
+        &.share-link {
+          background: $orange-500;
+        }
+        &.share-message {
+          background: $green-bright;
+        }
+      }
+    }
+  }
+}
+
 // Components
 .select {
   background: $orange-30;
@@ -417,6 +620,13 @@ footer {
     background: $orange-50;
     color: $orange-700;
   }
+
+  &.small {
+    padding: .4rem 2.4rem;
+    width: max-content;
+    font-size: 1.4rem;
+    height: 3.2rem;
+  }
 }
 
 .cards-slider {
@@ -562,14 +772,7 @@ footer {
         margin-top: 0;
       }
 
-      @supports (-webkit-line-clamp: 2) {
-        overflow: hidden;
-        text-overflow: ellipsis;
-        white-space: initial;
-        display: -webkit-box;
-        -webkit-line-clamp: 2;
-        -webkit-box-orient: vertical;
-      }
+      @include textEclipsis(2);
     }
 
     .description {
@@ -583,14 +786,7 @@ footer {
 
       &:not(.small) {
         height: 5.4rem;
-        @supports (-webkit-line-clamp: 3) {
-          overflow: hidden;
-          text-overflow: ellipsis;
-          white-space: initial;
-          display: -webkit-box;
-          -webkit-line-clamp: 3;
-          -webkit-box-orient: vertical;
-        }
+        @include textEclipsis(3);
       }
     }
 
@@ -600,6 +796,52 @@ footer {
       font-size: 1.4rem;
       line-height: 2.4rem;
     }
+  }
+}
+
+.mentioned-card {
+  @include flex;
+  width: 100%;
+
+  .icon {
+    @include flexCenter;
+    width: 4rem;
+    height: 4rem;
+    border-radius: 50%;
+    background: $orange-30;
+
+    img {
+      width: 2.4rem;
+      height: 2.4rem;
+    }
+  }
+
+  .info {
+    width: 100%;
+    max-width: 33.3rem;
+    margin-left: 1.6rem;
+
+    .name {
+      font-family: 'Poppins', sans-serif;
+      font-weight: 600;
+      line-height: 2.2rem;
+      margin-bottom: .4rem;
+    }
+    .description {
+      font-size: 1.2rem;
+      line-height: 1.8rem;
+      color: $gray-500;
+      @include textEclipsis(2);
+    }
+  }
+  .cost {
+    font-family: 'Poppins', sans-serif;
+    font-size: 1.4rem;
+    line-height: 2rem;
+    color: $gray-500;
+    text-align: right;
+    width: 4.8rem;
+    margin-left: auto;
   }
 }
 
