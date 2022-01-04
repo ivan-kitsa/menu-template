@@ -84,7 +84,7 @@ body {
     height: 8.2rem;
     padding-top: 1.6rem;
     padding-bottom: 2rem; }
-    .header-wrapper.header-min ~ .main-wrapper, .header-wrapper.header-min ~ .footer-wrapper {
+    .header-wrapper.header-min ~ .main-wrapper .left-column, .header-wrapper.header-min ~ .main-wrapper .right-column {
       -webkit-transform: translateY(calc(8.2rem + .4rem));
       -ms-transform: translateY(calc(8.2rem + .4rem));
       transform: translateY(calc(8.2rem + .4rem));
@@ -197,11 +197,7 @@ body {
   -webkit-box-pack: justify;
   -ms-flex-pack: justify;
   justify-content: space-between;
-  -webkit-transform: translateY(23.3rem);
-  -ms-transform: translateY(23.3rem);
-  transform: translateY(23.3rem);
-  margin-top: 4rem;
-  margin-bottom: 10rem; }
+  padding-top: 4rem; }
   .main-wrapper > .column {
     display: -webkit-box;
     display: -ms-flexbox;
@@ -222,16 +218,34 @@ body {
       position: sticky;
       top: 4rem;
       left: 2.4rem;
-      max-width: 19.4rem; }
+      max-width: 19.4rem;
+      -webkit-transform: translateY(23.3rem);
+      -ms-transform: translateY(23.3rem);
+      transform: translateY(23.3rem);
+      -webkit-transition: 0.15s ease-out;
+      -o-transition: 0.15s ease-out;
+      transition: 0.15s ease-out; }
     .main-wrapper > .column.center-column {
       margin: 0 auto;
-      max-width: 65.5rem; }
+      max-width: 65.5rem;
+      -webkit-transform: translateY(23.3rem);
+      -ms-transform: translateY(23.3rem);
+      transform: translateY(23.3rem);
+      -webkit-transition: 0.15s ease-out;
+      -o-transition: 0.15s ease-out;
+      transition: 0.15s ease-out; }
     .main-wrapper > .column.right-column {
       position: -webkit-sticky;
       position: sticky;
       top: 4rem;
       right: 2.4rem;
-      max-width: 30.3rem; }
+      max-width: 30.3rem;
+      -webkit-transform: translateY(23.3rem);
+      -ms-transform: translateY(23.3rem);
+      transform: translateY(23.3rem);
+      -webkit-transition: 0.15s ease-out;
+      -o-transition: 0.15s ease-out;
+      transition: 0.15s ease-out; }
     .main-wrapper > .column > * {
       width: 100%; }
   .main-wrapper .menu-block {

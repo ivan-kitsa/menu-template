@@ -1,14 +1,5 @@
 'use strict'
 
-const header = document.querySelector('.header-wrapper')
-window.addEventListener('scroll', () => {
-    if (window.scrollY > 30 ) {
-        header.classList.add('header-min')
-        return
-    }
-    header.classList.remove('header-min')
-})
-
 function customSelect() {
     const selectNode = document.getElementById('select')
     const currentSelect = document.getElementById('current-select')
@@ -18,12 +9,8 @@ function customSelect() {
         this.classList.add('open')
     }
 
-    function setValue(e) {
-        currentSelect.innerText = e.target.id
-    }
-
     for (let i = 0; i < selectList.length; i++) {
-        selectList[i].onclick = setValue
+        selectList[i].onclick = (e) => currentSelect.innerText = e.target.id
     }
 
     document.addEventListener('click', function (e) {
@@ -33,8 +20,42 @@ function customSelect() {
     })
 }
 
+function headerScrollSizer() {
+    const header = document.querySelector('.header-wrapper')
+    window.addEventListener('scroll', () => {
+        if (window.scrollY > 40 ) {
+            header.classList.add('header-min')
+            return
+        }
+        header.classList.remove('header-min')
+    })
+}
+
+function categoriesSmoothScroll() {
+    document.querySelectorAll('a[href^="#"]').forEach(link => {
+        link.addEventListener('click', function(e) {
+            e.preventDefault()
+
+            const href = this.getAttribute('href').substring(1)
+            const scrollTarget = document.getElementById(href)
+
+            if (!scrollTarget) return
+
+            const elementPosition = scrollTarget.getBoundingClientRect().top
+            const offsetPosition = elementPosition - 100
+
+            window.scrollBy({
+                top: offsetPosition,
+                behavior: 'smooth'
+            })
+        })
+    })
+}
+
 function initUi() {
     customSelect()
+    headerScrollSizer()
+    categoriesSmoothScroll()
 }
 
 initUi()

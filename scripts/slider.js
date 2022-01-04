@@ -73,7 +73,8 @@ function initSliders() {
     }
 }
 
-initSliders()
 
+
+initSliders()
 
 

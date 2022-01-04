@@ -47,7 +47,7 @@ body {
     padding-top: 1.6rem;
     padding-bottom: 2rem;
 
-    & ~ .main-wrapper, & ~ .footer-wrapper {
+    & ~ .main-wrapper .left-column, & ~ .main-wrapper .right-column, {
       transform: translateY(calc(8.2rem + .4rem));
       transition: $main-transition-exit;
     }
@@ -145,9 +145,8 @@ body {
 .main-wrapper {
   @include flex;
   justify-content: space-between;
-  transform: translateY(23.3rem);
-  margin-top: 4rem;
-  margin-bottom: 10rem;
+  padding-top: 4rem;
+  //margin-bottom: 10rem;
 
   & > .column {
     @include flexColumn;
@@ -158,16 +157,22 @@ body {
       top: 4rem;
       left: 2.4rem;
       max-width: 19.4rem;
+      transform: translateY(23.3rem);
+      transition: $main-transition;
     }
     &.center-column {
       margin: 0 auto;
       max-width: 65.5rem;
+      transform: translateY(23.3rem);
+      transition: $main-transition;
     }
     &.right-column {
       position: sticky;
       top: 4rem;
       right: 2.4rem;
       max-width: 30.3rem;
+      transform: translateY(23.3rem);
+      transition: $main-transition;
     }
 
     & > * {
