@@ -49,10 +49,13 @@ class Slider {
     }
 
     init() {
-        this.rightButton.addEventListener('mousedown', () => this.moveToLeft())
-        this.leftButton.addEventListener('mousedown', () => this.moveToRight())
         this.setHeight()
         this.setCardPosition()
+        this.rightButton.addEventListener('mousedown', () => this.moveToLeft())
+        this.leftButton.addEventListener('mousedown', () => this.moveToRight())
+        if (this.cards.length < 4) {
+            this.rightButton.classList.add('hidden')
+        }
     }
 }
 
