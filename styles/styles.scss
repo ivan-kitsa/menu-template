@@ -631,6 +631,14 @@ footer {
 
 .cards-slider {
   width: 100%;
+  @keyframes firstCard {
+    from { transform: translateX(-100%); }
+    to { transform: translateX(0%); }
+  }
+  @keyframes lastCard {
+    from { transform: translateX(0); }
+    to { transform: translateX(-100%); }
+  }
 
   button {
     display: flex;
@@ -654,10 +662,21 @@ footer {
       transform: translateY(-50%);
     }
 
+    &.hidden {
+      display: none;
+    }
+
+    &.right-button.hidden ~ .cards:after {
+      display: none;
+    }
+
     &.left-button {
-      display: none; // temporary
       right: auto;
       left: 0;
+
+      &.hidden ~ .cards:before {
+        display: none;
+      }
 
       img {
         transform: rotate(180deg);
@@ -683,20 +702,10 @@ footer {
       z-index: 2;
     }
     &:before {
-      display: none; // temporary
       right: auto;
       left: 0;
-      background: linear-gradient(90deg, #F9F4E9 6.44%, rgba(249, 244, 233, 0) 97.22%);
+      background: linear-gradient(90deg, #F9F4E9 0%, rgba(249, 244, 233, 0) 100%);
     }
-  }
-
-  @keyframes firstCard {
-    from { transform: translateX(-100%); }
-    to { transform: translateX(0%); }
-  }
-  @keyframes lastCard {
-    from { transform: translateX(0); }
-    to { transform: translateX(-100%); }
   }
 
   .card {

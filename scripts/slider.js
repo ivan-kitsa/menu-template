@@ -6,6 +6,8 @@ class Slider {
         this.slider = document.getElementById(this.id)
         this.cards = this.slider.querySelectorAll('.card')
         this.timer = 0
+        this.leftButton = this.slider.querySelector('.left-button')
+        this.rightButton = this.slider.querySelector('.right-button')
     }
 
     setCardPosition() {
@@ -36,6 +38,14 @@ class Slider {
         for (let i = 0, dataId = 0; i < this.cards.length; i++) {
             dataId = +this.cards[i].getAttribute('data-id')
 
+            // if (dataId !== i) {
+            //     this.leftButton.classList.remove('hidden')
+            // }
+            //
+            // if (dataId === this.cards.length) {
+            //     this.rightButton.classList.add('hidden')
+            // }
+
             if (dataId === 1)  {
                 this.cards[i].style.cssText = `transition: left 0s ease-out .25s; animation: lastCard .25s ease-out 0s`
                 this.cards[i].setAttribute('data-id', `${this.cards.length}`)
@@ -53,11 +63,8 @@ class Slider {
     }
 
     init() {
-        const leftButton = this.slider.querySelector('.left-button')
-        const rightButton = this.slider.querySelector('.right-button')
-
-        rightButton.addEventListener('mousedown', () => this.#debounce(this.moveToLeft, 200))
-        leftButton.addEventListener('mousedown', () => this.#debounce(this.moveToRight, 200))
+        this.rightButton.addEventListener('mousedown', () => this.#debounce(this.moveToLeft, 200))
+        this.leftButton.addEventListener('mousedown', () => this.#debounce(this.moveToRight, 200))
 
         this.setHeight()
         this.setCardPosition()
