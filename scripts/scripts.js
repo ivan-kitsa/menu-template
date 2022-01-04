@@ -1,5 +1,14 @@
 'use strict'
 
+const header = document.querySelector('.header-wrapper')
+window.addEventListener('scroll', () => {
+    if (window.scrollY > 30 ) {
+        header.classList.add('header-min')
+        return
+    }
+    header.classList.remove('header-min')
+})
+
 function customSelect() {
     const selectNode = document.getElementById('select')
     const currentSelect = document.getElementById('current-select')
