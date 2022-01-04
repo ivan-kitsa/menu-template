@@ -631,6 +631,14 @@ footer {
 
 .cards-slider {
   width: 100%;
+  @keyframes firstCard {
+    from { transform: translateX(-100%); }
+    to { transform: translateX(0%); }
+  }
+  @keyframes lastCard {
+    from { transform: translateX(0); }
+    to { transform: translateX(-100%); }
+  }
 
   button {
     display: flex;
@@ -644,20 +652,36 @@ footer {
     border-radius: 50%;
     border: none;
     background: $white-50;
-    box-shadow: 0 .2rem .8rem 0 $white-10;
+    box-shadow: 0 .2rem .8rem 0 $black-10;
     color: $gray-500;
     cursor: pointer;
-    z-index: 2;
+    z-index: 3;
+    transition: .15s ease-in-out;
+
+    &:hover {
+      background: $white;
+    }
 
     &.center {
       top: 50%;
       transform: translateY(-50%);
     }
 
+    &.hidden {
+      display: none;
+    }
+
+    &.right-button.hidden ~ .cards:after {
+      display: none;
+    }
+
     &.left-button {
-      display: none; // temporary
       right: auto;
       left: 0;
+
+      &.hidden ~ .cards:before {
+        display: none;
+      }
 
       img {
         transform: rotate(180deg);
@@ -686,17 +710,8 @@ footer {
       display: none; // temporary
       right: auto;
       left: 0;
-      background: linear-gradient(90deg, #F9F4E9 6.44%, rgba(249, 244, 233, 0) 97.22%);
+      background: linear-gradient(90deg, #F9F4E9 0%, rgba(249, 244, 233, 0) 100%);
     }
-  }
-
-  @keyframes firstCard {
-    from { transform: translateX(-100%); }
-    to { transform: translateX(0%); }
-  }
-  @keyframes lastCard {
-    from { transform: translateX(0); }
-    to { transform: translateX(-100%); }
   }
 
   .card {
@@ -704,6 +719,11 @@ footer {
     position: absolute;
     top: 0;
     left: 0;
+    transition: left .25s ease-out 0s;
+
+    img {
+      user-select: none;
+    }
 
     .img-wrapper {
       width: 19.5rem;
