@@ -855,6 +855,7 @@ body {
     display: flex;
 
     &:before, &:after {
+      //display: none !important;
       content: '';
       position: absolute;
       right: 0;

@@ -60,7 +60,7 @@ class Slider {
         if (this.cards.length - 1 < this.getMaxViewsSlides()) {
             this.rightButton.classList.add('hidden')
         }
-        window.addEventListener('resize', () => this.setHeight())
+        // window.addEventListener('resize', () => this.setHeight()) !!bad performance
     }
 }
 
@@ -71,11 +71,28 @@ function getAllSlidersIds() {
     return idArr
 }
 
+function resizeFix() {
+    let doIt = 0
+    const cards = document.querySelectorAll('.cards-slider > .cards')
+
+    function resize() {
+        cards.forEach(c => {
+            c.style.cssText = `height: ${c.children[0].offsetHeight}px`
+        })
+    }
+
+    window.addEventListener('resize', () => {
+        clearTimeout(doIt)
+        doIt = setTimeout(resize, 100)
+    })
+}
+
 function initSliders() {
     const idArr = getAllSlidersIds()
     for (let i = 0; i < idArr.length; i++) {
         new Slider(idArr[i]).init()
     }
+    resizeFix()
 }
 
 initSliders()
