@@ -4,6 +4,9 @@ html {
   font-size: 10px;
   font-family: 'Inter', sans-serif;
 
+  @media (max-width: 1280px)  {
+    font-size: 8px;
+  }
   @media (max-height: 720px) {
     font-size: 8px;
   }

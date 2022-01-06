@@ -60,6 +60,7 @@ class Slider {
         if (this.cards.length - 1 < this.getMaxViewsSlides()) {
             this.rightButton.classList.add('hidden')
         }
+        window.addEventListener('resize', () => this.setHeight())
     }
 }
 
