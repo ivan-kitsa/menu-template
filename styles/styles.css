@@ -56,6 +56,12 @@ p, span, i, a, button {
   * ::selection {
     background: #FFEED7; }
 
+img {
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none; }
+
 body {
   width: 100%;
   min-height: 100vh;
@@ -73,7 +79,8 @@ body {
 
 .header-wrapper {
   width: 100%;
-  height: 23.3rem;
+  min-height: 17.6rem;
+  max-height: 23.3rem;
   padding-top: 3.2rem;
   padding-bottom: 4rem;
   background: #F9F4E9;
@@ -84,9 +91,9 @@ body {
   -webkit-transform: translateX(-50%);
   -ms-transform: translateX(-50%);
   transform: translateX(-50%);
-  -webkit-transition: height 0.15s ease-out;
-  -o-transition: height 0.15s ease-out;
-  transition: height 0.15s ease-out;
+  -webkit-transition: max-height 0.15s ease-out;
+  -o-transition: max-height 0.15s ease-out;
+  transition: max-height 0.15s ease-out;
   z-index: 5; }
   .header-wrapper .header {
     display: -webkit-box;
@@ -173,7 +180,8 @@ body {
         display: flex;
         margin-top: 2.4rem; }
   .header-wrapper.header-min {
-    height: 8.2rem;
+    min-height: 8.2rem;
+    max-height: 8.2rem;
     padding-top: 1.6rem;
     padding-bottom: 2rem; }
     .header-wrapper.header-min ~ .main-wrapper .left-column, .header-wrapper.header-min ~ .main-wrapper .right-column {
@@ -266,6 +274,7 @@ body {
       top: 4rem;
       left: 2.4rem;
       max-width: 19.4rem;
+      margin-right: 2.4rem;
       -webkit-transform: translateY(23.3rem);
       -ms-transform: translateY(23.3rem);
       transform: translateY(23.3rem);
@@ -281,12 +290,16 @@ body {
       -webkit-transition: 0.15s ease-out;
       -o-transition: 0.15s ease-out;
       transition: 0.15s ease-out; }
+      .main-wrapper > .column.center-column:first-child {
+        max-width: 84rem;
+        margin: 0 auto 0 0; }
     .main-wrapper > .column.right-column {
       position: -webkit-sticky;
       position: sticky;
       top: 4rem;
       right: 2.4rem;
       max-width: 30.3rem;
+      margin-left: 2.4rem;
       -webkit-transform: translateY(23.3rem);
       -ms-transform: translateY(23.3rem);
       transform: translateY(23.3rem);
@@ -395,11 +408,7 @@ body {
       display: block; }
       .footer-wrapper .footer-content .app-store-link img {
         width: 100%;
-        height: 100%;
-        -webkit-user-select: none;
-        -moz-user-select: none;
-        -ms-user-select: none;
-        user-select: none; }
+        height: 100%; }
     .footer-wrapper .footer-content .copyrights {
       margin: auto 0 5.6rem; }
       .footer-wrapper .footer-content .copyrights * {
@@ -417,11 +426,7 @@ body {
     bottom: 3.2rem;
     width: 93.3rem;
     height: 65.7rem;
-    pointer-events: none;
-    -webkit-user-select: none;
-    -moz-user-select: none;
-    -ms-user-select: none;
-    user-select: none; }
+    pointer-events: none; }
 
 .video-page-wrapper {
   display: -webkit-box;
@@ -867,7 +872,10 @@ body {
     height: 3.2rem; }
 
 .cards-slider {
-  width: 100%; }
+  width: calc(100% + 1.6rem);
+  -webkit-transform: translateX(-1.6rem);
+  -ms-transform: translateX(-1.6rem);
+  transform: translateX(-1.6rem); }
 
 @-webkit-keyframes firstCard {
   from {
@@ -945,11 +953,7 @@ body {
       .cards-slider button.left-button img {
         -webkit-transform: rotate(180deg);
         -ms-transform: rotate(180deg);
-        transform: rotate(180deg);
-        -webkit-user-select: none;
-        -moz-user-select: none;
-        -ms-user-select: none;
-        user-select: none; }
+        transform: rotate(180deg); }
   .cards-slider .cards {
     width: 100%;
     max-width: 100%;
@@ -964,33 +968,24 @@ body {
       top: 0;
       width: 4rem;
       height: 100%;
-      background: -webkit-gradient(linear, right top, left top, color-stop(6.44%, #F9F4E9), color-stop(97.22%, rgba(249, 244, 233, 0)));
-      background: -webkit-linear-gradient(right, #F9F4E9 6.44%, rgba(249, 244, 233, 0) 97.22%);
-      background: -o-linear-gradient(right, #F9F4E9 6.44%, rgba(249, 244, 233, 0) 97.22%);
-      background: linear-gradient(270deg, #F9F4E9 6.44%, rgba(249, 244, 233, 0) 97.22%);
+      background: -webkit-gradient(linear, right top, left top, from(#F9F4E9), color-stop(75%, rgba(249, 244, 233, 0)));
+      background: -webkit-linear-gradient(right, #F9F4E9 0%, rgba(249, 244, 233, 0) 75%);
+      background: -o-linear-gradient(right, #F9F4E9 0%, rgba(249, 244, 233, 0) 75%);
+      background: linear-gradient(270deg, #F9F4E9 0%, rgba(249, 244, 233, 0) 75%);
       pointer-events: none;
       z-index: 2; }
     .cards-slider .cards:before {
-      display: none;
       right: auto;
       left: 0;
-      background: -webkit-gradient(linear, left top, right top, from(#F9F4E9), to(rgba(249, 244, 233, 0)));
-      background: -webkit-linear-gradient(left, #F9F4E9 0%, rgba(249, 244, 233, 0) 100%);
-      background: -o-linear-gradient(left, #F9F4E9 0%, rgba(249, 244, 233, 0) 100%);
-      background: linear-gradient(90deg, #F9F4E9 0%, rgba(249, 244, 233, 0) 100%); }
+      background: -webkit-gradient(linear, left top, right top, from(#F9F4E9), color-stop(75%, rgba(249, 244, 233, 0)));
+      background: -webkit-linear-gradient(left, #F9F4E9 0%, rgba(249, 244, 233, 0) 75%);
+      background: -o-linear-gradient(left, #F9F4E9 0%, rgba(249, 244, 233, 0) 75%);
+      background: linear-gradient(90deg, #F9F4E9 0%, rgba(249, 244, 233, 0) 75%); }
   .cards-slider .card {
     width: 19.5rem;
     position: absolute;
     top: 0;
-    left: 0;
-    -webkit-transition: left .25s ease-out 0s;
-    -o-transition: left .25s ease-out 0s;
-    transition: left .25s ease-out 0s; }
-    .cards-slider .card img {
-      -webkit-user-select: none;
-      -moz-user-select: none;
-      -ms-user-select: none;
-      user-select: none; }
+    left: 0; }
     .cards-slider .card .img-wrapper {
       width: 19.5rem;
       height: 26.6rem;

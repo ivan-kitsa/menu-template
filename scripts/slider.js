@@ -12,7 +12,7 @@ class Slider {
     setCardPosition() {
         for(let i = 0, dataId = ''; i < this.cards.length; i++) {
             dataId = this.cards[i].getAttribute('data-id')
-            this.cards[i].style.cssText += `left: calc((19.5rem + 1.6rem) * ${dataId - 1})`
+            this.cards[i].style.cssText += `left: calc(1.6rem + (19.5rem + 1.6rem) * ${dataId - 1})`
         }
     }
     setHeight() {
@@ -24,6 +24,7 @@ class Slider {
             dataId = +this.cards[i].getAttribute('data-id')
 
             this.cards[i].setAttribute('data-id', `${dataId + 1}`)
+            this.cards[i].style.cssText = 'transition: left .25s ease-out 0s;'
             this.rightButton.classList.remove('hidden')
 
             if (i === dataId) {
@@ -37,13 +38,18 @@ class Slider {
             dataId = +this.cards[i].getAttribute('data-id')
 
             this.cards[i].setAttribute('data-id', `${dataId - 1}`)
+            this.cards[i].style.cssText = 'transition: left .25s ease-out 0s;'
             this.leftButton.classList.remove('hidden')
 
-            if (i === this.cards.length - 2 && dataId === 3) {
+            if (i === this.cards.length - 2 && dataId === this.getMaxViewsSlides()) {
                 this.rightButton.classList.add('hidden')
             }
         }
         this.setCardPosition()
+    }
+
+    getMaxViewsSlides() {
+        return Math.floor(this.slider.offsetWidth / this.cards[0].offsetWidth)
     }
 
     init() {
@@ -51,7 +57,7 @@ class Slider {
         this.setCardPosition()
         this.rightButton.addEventListener('mousedown', () => this.moveToLeft())
         this.leftButton.addEventListener('mousedown', () => this.moveToRight())
-        if (this.cards.length < 4) {
+        if (this.cards.length - 1 < this.getMaxViewsSlides()) {
             this.rightButton.classList.add('hidden')
         }
     }
