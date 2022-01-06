@@ -33,7 +33,7 @@ h6 {
   font-size: 2.4rem;
   line-height: 4.8rem; }
 
-p, span, i, a, button {
+p, span, i, a, button, li {
   font-weight: 400;
   font-size: 1.6rem;
   line-height: 2.4rem;
@@ -50,7 +50,11 @@ p, span, i, a, button {
   -webkit-box-sizing: border-box;
   box-sizing: border-box;
   margin: 0;
-  padding: 0; }
+  padding: 0;
+  list-style-type: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none; }
   * ::-moz-selection {
     background: #FFEED7; }
   * ::selection {
@@ -312,9 +316,40 @@ body {
     margin-bottom: 4rem; }
   .main-wrapper .category-section {
     width: 100%;
-    margin-bottom: 4.8rem; }
+    margin-bottom: 5.4rem; }
     .main-wrapper .category-section h3 {
       margin-bottom: 1.6rem; }
+    .main-wrapper .category-section .general-menu {
+      display: -ms-grid;
+      display: grid;
+      -ms-grid-columns: 1fr 1fr 1fr 1fr;
+      grid-template-columns: 1fr 1fr 1fr 1fr;
+      grid-gap: 5.2rem 2rem; }
+    .main-wrapper .category-section .other-suggestions-list {
+      width: 100%;
+      padding-top: 1.2rem; }
+      .main-wrapper .category-section .other-suggestions-list li {
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-box-align: start;
+        -ms-flex-align: start;
+        align-items: flex-start;
+        -webkit-box-pack: start;
+        -ms-flex-pack: start;
+        justify-content: flex-start;
+        -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+        justify-content: space-between;
+        width: 100%;
+        margin-bottom: 1.8rem;
+        font-family: 'Poppins', sans-serif;
+        font-size: 1.6rem;
+        line-height: 2.2rem; }
+        .main-wrapper .category-section .other-suggestions-list li b {
+          font-family: inherit;
+          font-size: inherit;
+          line-height: inherit; }
   .main-wrapper .categories-block .category-list {
     display: -webkit-box;
     display: -ms-flexbox;
@@ -982,135 +1017,137 @@ body {
       background: -o-linear-gradient(left, #F9F4E9 0%, rgba(249, 244, 233, 0) 75%);
       background: linear-gradient(90deg, #F9F4E9 0%, rgba(249, 244, 233, 0) 75%); }
   .cards-slider .card {
-    width: 19.5rem;
     position: absolute;
     top: 0;
     left: 0; }
-    .cards-slider .card .img-wrapper {
-      width: 19.5rem;
-      height: 26.6rem;
-      border-radius: .8rem;
-      overflow: hidden; }
-      .cards-slider .card .img-wrapper.gradient:after {
-        content: '';
-        width: 100%;
-        height: 100%;
-        position: absolute;
-        left: 50%;
-        top: 50%;
-        -webkit-transform: translate(-50%, -50%);
-        -ms-transform: translate(-50%, -50%);
-        transform: translate(-50%, -50%);
-        background: -webkit-gradient(linear, left top, left bottom, from(rgba(0, 0, 0, 0)), to(rgba(0, 0, 0, 0.5)));
-        background: -webkit-linear-gradient(top, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.5) 100%);
-        background: -o-linear-gradient(top, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.5) 100%);
-        background: linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.5) 100%); }
-      .cards-slider .card .img-wrapper:before {
-        content: '';
-        position: absolute;
-        left: 50%;
-        top: 50%;
-        -webkit-transform: translate(-50%, -50%);
-        -ms-transform: translate(-50%, -50%);
-        transform: translate(-50%, -50%);
-        width: calc(100% - 3px);
-        height: calc(100% - 3px);
-        border: 1px solid #D2D2D3;
-        border-radius: .8rem; }
-      .cards-slider .card .img-wrapper img {
-        position: absolute;
-        left: 50%;
-        top: 50%;
-        -webkit-transform: translate(-50%, -50%);
-        -ms-transform: translate(-50%, -50%);
-        transform: translate(-50%, -50%); }
-    .cards-slider .card .user-wrapper {
+
+.food-card {
+  width: 19.5rem; }
+  .food-card .img-wrapper {
+    width: 19.5rem;
+    height: 26.6rem;
+    border-radius: .8rem;
+    overflow: hidden; }
+    .food-card .img-wrapper.gradient:after {
+      content: '';
       width: 100%;
-      margin-top: .8rem;
-      display: -webkit-box;
-      display: -ms-flexbox;
-      display: flex;
-      -webkit-box-align: start;
-      -ms-flex-align: start;
-      align-items: flex-start;
-      -webkit-box-pack: start;
-      -ms-flex-pack: start;
-      justify-content: flex-start;
-      -webkit-box-align: center;
-      -ms-flex-align: center;
-      align-items: center; }
-      .cards-slider .card .user-wrapper .avatar {
-        width: 4rem;
-        height: 4rem;
-        margin-right: .8rem;
-        border: 1px solid rgba(235, 108, 36, 0.6);
-        border-radius: 50%;
-        overflow: hidden; }
-        .cards-slider .card .user-wrapper .avatar:after {
-          content: '';
-          position: absolute;
-          left: 50%;
-          top: 50%;
-          -webkit-transform: translate(-50%, -50%);
-          -ms-transform: translate(-50%, -50%);
-          transform: translate(-50%, -50%);
-          width: 3.2rem;
-          height: 3.2rem;
-          border: 4px solid #F9F4E9;
-          border-radius: 50%; }
-      .cards-slider .card .user-wrapper .username {
-        font-family: 'Poppins', sans-serif;
-        font-weight: 700;
-        font-size: 1.2rem;
-        line-height: 2.2rem;
-        white-space: nowrap;
+      height: 100%;
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      -webkit-transform: translate(-50%, -50%);
+      -ms-transform: translate(-50%, -50%);
+      transform: translate(-50%, -50%);
+      background: -webkit-gradient(linear, left top, left bottom, from(rgba(0, 0, 0, 0)), to(rgba(0, 0, 0, 0.5)));
+      background: -webkit-linear-gradient(top, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.5) 100%);
+      background: -o-linear-gradient(top, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.5) 100%);
+      background: linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.5) 100%); }
+    .food-card .img-wrapper:before {
+      content: '';
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      -webkit-transform: translate(-50%, -50%);
+      -ms-transform: translate(-50%, -50%);
+      transform: translate(-50%, -50%);
+      width: calc(100% - 3px);
+      height: calc(100% - 3px);
+      border: 1px solid #D2D2D3;
+      border-radius: .8rem; }
+    .food-card .img-wrapper img {
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      -webkit-transform: translate(-50%, -50%);
+      -ms-transform: translate(-50%, -50%);
+      transform: translate(-50%, -50%); }
+  .food-card .user-wrapper {
+    width: 100%;
+    margin-top: .8rem;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: start;
+    -ms-flex-align: start;
+    align-items: flex-start;
+    -webkit-box-pack: start;
+    -ms-flex-pack: start;
+    justify-content: flex-start;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center; }
+    .food-card .user-wrapper .avatar {
+      width: 4rem;
+      height: 4rem;
+      margin-right: .8rem;
+      border: 1px solid rgba(235, 108, 36, 0.6);
+      border-radius: 50%;
+      overflow: hidden; }
+      .food-card .user-wrapper .avatar:after {
+        content: '';
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        -webkit-transform: translate(-50%, -50%);
+        -ms-transform: translate(-50%, -50%);
+        transform: translate(-50%, -50%);
+        width: 3.2rem;
+        height: 3.2rem;
+        border: 4px solid #F9F4E9;
+        border-radius: 50%; }
+    .food-card .user-wrapper .username {
+      font-family: 'Poppins', sans-serif;
+      font-weight: 700;
+      font-size: 1.2rem;
+      line-height: 2.2rem;
+      white-space: nowrap;
+      overflow: hidden;
+      -o-text-overflow: ellipsis;
+      text-overflow: ellipsis;
+      max-width: calc(100% - 4.8rem); }
+  .food-card h4 {
+    height: 4.4rem;
+    margin: 2rem 0 .8rem;
+    white-space: nowrap;
+    -o-text-overflow: ellipsis;
+    text-overflow: ellipsis;
+    overflow: hidden; }
+    .food-card h4:first-child {
+      margin-top: 0; }
+    @supports (-webkit-line-clamp: 2) {
+      .food-card h4 {
         overflow: hidden;
         -o-text-overflow: ellipsis;
         text-overflow: ellipsis;
-        max-width: calc(100% - 4.8rem); }
-    .cards-slider .card h4 {
-      height: 4.4rem;
-      margin: 2rem 0 .8rem;
-      white-space: nowrap;
-      -o-text-overflow: ellipsis;
-      text-overflow: ellipsis;
-      overflow: hidden; }
-      .cards-slider .card h4:first-child {
-        margin-top: 0; }
-      @supports (-webkit-line-clamp: 2) {
-        .cards-slider .card h4 {
+        white-space: initial;
+        display: -webkit-box;
+        -webkit-line-clamp: 2;
+        -webkit-box-orient: vertical; } }
+  .food-card .description {
+    font-size: 1.2rem;
+    line-height: 1.8rem;
+    width: 100%;
+    margin-bottom: .8rem;
+    white-space: nowrap;
+    -o-text-overflow: ellipsis;
+    text-overflow: ellipsis;
+    overflow: hidden; }
+    .food-card .description:not(.small) {
+      height: 5.4rem; }
+      @supports (-webkit-line-clamp: 3) {
+        .food-card .description:not(.small) {
           overflow: hidden;
           -o-text-overflow: ellipsis;
           text-overflow: ellipsis;
           white-space: initial;
           display: -webkit-box;
-          -webkit-line-clamp: 2;
+          -webkit-line-clamp: 3;
           -webkit-box-orient: vertical; } }
-    .cards-slider .card .description {
-      font-size: 1.2rem;
-      line-height: 1.8rem;
-      width: 100%;
-      margin-bottom: .8rem;
-      white-space: nowrap;
-      -o-text-overflow: ellipsis;
-      text-overflow: ellipsis;
-      overflow: hidden; }
-      .cards-slider .card .description:not(.small) {
-        height: 5.4rem; }
-        @supports (-webkit-line-clamp: 3) {
-          .cards-slider .card .description:not(.small) {
-            overflow: hidden;
-            -o-text-overflow: ellipsis;
-            text-overflow: ellipsis;
-            white-space: initial;
-            display: -webkit-box;
-            -webkit-line-clamp: 3;
-            -webkit-box-orient: vertical; } }
-    .cards-slider .card .cost {
-      font-family: 'Poppins', sans-serif;
-      font-weight: 700;
-      font-size: 1.4rem;
-      line-height: 2.4rem; }
+  .food-card .cost {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 700;
+    font-size: 1.4rem;
+    line-height: 2.4rem; }
 
 .mentioned-card {
   display: -webkit-box;
