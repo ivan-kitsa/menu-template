@@ -3,7 +3,11 @@
 function customSelect() {
     const selectNode = document.getElementById('select')
     const currentSelect = document.getElementById('current-select')
-    const selectList = document.getElementById('select-list').children
+    const selectList = document.getElementById('select-list')?.children
+
+    if (!selectNode || !currentSelect || !selectList) {
+        return
+    }
 
     selectNode.onclick = function (){
         this.classList.add('open')
@@ -22,6 +26,10 @@ function customSelect() {
 
 function headerScrollSizer() {
     const header = document.querySelector('.header-wrapper')
+
+    if (!header) {
+        return
+    }
 
     window.addEventListener('scroll', function()  {
         if (this.scrollY > 40 ) {
