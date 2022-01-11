@@ -31,7 +31,9 @@
                     </div>
                 </div>
             </div>
-            <video src='./shared/videos/food-1.mp4' autoplay muted loop></video>
+            <div class='video-wrapper'>
+                <video autoplay muted loop></video>
+            </div>
         </div>
         <button class='mute-button muted' id='mute-button'>
             <img src='./shared/icons/volume-white.svg' width='24' height='24' alt='volume'>
@@ -65,10 +67,16 @@
         </div>
     </div>
 </div>
+<script src='https://unpkg.com/hls.js/dist/hls.min.js'></script>
 <script>
+    const hls = new Hls()
+    const currentVideo = document.getElementById('current-video').querySelector('video')
     const muteButton = document.getElementById('mute-button')
+
+    hls.loadSource('https://videodelivery.net/5d5bc37ffcf54c9b82e996823bffbb81/manifest/video.m3u8')
+    hls.attachMedia(currentVideo)
+
     muteButton.addEventListener('click', (e) => {
-        const currentVideo = document.getElementById('current-video').querySelector('video')
         currentVideo.muted = !currentVideo.muted
         if (e.target.classList.contains('muted')) {
             e.target.classList.remove('muted')

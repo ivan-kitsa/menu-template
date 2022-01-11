@@ -454,6 +454,9 @@ body {
     background: #1D2023;
 
     .video {
+      height: 100vh;
+      @include flexCenter;
+
       .meta {
         @include flex;
         position: absolute;
@@ -524,7 +527,10 @@ body {
         }
       }
 
-      video {
+      video, iframe {
+        width: 100%;
+        height: 100%;
+        max-width: 53.9rem;
         max-height: 100vh;
       }
     }
