@@ -317,6 +317,8 @@ body {
       width: 100%; }
   .main-wrapper .menu-block {
     margin-bottom: 4rem; }
+  .main-wrapper .menu-group.hidden {
+    display: none; }
   .main-wrapper .category-section {
     width: 100%;
     margin-bottom: 5.4rem; }
@@ -369,6 +371,7 @@ body {
     justify-content: flex-start;
     margin-top: 1.6rem; }
     .main-wrapper .categories-block .category-list a {
+      display: block;
       font-family: 'Poppins', sans-serif;
       padding: .9rem 0;
       color: rgba(0, 0, 0, 0.4);
