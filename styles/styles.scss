@@ -57,6 +57,7 @@ body {
 
     * {
       transition: $main-transition;
+      will-change: transform, opacity;
     }
 
     .logo {
@@ -199,6 +200,7 @@ body {
   & > .column {
     @include flexColumn;
     width: 100%;
+    will-change: transform;
 
     &.left-column {
       position: sticky;
@@ -888,6 +890,7 @@ body {
     position: absolute;
     top: 0;
     left: 0;
+    will-change: left;
   }
 }
 

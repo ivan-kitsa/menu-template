@@ -115,7 +115,8 @@ body {
     .header-wrapper .header * {
       -webkit-transition: 0.15s ease-out;
       -o-transition: 0.15s ease-out;
-      transition: 0.15s ease-out; }
+      transition: 0.15s ease-out;
+      will-change: transform, opacity; }
     .header-wrapper .header .logo {
       width: 8.8rem;
       height: 8.8rem;
@@ -274,7 +275,8 @@ body {
     -webkit-box-pack: start;
     -ms-flex-pack: start;
     justify-content: flex-start;
-    width: 100%; }
+    width: 100%;
+    will-change: transform; }
     .main-wrapper > .column.left-column {
       position: -webkit-sticky;
       position: sticky;
@@ -1039,7 +1041,8 @@ body {
   .cards-slider .card {
     position: absolute;
     top: 0;
-    left: 0; }
+    left: 0;
+    will-change: left; }
 
 .food-card {
   width: 19.5rem; }
