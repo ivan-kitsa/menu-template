@@ -73,17 +73,17 @@ function getAllSlidersIds() {
 
 function resizeFix() {
     let doIt = 0
-    const cards = document.querySelectorAll('.cards-slider > .cards')
-
-    function resize() {
-        cards.forEach(c => {
-            c.style.cssText = `height: ${c.children[0].offsetHeight}px`
-        })
-    }
 
     window.addEventListener('resize', () => {
         clearTimeout(doIt)
-        doIt = setTimeout(resize, 100)
+        doIt = setTimeout(resizeSliders, 100)
+    })
+}
+
+export function resizeSliders() {
+    const cards = document.querySelectorAll('.cards-slider > .cards')
+    cards.forEach(c => {
+        c.style.cssText = `height: ${c.children[0].offsetHeight}px`
     })
 }
 

@@ -1,5 +1,7 @@
 'use strict'
 
+import { resizeSliders } from './slider.js';
+
 function customSelect() {
     const selectNode = document.getElementById('select')
     const currentSelect = document.getElementById('current-select')
@@ -61,10 +63,42 @@ function categoriesSmoothScroll() {
     })
 }
 
+function initMenuRadio() {
+    const inputs = document.querySelectorAll('input[type="radio"]')
+    let checkedId = ''
+
+    if (!inputs || !inputs.length) {
+        return
+    }
+
+    inputs.forEach(i => {
+        if (!checkedId && i.checked) {
+            checkedId = i.id
+        }
+        i.addEventListener('input', e => {
+            checkedId = e.target.id
+            setRadio(e.target.id)
+        })
+    })
+}
+
+function setRadio(id) {
+    const menuGroups = document.querySelectorAll('.menu-group')
+    menuGroups.forEach(i => {
+        if (i.getAttribute('data-group') === id) {
+            i.classList.remove('hidden')
+        } else {
+            i.classList.add('hidden')
+        }
+    })
+    resizeSliders()
+}
+
 function initUi() {
     customSelect()
     headerScrollSizer()
     categoriesSmoothScroll()
+    initMenuRadio()
 }
 
 initUi()
