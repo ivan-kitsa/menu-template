@@ -80,7 +80,7 @@ function resizeFix() {
     })
 }
 
-export function resizeSliders() {
+function resizeSliders() {
     const cards = document.querySelectorAll('.cards-slider > .cards')
     cards.forEach(c => {
         c.style.cssText = `height: ${c.children[0].offsetHeight}px`

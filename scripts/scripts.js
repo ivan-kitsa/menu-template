@@ -1,7 +1,5 @@
 'use strict'
 
-import { resizeSliders } from './slider.js';
-
 function customSelect() {
     const selectNode = document.getElementById('select')
     const currentSelect = document.getElementById('current-select')
@@ -65,12 +63,12 @@ function categoriesSmoothScroll() {
 
 function initMenuRadio() {
     const inputs = document.querySelectorAll('input[type="radio"]')
-    let checkedId = ''
 
     if (!inputs || !inputs.length) {
         return
     }
 
+    let checkedId = ''
     inputs.forEach(i => {
         if (!checkedId && i.checked) {
             checkedId = i.id
@@ -84,6 +82,11 @@ function initMenuRadio() {
 
 function setRadio(id) {
     const menuGroups = document.querySelectorAll('.menu-group')
+
+    if (!menuGroups || !menuGroups.length) {
+        return
+    }
+
     menuGroups.forEach(i => {
         if (i.getAttribute('data-group') === id) {
             i.classList.remove('hidden')
