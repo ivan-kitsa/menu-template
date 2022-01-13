@@ -49,7 +49,14 @@ class Slider {
     }
 
     getMaxViewsSlides() {
-        return Math.floor(this.slider.offsetWidth / this.cards[0].offsetWidth)
+        const sliderW = document.querySelector('.cards-slider').offsetWidth
+        const cardW = document.querySelector('.cards-slider .card').offsetWidth
+
+        if (!sliderW || !cardW) {
+            return 3
+        }
+
+        return Math.floor(sliderW / cardW)
     }
 
     init() {
