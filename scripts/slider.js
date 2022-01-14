@@ -1,5 +1,7 @@
 'use strict'
 
+const initSlidersArr = []
+
 class Slider {
     constructor(id) {
         this.id = id
@@ -16,7 +18,12 @@ class Slider {
         }
     }
     setHeight() {
-        this.slider.querySelector('.cards').style.cssText = `height: ${this.cards[0].offsetHeight}px`
+        const cardCopy = this.slider.querySelector('.card').cloneNode(true)
+        cardCopy.style.cssText = 'position: fixed; left: 0; top: 0; visibility: hidden; z-index: -9999;'
+        document.body.appendChild(cardCopy)
+
+        this.slider.querySelector('.cards').style.cssText = `height: ${cardCopy.offsetHeight}px`
+        cardCopy.remove()
     }
 
     moveToRight() {
@@ -67,7 +74,6 @@ class Slider {
         if (this.cards.length - 1 < this.getMaxViewsSlides()) {
             this.rightButton.classList.add('hidden')
         }
-        // window.addEventListener('resize', () => this.setHeight()) !!bad performance
     }
 }
 
@@ -83,21 +89,22 @@ function resizeFix() {
 
     window.addEventListener('resize', () => {
         clearTimeout(doIt)
-        doIt = setTimeout(resizeSliders, 100)
+        doIt = setTimeout(resizeSliders, 200)
     })
 }
 
 function resizeSliders() {
-    const cards = document.querySelectorAll('.cards-slider > .cards')
-    cards.forEach(c => {
-        c.style.cssText = `height: ${c.children[0].offsetHeight}px`
+    const sliders = document.querySelectorAll('.cards-slider')
+    sliders.forEach((s, i) => {
+        initSlidersArr[i].setHeight()
     })
 }
 
 function initSliders() {
     const idArr = getAllSlidersIds()
     for (let i = 0; i < idArr.length; i++) {
-        new Slider(idArr[i]).init()
+        initSlidersArr.push(new Slider(idArr[i]))
+        initSlidersArr[i].init()
     }
     resizeFix()
 }

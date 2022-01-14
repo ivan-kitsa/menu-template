@@ -22,7 +22,7 @@ img {
 }
 
 body {
-  width: 100%;
+  width: 100vw;
   min-height: 100vh;
   background: $orange-30;
   overflow-x: hidden;
@@ -38,7 +38,7 @@ body {
 }
 
 .header-wrapper {
-  width: 100%;
+  width: 100vw;
   min-height: 17.6rem;
   max-height: 23.3rem;
   padding-top: 3.2rem;
@@ -227,7 +227,7 @@ body {
       top: 4rem;
       right: 2.4rem;
       max-width: 30.3rem;
-      margin-left: 2.4rem;
+      margin-left: 4.8rem;
       transform: translateY(23.3rem);
       transition: $main-transition;
     }
