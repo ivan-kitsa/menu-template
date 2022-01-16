@@ -9,66 +9,56 @@ class Slider {
         this.cards = this.slider.querySelectorAll('.card')
         this.leftButton = this.slider.querySelector('.left-button')
         this.rightButton = this.slider.querySelector('.right-button')
+        this.cardH = 0
+        this.cardW = 0
+        this.sliderW = 0
     }
 
-    setCardPosition() {
-        for(let i = 0, dataId = ''; i < this.cards.length; i++) {
-            dataId = this.cards[i].getAttribute('data-id')
-            this.cards[i].style.cssText += `left: calc(1.6rem + (19.5rem + 1.6rem) * ${dataId - 1})`
-        }
-    }
-    setHeight() {
+    setSizes() {
         const cardCopy = this.slider.querySelector('.card').cloneNode(true)
         cardCopy.style.cssText = 'position: fixed; left: 0; top: 0; visibility: hidden; z-index: -9999;'
         document.body.appendChild(cardCopy)
 
-        this.slider.querySelector('.cards').style.cssText = `height: ${cardCopy.offsetHeight}px`
-        cardCopy.remove()
-    }
+        this.cardH = cardCopy.offsetHeight
+        this.cardW = cardCopy.offsetWidth
+        this.sliderW = document.querySelector('.center-column').offsetWidth
 
+        cardCopy.remove()
+
+        this.slider.querySelector('.cards').style.cssText = `height: ${this.cardH}px`
+    }
     moveToRight() {
         for (let i = 0, dataId = 0; i < this.cards.length; i++) {
             dataId = +this.cards[i].getAttribute('data-id')
 
             this.cards[i].setAttribute('data-id', `${dataId + 1}`)
-            this.cards[i].style.cssText = 'transition: left .25s ease-out 0s;'
             this.rightButton.classList.remove('hidden')
 
             if (i === dataId) {
                 this.leftButton.classList.add('hidden')
             }
         }
-        this.setCardPosition()
     }
     moveToLeft() {
         for (let i = 0, dataId = 0; i < this.cards.length; i++) {
             dataId = +this.cards[i].getAttribute('data-id')
 
             this.cards[i].setAttribute('data-id', `${dataId - 1}`)
-            this.cards[i].style.cssText = 'transition: left .25s ease-out 0s;'
             this.leftButton.classList.remove('hidden')
 
             if (i === this.cards.length - 2 && dataId === this.getMaxViewsSlides()) {
                 this.rightButton.classList.add('hidden')
             }
         }
-        this.setCardPosition()
     }
-
     getMaxViewsSlides() {
-        const sliderW = document.querySelector('.cards-slider').offsetWidth
-        const cardW = document.querySelector('.cards-slider .card').offsetWidth
-
-        if (!sliderW || !cardW) {
+        if (!this.sliderW || !this.cardW) {
             return 3
         }
-
-        return Math.floor(sliderW / cardW)
+        return Math.floor(this.sliderW / this.cardW)
     }
-
     init() {
-        this.setHeight()
-        this.setCardPosition()
+        this.setSizes()
         this.rightButton.addEventListener('mousedown', () => this.moveToLeft())
         this.leftButton.addEventListener('mousedown', () => this.moveToRight())
         if (this.cards.length - 1 < this.getMaxViewsSlides()) {
@@ -96,7 +86,7 @@ function resizeFix() {
 function resizeSliders() {
     const sliders = document.querySelectorAll('.cards-slider')
     sliders.forEach((s, i) => {
-        initSlidersArr[i].setHeight()
+        initSlidersArr[i].setSizes()
     })
 }
 
