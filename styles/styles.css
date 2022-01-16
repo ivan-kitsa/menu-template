@@ -73,7 +73,8 @@ body {
   width: 100vw;
   min-height: 100vh;
   background: #F9F4E9;
-  overflow-x: hidden; }
+  overflow-x: hidden;
+  scrollbar-gutter: stable both-edges; }
 
 .header, .main-wrapper, .footer-wrapper {
   width: 100%;
@@ -1150,21 +1151,21 @@ body {
       display: block;
       opacity: 0; }
     .video-slider .slide[data-id='-1'] {
-      -webkit-transform: translate(calc(-50% - 72rem), -50%);
-      -ms-transform: translate(calc(-50% - 72rem), -50%);
-      transform: translate(calc(-50% - 72rem), -50%); }
+      -webkit-transform: translate(calc(-50% - 64rem), -50%) scale(0.9);
+      -ms-transform: translate(calc(-50% - 64rem), -50%) scale(0.9);
+      transform: translate(calc(-50% - 64rem), -50%) scale(0.9); }
     .video-slider .slide[data-id='0'] {
-      -webkit-transform: translate(calc(-50% - 48rem), -50%);
-      -ms-transform: translate(calc(-50% - 48rem), -50%);
-      transform: translate(calc(-50% - 48rem), -50%); }
+      -webkit-transform: translate(calc(-50% - 46rem), -50%);
+      -ms-transform: translate(calc(-50% - 46rem), -50%);
+      transform: translate(calc(-50% - 46rem), -50%); }
     .video-slider .slide[data-id='2'] {
-      -webkit-transform: translate(calc(-50% + 48rem), -50%);
-      -ms-transform: translate(calc(-50% + 48rem), -50%);
-      transform: translate(calc(-50% + 48rem), -50%); }
+      -webkit-transform: translate(calc(-50% + 46rem), -50%);
+      -ms-transform: translate(calc(-50% + 46rem), -50%);
+      transform: translate(calc(-50% + 46rem), -50%); }
     .video-slider .slide[data-id='3'] {
-      -webkit-transform: translate(calc(-50% + 72rem), -50%);
-      -ms-transform: translate(calc(-50% + 72rem), -50%);
-      transform: translate(calc(-50% + 72rem), -50%); }
+      -webkit-transform: translate(calc(-50% + 64rem), -50%) scale(0.9);
+      -ms-transform: translate(calc(-50% + 64rem), -50%) scale(0.9);
+      transform: translate(calc(-50% + 64rem), -50%) scale(0.9); }
 
 .food-card {
   width: 19.5rem; }

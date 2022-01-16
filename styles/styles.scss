@@ -26,6 +26,7 @@ body {
   min-height: 100vh;
   background: $orange-30;
   overflow-x: hidden;
+  scrollbar-gutter: stable both-edges;
 }
 
 // Main page
@@ -1033,16 +1034,16 @@ body {
     }
 
     &[data-id='-1'] {
-      transform: translate(calc(-50% - 72rem), -50%);
+      transform: translate(calc(-50% - 64rem), -50%) scale(.9);
     }
     &[data-id='0'] {
-      transform: translate(calc(-50% - 48rem), -50%);
+      transform: translate(calc(-50% - 46rem), -50%);
     }
     &[data-id='2'] {
-      transform: translate(calc(-50% + 48rem), -50%);
+      transform: translate(calc(-50% + 46rem), -50%);
     }
     &[data-id='3'] {
-      transform: translate(calc(-50% + 72rem), -50%);
+      transform: translate(calc(-50% + 64rem), -50%) scale(.9);
     }
   }
 }
