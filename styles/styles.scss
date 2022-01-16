@@ -458,36 +458,35 @@ body {
     @include flexCenter;
     height: 100vh;
 
-    &.current {
-      .v-slide-info {
-        top: 2.8rem;
-        left: 2rem;
+    &[data-id='1'] .v-slide-info {
+      top: 2.8rem;
+      left: 2rem;
 
-        .avatar {
-          width: 5.2rem;
-          height: 5.2rem;
+      .avatar {
+        width: 5.2rem;
+        height: 5.2rem;
 
-          img {
-            width: 4rem;
-            height: 4rem;
-          }
-        }
-        .user-info {
-          .name {
-            font-size: 1.4rem;
-            line-height: 1.4rem;
-            color: $white;
-            transform: none;
-          }
-          .views {
-            display: flex;
-          }
+        img {
+          width: 4rem;
+          height: 4rem;
         }
       }
-      .food-info {
-        visibility: hidden;
-        transition: 0s linear 0s;
+      .user-info {
+        .name {
+          font-size: 1.4rem;
+          line-height: 1.4rem;
+          color: $white;
+          transform: none;
+        }
+        .views {
+          display: flex;
+        }
       }
+    }
+
+    &[data-id='1'] .food-info {
+      visibility: hidden;
+      transition: 0s linear 0s;
     }
 
     .v-slide-info {
@@ -557,7 +556,7 @@ body {
     .food-info {
       width: 100%;
       position: absolute;
-      left: -.8rem;
+      left: 0;
       top: calc(100% + 1.6rem);
       font-family: 'Inter', sans-serif;
       font-size: 1.2rem;

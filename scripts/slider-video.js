@@ -23,7 +23,7 @@ class Video {
             const hls = new Hls({
 
             })
-            hls.loadSource(this.videos[i])
+            hls.loadSource(this.videos[i] || this.videos[0])
             hls.attachMedia(v)
         })
     }
