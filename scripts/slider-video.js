@@ -14,12 +14,13 @@ const VIDEOS_MOCK = [
 ]
 
 class Video {
-    constructor(videosArr) {
+    constructor(videosNodes, videosArr) {
+        this.videosNodes = videosNodes
         this.videos = videosArr
     }
 
-    setSrc(videoNodes) {
-        videoNodes.forEach((v, i) => {
+    setSrc() {
+        this.videosNodes.forEach((v, i) => {
             const hls = new Hls({
 
             })
@@ -28,11 +29,13 @@ class Video {
         })
     }
 
+    init() {
+        this.setSrc()
+    }
 }
 
-class SliderV extends Video{
-    constructor(id, videosArr) {
-        super(videosArr)
+class SliderV {
+    constructor(id) {
         this.id = id
         this.sl = document.getElementById(this.id)
         this.slides = this.sl.querySelectorAll('.slide')
@@ -65,12 +68,12 @@ class SliderV extends Video{
         }
     }
     init() {
-        super.setSrc(this.sl.querySelectorAll('video'))
         this.rightButton.addEventListener('mousedown', () => this.moveToLeft())
         this.leftButton.addEventListener('mousedown', () => this.moveToRight())
     }
 }
 
-new SliderV('video-slider', VIDEOS_MOCK).init()
+new Video(document.querySelectorAll('video'), VIDEOS_MOCK).init()
+new SliderV('video-slider').init()
 
 
