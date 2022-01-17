@@ -214,7 +214,8 @@ body {
     }
     &.center-column {
       margin: 0 auto;
-      max-width: 65.5rem;
+      //max-width: 65.5rem;
+      max-width: 62.4rem;
       transform: translateY(23.3rem);
       transition: $main-transition;
 
@@ -259,6 +260,16 @@ body {
       display: grid;
       grid-template-columns: 1fr 1fr 1fr 1fr;
       grid-gap: 5.2rem 2rem;
+
+      &.column-4 {
+        grid-template-columns: 1fr 1fr 1fr 1fr;
+      }
+      &.column-3 {
+        grid-template-columns: 1fr 1fr 1fr;
+      }
+      &.column-2 {
+        grid-template-columns: 1fr 1fr ;
+      }
     }
 
     .other-suggestions-list {
@@ -933,17 +944,8 @@ body {
 }
 
 .cards-slider {
-  width: calc(100% + 1.6rem);
-  transform: translateX(-1.6rem);
-
-  //@keyframes firstCard {
-  //  from { transform: translateX(-100%); }
-  //  to { transform: translateX(0%); }
-  //}
-  //@keyframes lastCard {
-  //  from { transform: translateX(0); }
-  //  to { transform: translateX(-100%); }
-  //}
+  width: calc(100% + 4.8rem);
+  transform: translateX(-2rem);
 
   button {
     display: flex;
@@ -1039,19 +1041,19 @@ body {
       transform: translateX(-19.5rem);
     }
     &[data-id='1'] {
-      transform: translateX(1.6rem);
+      transform: translateX(2rem);
     }
     &[data-id='2'] {
-      transform: translateX(22.7rem);
+      transform: translateX(23.5rem);
     }
     &[data-id='3'] {
-      transform: translateX(43.8rem);
+      transform: translateX(45.0rem);
     }
     &[data-id='4'] {
-      transform: translateX(64.9rem);
+      transform: translateX(66.5rem);
     }
     &[data-id='5'] {
-      transform: translateX(86rem);
+      transform: translateX(88rem);
     }
   }
 }
