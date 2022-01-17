@@ -1031,10 +1031,10 @@ body {
     transform: translateX(0);
     will-change: transform;
 
-    &[data-id='0'], &[data-id='1'], &[data-id='2'], &[data-id='3'], &[data-id='4'], &[data-id='5'] {
+    [data-id='-1'], &[data-id='0'], &[data-id='1'], &[data-id='2'], &[data-id='3'], &[data-id='4'], &[data-id='5'] {
       opacity: 1;
       display: block;
-      transition: .25s ease-out 0s;
+      transition: .25s ease 0s;
     }
 
     &[data-id='0'] {
