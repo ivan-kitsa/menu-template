@@ -462,6 +462,10 @@ body {
       transition: 0s linear 0s;
     }
 
+    &[data-id='1'] .video-tags {
+      display: block;
+    }
+
     .v-slide-info {
       @include flex;
       width: 100%;
@@ -545,6 +549,10 @@ body {
       width: 100%;
       height: 100%;
       border: none;
+    }
+
+    .video-tags {
+      display: none;
     }
   }
 
