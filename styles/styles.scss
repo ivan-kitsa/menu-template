@@ -408,6 +408,8 @@ body {
   @include flex;
   width: 100%;
 
+  // include .video-slider
+
   .forward-link {
     @include flexCenter;
     position: absolute;
@@ -422,36 +424,6 @@ body {
     img {
       width: 2.4rem;
       height: 2.4rem;
-    }
-  }
-
-  .mute-button {
-    @include flexCenter;
-    position: absolute;
-    right: 2.4rem;
-    top: 0;
-    width: 4rem;
-    height: 4rem;
-    border-radius: 50%;
-    background: $white-10;
-    z-index: 2;
-    cursor: pointer;
-    border: none;
-
-    &.muted:after {
-      content: '';
-      @include absoluteCenter;
-      width: 100%;
-      height: 2px;
-      background: $white;
-      transform: translate(-50%, -50%) rotate(-45deg);
-      transform-origin: center;
-    }
-
-    img {
-      width: 2.4rem;
-      height: 2.4rem;
-      pointer-events: none;
     }
   }
 
@@ -585,58 +557,178 @@ body {
       @include flexCenter;
       justify-content: space-between;
       width: 100%;
-      padding: 4rem 4rem 2.4rem;
+      padding: 4rem 4rem 0;
+
+      h6 {
+        max-width: 40.7rem;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+        overflow: hidden;
+      }
+
+      .cost {
+        color: $gray-500;
+      }
     }
 
-    .cards-block {
+    .mentioned-items-block {
       @include flexColumn;
       width: 100%;
       padding: 0 4rem;
-      margin-bottom: 2.4rem;
+      margin: 1.6rem 0 2.4rem;
 
-      & > .mentioned-card:not(:last-child) {
+      & > .mentioned-item:not(:last-child) {
         margin-bottom: 1.6rem;
       }
 
-      // include .mentioned-card
+      // include .mentioned-item
     }
 
-    .footer-block {
+    .food-block {
+      @include flexColumn;
+      width: 100%;
+      padding: 0 4rem;
+      margin: -.2rem 0 1.6rem;
+
+      .description {
+        color: $gray-500;
+        margin-bottom: 1.6rem;
+      }
+    }
+
+    .activities-block {
       @include flexCenter;
-      justify-content: flex-end;
+      justify-content: flex-start;
       width: 100%;
       padding: 1.6rem 4rem;
       border-top: 1px solid $gray-200;
 
-      .share-title {
-        font-family: 'Poppins', sans-serif;
-        font-weight: 700;
-        font-size: 1.4rem;
-        line-height: 2rem;
-        margin-right: 1.2rem;
+      .share-links {
+        @include flexCenter;
+        margin-left: auto;
+
+        .share-title {
+          font-family: 'Poppins', sans-serif;
+          font-weight: 700;
+          font-size: 1.4rem;
+          line-height: 2rem;
+          margin-right: 1.2rem;
+        }
+        .share {
+          @include flexCenter;
+          width: 3.2rem;
+          height: 3.2rem;
+          border-radius: 50%;
+          cursor: pointer;
+
+          img {
+            width: 2.4rem;
+            height: 2.4rem;
+          }
+
+          &:not(:last-child) {
+            margin-right: .8rem;
+          }
+
+          &.share-link {
+            background: $orange-500;
+          }
+          &.share-message {
+            background: $green-bright;
+          }
+          &.share-instagram {
+            background: radial-gradient(92.18% 99.11% at 26.56% 107.7%, #FFDD55 0%, #FFDD55 10%, #FF543E 50%, #C837AB 100%);
+            &:before {
+              content: '';
+              @include absoluteCenter;
+              width: 100%;
+              height: 100%;
+              border-radius: 50%;
+              background: radial-gradient(179.06% 43.44% at -16.75% 7.2%, #3771C8 0%, #3771C8 12.8%, rgba(102, 0, 255, 0) 100%);
+              opacity: .8;
+            }
+          }
+        }
       }
 
-      .share {
+      .feedbacks {
         @include flexCenter;
-        width: 3.2rem;
-        height: 3.2rem;
-        border-radius: 50%;
-        cursor: pointer;
+
+        .feedback {
+          @include flexCenter;
+          margin-right: 1.6rem;
+
+          img {
+            width: 2.4rem;
+            height: 2.4rem;
+            margin-right: .6rem;
+          }
+          span {
+            font-family: 'Poppins', sans-serif;
+            font-size: 1.2rem;
+            line-height: 2rem;
+            font-weight: 600;
+          }
+        }
+      }
+    }
+
+    .comments-block {
+      width: 100%;
+      padding: 2.4rem 4rem;
+      background: #F9F4E9;
+
+      h6 {
+        margin-bottom: 2.4rem;
+      }
+      .comment {
+        @include flex;
+        width: 100%;
+        margin-bottom: 1.6rem;
 
         img {
-          width: 2.4rem;
-          height: 2.4rem;
+          width: 4rem;
+          height: 4rem;
+          border-radius: 50%;
+          overflow: hidden;
+        }
+        .comment-body {
+          width: calc(100% - 4rem);
+          padding-left: 1.6rem;
+          margin: auto 0;
+          font-family: 'Poppins', sans-serif;
+          font-size: 1.4rem;
+          line-height: 2rem;
+
+          * {
+            font-family: inherit;
+            font-size: inherit;
+            line-height: inherit;
+          }
+
+          .date {
+            color: $black-40;
+            font-family: 'Poppins', sans-serif;
+          }
+        }
+      }
+      .add-comment {
+        @include flexCenter;
+        width: max-content;
+        text-decoration: none;
+        margin-top: 3.4rem;
+
+        img {
+          width: 2rem;
+          height: 2rem;
+          margin-right: 1.2rem;
         }
 
-        &:not(:last-child) {
-          margin-right: .8rem;
-        }
-
-        &.share-link {
-          background: $orange-500;
-        }
-        &.share-message {
-          background: $green-bright;
+        b {
+          font-family: 'Poppins', sans-serif;
+          font-size: 1.4rem;
+          line-height: 2rem;
+          color: $black-40;
         }
       }
     }
@@ -761,7 +853,7 @@ body {
 
       &:checked ~ .custom-radio {
         background: $white;
-        border: 6px solid $orange-500;
+        border: .6rem solid $orange-500;
       }
       &:checked ~ .menu-info .menu-type {
         color: $gray-800;
@@ -957,32 +1049,37 @@ body {
 }
 
 .video-slider {
+  @include flexCenter;
   width: calc(100% - 54.3rem);
   height: 100vh;
   background: $gray-800;
-  @include flexCenter;
 
-  button {
-    display: flex;
-    align-items: center;
-    justify-content: center;
+  & > button {
+    @include flexCenter;
     position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
     width: 4rem;
     height: 4rem;
     border-radius: 50%;
     border: none;
     background: $white-10;
     box-shadow: 0 .2rem .8rem 0 $black-10;
-    color: $gray-500;
-    cursor: pointer;
-    z-index: 3;
     transition: .15s ease-in-out;
     user-select: none;
+    cursor: pointer;
+    z-index: 3;
 
     &.hidden {
       display: none;
+    }
+
+    &.left-button, &.right-button {
+      top: 50%;
+      transform: translateY(-50%);
+
+      img {
+        width: 3.2rem;
+        height: 3.2rem;
+      }
     }
 
     &.right-button {
@@ -991,9 +1088,19 @@ body {
 
     &.left-button {
       left: calc(50% - 32rem);
+    }
+
+    &.mute-button {
+      top: 2.4rem;
+      right: 2.4rem;
+
+      &.muted {
+        opacity: .5;
+      }
 
       img {
-        transform: rotate(180deg);
+        width: 2.4rem;
+        height: 2.4rem;
       }
     }
   }
@@ -1044,6 +1151,135 @@ body {
     }
     &[data-id='3'] {
       transform: translate(calc(-50% + 64rem), -50%) scale(.9);
+    }
+  }
+}
+.video-tags {
+  position: absolute;
+  bottom: .4rem;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100%;
+  max-width: 52.8rem;
+  height: 3px;
+  margin: 1.7rem 0;
+  background: $black-10;
+
+  .progress {
+    width: 100%;
+    height: 100%;
+    background: $white;
+  }
+
+  .tag {
+    @include absoluteCenter;
+    width: 4rem;
+    height: 4rem;
+    border-radius: 50%;
+    cursor: pointer;
+    background: none;
+
+    & > *, &:before {
+      transition: .15s ease-in-out .1s;
+    }
+
+    &:hover {
+      & > *, &:before {
+        transition: .15s ease-in-out 0s;
+      }
+
+      &:before {
+        transform: scale(1.4) translate(-50%, -65%);
+      }
+      img {
+        transform: scale(1.4) translate(-50%, -70%);
+      }
+      .tag-popover {
+        transform: translateX(-50%) scale(1);
+      }
+    }
+
+    &:before {
+      content: '';
+      @include absoluteCenter;
+      width: 100%;
+      height: 100%;
+      border-radius: 50%;
+      background: $orange-30;
+      transform-origin: top left;
+      z-index: 2;
+    }
+
+    img {
+      @include absoluteCenter;
+      width: 2.4rem;
+      height: 2.4rem;
+      transform-origin: top left;
+      z-index: 2;
+    }
+
+    .tag-popover {
+      width: 29.8rem;
+      padding: 1.2rem;
+      border-radius: 1.2rem;
+      background: $white-80;
+      position: absolute;
+      bottom: calc(100% + 4.2rem);
+      left: 50%;
+      transform: translateX(-50%) scale(0);
+      transform-origin: bottom center;
+      cursor: auto;
+
+      &:after, &:before {
+        content: '';
+        position: absolute;
+        top: 100%;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 0;
+        height: 0;
+      }
+
+      &:after {
+        border: 0 solid transparent;
+        border-left-width: 1rem;
+        border-right-width: 1rem;
+        border-top: 1.2rem solid $white-80;
+      }
+      &:before {
+        border: 0 solid transparent;
+        border-left-width: 10rem;
+        border-right-width: 10rem;
+        border-top: 6rem solid transparent;
+      }
+
+      .name {
+        display: flex;
+        justify-content: space-between;
+        font-family: 'Poppins', sans-serif;
+        line-height: 2rem;
+
+        b {
+          max-width: 23rem;
+          font-family: inherit;
+          font-size: inherit;
+          line-height: inherit;
+          white-space: nowrap;
+          overflow: hidden;
+          text-overflow: ellipsis;
+        }
+      }
+
+      .description {
+        font-size: 1.2rem;
+        line-height: 1.8rem;
+        margin: .8rem 0;
+        @include textEclipsis(2);
+      }
+
+      .button {
+        width: 100%;
+      }
     }
   }
 }
@@ -1159,7 +1395,7 @@ body {
   }
 }
 
-.mentioned-card {
+.mentioned-item {
   @include flex;
   width: 100%;
 
