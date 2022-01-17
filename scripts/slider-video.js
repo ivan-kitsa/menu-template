@@ -15,24 +15,41 @@ const VIDEOS_MOCK = [
 
 class Video {
     constructor(videosNodes, videosArr) {
-        this.videosNodes = videosNodes
+        this.videoNodes = videosNodes
         this.videos = videosArr
+        this.muteButton = document.getElementById('mute-button')
     }
 
-    setSrc() {
-        this.videosNodes.forEach((v, i) => {
-            const hls = new Hls({
+    get getNodes() {
+        return this.videoNodes
+    }
 
-            })
+    attachSrc() {
+        this.videoNodes.forEach((v, i) => {
+            const hls = new Hls({})
             hls.loadSource(this.videos[i] || this.videos[0])
             hls.attachMedia(v)
         })
     }
 
+    muteHandler(isMuted) {
+        this.videoNodes.forEach(v => {
+            v.muted = isMuted
+        })
+    }
+
     init() {
-        this.setSrc()
+        this.attachSrc()
+        this.videoNodes[0].play()
+        this.muteButton.addEventListener('click', () => {
+            this.muteButton.classList.toggle('muted')
+            this.muteHandler(this.muteButton.classList.contains('muted'))
+        })
     }
 }
+
+const V = new Video(document.querySelectorAll('video'), VIDEOS_MOCK)
+V.init()
 
 class SliderV {
     constructor(id) {
@@ -50,6 +67,11 @@ class SliderV {
             this.slides[i].setAttribute('data-id', `${dataId + 1}`)
             this.rightButton.classList.remove('hidden')
 
+            if (dataId === 0) {
+                V.getNodes[i + 1].pause()
+                V.getNodes[i].play()
+            }
+
             if (i === dataId) {
                 this.leftButton.classList.add('hidden')
             }
@@ -62,18 +84,23 @@ class SliderV {
             this.slides[i].setAttribute('data-id', `${dataId - 1}`)
             this.leftButton.classList.remove('hidden')
 
+            if (dataId === 2) {
+                V.getNodes[i - 1].pause()
+                V.getNodes[i].play()
+            }
+
             if (this.slides[this.slides.length - 1].getAttribute('data-id') === '1') {
                 this.rightButton.classList.add('hidden')
             }
         }
     }
+
     init() {
         this.rightButton.addEventListener('mousedown', () => this.moveToLeft())
         this.leftButton.addEventListener('mousedown', () => this.moveToRight())
     }
 }
 
-new Video(document.querySelectorAll('video'), VIDEOS_MOCK).init()
 new SliderV('video-slider').init()
 
 
