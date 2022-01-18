@@ -30,14 +30,27 @@ function headerScrollSizer() {
     if (!header) {
         return
     }
-
-    window.addEventListener('scroll', function()  {
-        if (this.scrollY > 40 ) {
+    if (header.nextElementSibling?.getBoundingClientRect().y < 0) {
+        setTimeout(() => {
             header.classList.add('header-min')
-            return
-        }
-        header.classList.remove('header-min')
-    })
+            header.classList.remove('init')
+            initScroll()
+        }, 500)
+        return
+    }
+
+    header.classList.remove('init')
+    initScroll()
+
+    function initScroll() {
+        window.addEventListener('scroll', function()  {
+            if (this.scrollY > 40 ) {
+                header.classList.add('header-min')
+                return
+            }
+            header.classList.remove('header-min')
+        })
+    }
 }
 
 function categoriesSmoothScroll() {

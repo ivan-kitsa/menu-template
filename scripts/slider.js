@@ -79,7 +79,9 @@ function resizeFix() {
 
     window.addEventListener('resize', () => {
         clearTimeout(doIt)
-        doIt = setTimeout(resizeSliders, 200)
+        doIt = setTimeout(() => {
+            resizeSliders()
+        }, 200)
     })
 }
 

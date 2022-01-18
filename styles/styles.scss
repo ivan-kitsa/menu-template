@@ -53,6 +53,21 @@ body {
   transition: max-height $main-transition;
   z-index: 5;
 
+  &.init {
+    transition-delay: .5s !important;
+
+    * {
+      transition-delay: .5s !important;
+    }
+
+    & + * {
+      transition-delay: .5s !important;
+      * {
+        transition-delay: .5s !important;
+      }
+    }
+  }
+
   .header {
     @include flex;
 
@@ -196,6 +211,7 @@ body {
   @include flex;
   justify-content: space-between;
   padding-top: 4rem;
+  min-height: 80vh;
   //margin-bottom: 10rem;
 
   & > .column {
@@ -298,9 +314,15 @@ body {
   }
 
   .categories-block {
+    overflow: hidden;
+
     .category-list {
       @include flexColumn;
       margin-top: 1.6rem;
+      overflow-y: auto;
+      overflow-x: hidden;
+      width: calc(100% + 2.4rem);
+      height: 100%;
 
       a {
         display: block;
