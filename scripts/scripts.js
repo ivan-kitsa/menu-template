@@ -30,6 +30,11 @@ function headerScrollSizer() {
     if (!header) {
         return
     }
+
+    if (header.classList.contains('header-category')) {
+        return
+    }
+
     if (header.nextElementSibling?.getBoundingClientRect().y < 0) {
         setTimeout(() => {
             header.classList.add('header-min')
