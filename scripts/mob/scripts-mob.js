@@ -66,13 +66,11 @@ function headerScrollSizer() {
     if (header.nextElementSibling?.getBoundingClientRect().y < 0) {
         setTimeout(() => {
             header.classList.add('header-min')
-            header.classList.remove('init')
             initScroll()
         }, 500)
         return
     }
 
-    header.classList.remove('init')
     initScroll()
 
     function initScroll() {
@@ -111,18 +109,18 @@ function categoriesSmoothScroll() {
 }
 
 function initMenuRadio() {
-    const inputs = document.querySelectorAll('input[type="radio"]')
+    const types = document.querySelectorAll('.menu-type')
 
-    if (!inputs || !inputs.length) {
+    if (!types || !types.length) {
         return
     }
 
     let checkedId = ''
-    inputs.forEach(i => {
-        if (!checkedId && i.checked) {
+    types.forEach(i => {
+        if (!checkedId && i.classList.contains('current')) {
             checkedId = i.id
         }
-        i.addEventListener('input', e => {
+        i.addEventListener('touchstart', e => {
             checkedId = e.target.id
             setRadio(e.target.id)
         })
