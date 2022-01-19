@@ -1,8 +1,8 @@
-@import "colors";
+@import "../core/colors";
 
 html {
-  font-size: 10px;
   font-family: 'Inter', sans-serif;
+  font-size: 10px;
 
   @media (max-width: 1280px)  {
     font-size: 8px;
