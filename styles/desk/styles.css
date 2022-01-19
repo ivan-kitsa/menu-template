@@ -503,6 +503,9 @@ body {
         padding: .9rem 0;
         color: rgba(0, 0, 0, 0.4);
         text-decoration: none; }
+        .main-wrapper .categories-block .category-list a.current-category {
+          font-weight: 700;
+          color: black; }
   .main-wrapper .address-block {
     margin-bottom: 2.8rem; }
     .main-wrapper .address-block p {

@@ -428,6 +428,11 @@ body {
         padding: .9rem 0;
         color: $black-40;
         text-decoration: none;
+
+        &.current-category {
+          font-weight: 700;
+          color: $black;
+        }
       }
     }
   }

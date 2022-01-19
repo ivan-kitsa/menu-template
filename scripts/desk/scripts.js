@@ -63,6 +63,9 @@ function categoriesSmoothScroll() {
         link.addEventListener('click', function(e) {
             e.preventDefault()
 
+            document.querySelector('.current-category')?.classList.remove('current-category')
+            e.target.classList.add('current-category')
+
             const href = this.getAttribute('href').substring(1)
             const scrollTarget = document.getElementById(href)
 
