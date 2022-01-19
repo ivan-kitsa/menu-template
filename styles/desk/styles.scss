@@ -1,5 +1,5 @@
 @import "typography";
-@import "mixins";
+@import "../core/mixins";
 
 $main-transition: .15s ease-out;
 $main-transition-exit: .15s ease-in;
@@ -48,8 +48,7 @@ body {
   border-bottom: 1px solid $black-10;
   position: fixed;
   top: 0;
-  left: 50%;
-  transform: translateX(-50%);
+  left: 0;
   transition: max-height $main-transition;
   z-index: 5;
 
@@ -183,7 +182,39 @@ body {
       .tags-list {
         display: flex;
         margin-top: 2.4rem;
-        // include .tag
+
+        .tag {
+          display: flex;
+          align-items: center;
+          justify-content: flex-start;
+          padding: .8rem;
+          border-radius: .8rem;
+          background: $white;
+
+          &:not(:last-child) {
+            margin-right: .8rem;
+          }
+
+          &.closed {
+            background: $red;
+
+            span {
+              color: $white;
+            }
+          }
+
+          img {
+            width: 2rem;
+            height: 2rem;
+            margin-right: .8rem;
+          }
+
+          span {
+            font-size: 1.4rem;
+            line-height: 1.4rem;
+            white-space: nowrap;
+          }
+        }
       }
     }
   }
@@ -872,39 +903,6 @@ body {
         background: $orange-50;
       }
     }
-  }
-}
-
-.tag {
-  display: flex;
-  align-items: center;
-  justify-content: flex-start;
-  padding: .8rem;
-  border-radius: .8rem;
-  background: $white;
-
-  &:not(:last-child) {
-    margin-right: .8rem;
-  }
-
-  &.closed {
-    background: $red;
-
-    span {
-      color: $white;
-    }
-  }
-
-  img {
-    width: 2rem;
-    height: 2rem;
-    margin-right: .8rem;
-  }
-
-  span {
-    font-size: 1.4rem;
-    line-height: 1.4rem;
-    white-space: nowrap;
   }
 }
 
