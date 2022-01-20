@@ -34,26 +34,33 @@ function menuSelect() {
         return
     }
 
-    selectNode.ontouchend = function (){
-        document.body.style.cssText = 'height: 100vh; overflow: hidden;'
-        this.classList.add('open')
-    }
-
-    selectList.forEach((s) => {
-        s.onclick = (e) => {
-            selectNode.querySelector('.menu-type.current').classList.remove('current')
-            e.target.classList.add('current')
-            selectNode.classList.remove('open')
+    selectNode.addEventListener('touchend', (e) => {
+        if (e.target.classList.contains('open')) {
             document.body.style.cssText = ''
+            e.target.classList.remove('open')
+            return
         }
+        document.body.style.cssText = 'height: 100vh; overflow: hidden;'
+        e.target.classList.add('open')
     })
 
-    document.ontouchend = function (e) {
+    selectList.forEach((s) => {
+        s.addEventListener('click', (e) => {
+            selectNode.querySelector('.menu-type.current').classList.remove('current')
+            e.target.classList.add('current')
+            setTimeout(() => {
+                selectNode.classList.remove('open')
+                document.body.style.cssText = ''
+            }, 100)
+        } )
+    })
+
+    document.addEventListener('touchend', (e) => {
         if (!e.target?.classList?.contains('menu-type') && !e.target?.classList?.contains('menu-select')) {
             selectNode.classList.remove('open')
             document.body.style.cssText = ''
         }
-    }
+    })
 }
 
 function headerScrollSizer() {

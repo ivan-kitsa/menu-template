@@ -11,6 +11,7 @@ $main-transition-in: 250ms ease-in 0s;
   padding: 0;
   list-style-type: none;
   appearance: none;
+  scroll-behavior: smooth;
 
   ::selection {
     background: $orange-50;
@@ -591,6 +592,10 @@ footer {
       font-family: 'Poppins', sans-serif;
       font-size: 1.6rem;
       line-height: 2.4rem;
+
+      &:active {
+        background: $orange-30;
+      }
 
       &.current {
         background: $orange-30;
