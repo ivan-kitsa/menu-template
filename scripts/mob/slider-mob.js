@@ -57,15 +57,19 @@ class Slider {
     }
 
     swipeControls() {
+        bodyScrollBlock(true)
         setTimeout(() => {
             switch (swipeDirection.x) {
                 case 'left':
+                    bodyScrollBlock(false)
                     this.moveToLeft()
                     break
                 case 'right':
+                    bodyScrollBlock(false)
                     this.moveToRight()
                     break
                 default:
+                    bodyScrollBlock(false)
                     break
             }
         }, 0)
@@ -88,25 +92,28 @@ class Slider {
 function touchController() {
     const from = {x: 0, y: 0}
     const to = {x: 0, y: 0}
-    let atMoment = ''
 
     document.addEventListener('touchstart', (e) => {
         from.x = e.changedTouches[0].clientX
         from.y = e.changedTouches[0].clientY
-        atMoment = ''
     }, false)
 
-    document.addEventListener('touchend', (e) => {
+    // document.addEventListener('touchend', (e) => {
+    //     to.x = e.changedTouches[0].clientX
+    //     to.y = e.changedTouches[0].clientY
+    //     getSwipeDirection()
+    // }, false)
+
+    document.addEventListener('touchmove', (e) => {
         to.x = e.changedTouches[0].clientX
         to.y = e.changedTouches[0].clientY
-        atMoment = ''
         getSwipeDirection()
     }, false)
 
     function getSwipeDirection() {
         const x = from.x - to.x
         const y = from.y - to.y
-        const gap = 40
+        const gap = 100
 
         if (x < -gap) {
             swipeDirection.x = 'right'
@@ -122,6 +129,19 @@ function touchController() {
         } else {
             swipeDirection.y = 'center'
         }
+
+        xSwipeStabilizer(y, gap)
+    }
+
+    function xSwipeStabilizer (y, gap) {
+        if (swipeDirection.x !== 'center' &&
+            y < gap + 200 &&
+            y > gap - 200) {
+
+            bodyScrollBlock(true)
+            return
+        }
+        bodyScrollBlock(false)
     }
 }
 

@@ -13,7 +13,7 @@ $main-transition-in: 250ms ease-in 0s;
   -webkit-appearance: none;
   -moz-appearance: none;
   appearance: none;
-  //scroll-behavior: smooth;
+  scroll-behavior: smooth;
 
   ::selection {
     background: $orange-50;

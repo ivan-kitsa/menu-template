@@ -166,6 +166,7 @@ function headerHandlers() {
         document.getElementById('more-info').classList.toggle('closed')
     }
 }
+
 function popupHandlers() {
     const closers = document.querySelectorAll('footer *[data-popup-closer]')
     const handlers = document.querySelectorAll('footer *[data-popup-handler]')
