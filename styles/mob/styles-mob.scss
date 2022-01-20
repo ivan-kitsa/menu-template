@@ -1081,11 +1081,14 @@ footer {
   .card {
     opacity: 0;
     display: none;
-    position: absolute;
-    top: 0;
-    left: 0;
 
-    [data-id='-1'],
+    //position: absolute;
+    //top: 0;
+    //left: 0;
+    //width: 0;
+
+    width: 0;
+
     &[data-id='0'],
     &[data-id='1'],
     &[data-id='2'],
@@ -1101,6 +1104,7 @@ footer {
       -webkit-timing-function: ease;
       transition: left 150ms ease 0ms;
     }
+
 
     &[data-id='0'] {
       left: -16.4rem;
@@ -1134,6 +1138,10 @@ footer {
 
 .food-card {
   width: 16.4rem;
+
+  & > * {
+    min-width: 16.4rem;
+  }
 
   .img-wrapper {
     width: 16.4rem;

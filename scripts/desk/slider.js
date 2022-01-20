@@ -9,7 +9,7 @@ class Slider {
         this.cards = this.slider.querySelectorAll('.card')
         this.leftButton = this.slider.querySelector('.left-button')
         this.rightButton = this.slider.querySelector('.right-button')
-        this.cardH = 0
+        // this.cardH = 0
         this.cardW = 0
         this.sliderW = 0
     }
@@ -19,13 +19,13 @@ class Slider {
         cardCopy.style.cssText = 'position: fixed; left: 0; top: 0; visibility: hidden; z-index: -9999;'
         document.body.appendChild(cardCopy)
 
-        this.cardH = cardCopy.offsetHeight
+        // this.cardH = cardCopy.offsetHeight
         this.cardW = cardCopy.offsetWidth
         this.sliderW = document.querySelector('.center-column').offsetWidth
 
         cardCopy.remove()
 
-        this.slider.querySelector('.cards').style.cssText = `height: ${this.cardH}px`
+        // this.slider.querySelector('.cards').style.cssText = `height: ${this.cardH}px`
     }
     moveToRight() {
         for (let i = 0, dataId = 0; i < this.cards.length; i++) {

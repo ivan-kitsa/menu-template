@@ -1100,13 +1100,21 @@ body {
   .card {
     opacity: 0;
     display: none;
-    position: absolute;
-    top: 0;
-    left: 0;
+
+    //position: absolute;
+    //top: 0;
+    //left: 0;
+
     transform: translateX(0);
     will-change: transform;
+    width: 0;
 
-    [data-id='-1'], &[data-id='0'], &[data-id='1'], &[data-id='2'], &[data-id='3'], &[data-id='4'], &[data-id='5'] {
+    &[data-id='0'],
+    &[data-id='1'],
+    &[data-id='2'],
+    &[data-id='3'],
+    &[data-id='4'],
+    &[data-id='5'] {
       opacity: 1;
       display: block;
       transition: .25s ease 0s;
@@ -1371,6 +1379,10 @@ body {
 
 .food-card {
   width: 19.5rem;
+
+  & > * {
+    min-width: 19.5rem;
+  }
 
   .img-wrapper {
     width: 19.5rem;

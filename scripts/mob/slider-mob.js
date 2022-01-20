@@ -11,7 +11,7 @@ class Slider {
         this.id = id
         this.slider = document.getElementById(this.id)
         this.cards = this.slider.querySelectorAll('.card')
-        this.cardH = 0
+        // this.cardH = 0
         this.cardW = 0
         this.sliderW = 0
     }
@@ -21,14 +21,15 @@ class Slider {
         cardCopy.style.cssText = 'position: fixed; left: 0; top: 0; visibility: hidden; z-index: -9999;'
         document.body.appendChild(cardCopy)
 
-        this.cardH = cardCopy.offsetHeight
+        // this.cardH = cardCopy.offsetHeight
         this.cardW = cardCopy.offsetWidth
         this.sliderW = document.body.offsetWidth
 
         cardCopy.remove()
 
-        this.slider.querySelector('.cards').style.cssText = `height: ${this.cardH}px`
+        // this.slider.querySelector('.cards').style.cssText = `height: ${this.cardH}px`
     }
+
     moveToRight() {
         if (+this.cards[0].getAttribute('data-id') === 1) {
             this.slider.classList.add('left-end')
@@ -43,7 +44,7 @@ class Slider {
         }
     }
     moveToLeft() {
-        if (+this.cards[this.cards.length - 1].getAttribute('data-id') === this.getMaxViewsSlides()) {
+        if (+this.cards[this.cards.length - 1].getAttribute('data-id') <= this.getMaxViewsSlides()) {
             this.slider.classList.add('right-end')
             setTimeout(() => {
                 this.slider.classList.remove('right-end')
