@@ -16,7 +16,6 @@ class Slider {
         this.sliderW = 0
     }
 
-
     setSizes() {
         const cardCopy = this.slider.querySelector('.card').cloneNode(true)
         cardCopy.style.cssText = 'position: fixed; left: 0; top: 0; visibility: hidden; z-index: -9999;'
@@ -95,16 +94,16 @@ function touchController() {
         const x = from.x - to.x
         const y = from.y - to.y
 
-        if (x < -50) {
+        if (x < -10) {
             swipeDirection.x = 'right'
-        } else if  (x > 50) {
+        } else if  (x > 10) {
             swipeDirection.x = 'left'
         } else {
             swipeDirection.x = 'center'
         }
-        if (y < -50) {
+        if (y < -10) {
             swipeDirection.y = 'bottom'
-        } else if (y > 50) {
+        } else if (y > 10) {
             swipeDirection.y = 'top'
         } else {
             swipeDirection.y = 'center'

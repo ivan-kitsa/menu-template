@@ -1,8 +1,8 @@
 @import "typography-mob";
 @import "../core/mixins";
 
-$main-transition: 250ms ease-out 0s;
-$main-transition-in: 250ms ease-in 0s;
+$main-transition: 150ms ease-out 0s;
+$main-transition-in: 150ms ease-in 0s;
 
 * {
   position: relative;
@@ -10,6 +10,8 @@ $main-transition-in: 250ms ease-in 0s;
   margin: 0;
   padding: 0;
   list-style-type: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
   appearance: none;
   scroll-behavior: smooth;
 
@@ -55,7 +57,7 @@ body {
   left: 0;
   transition: max-height $main-transition;
   -webkit-transition-property: max-height;
-  -webkit-transition-duration: 350ms;
+  -webkit-transition-duration: 150ms;
   -webkit-transition-delay: 0ms;
   -webkit-timing-function: ease-out;
   z-index: 5;
@@ -63,7 +65,7 @@ body {
   & > .main-info, .description, .more-info, .menu-select{
     transition: transform $main-transition, opacity $main-transition;
     -webkit-transition-property: transform, opacity;
-    -webkit-transition-duration: 250ms;
+    -webkit-transition-duration: 150ms;
     -webkit-transition-delay: 0ms;
     -webkit-timing-function: ease-in;
     will-change: transform, opacity;
@@ -73,7 +75,7 @@ body {
     max-height: 6.4rem;
     transition: max-height $main-transition-in;
     -webkit-transition-property: max-height;
-    -webkit-transition-duration: 300ms;
+    -webkit-transition-duration: 150ms;
     -webkit-transition-delay: 0ms;
     -webkit-timing-function: ease-in;
     overflow: hidden;
@@ -83,7 +85,7 @@ body {
       transform: translateY(-5rem) ;
       transition: transform $main-transition-in, opacity $main-transition-in;
       -webkit-transition-property: transform, opacity;
-      -webkit-transition-duration: 200ms;
+      -webkit-transition-duration: 150ms;
       -webkit-transition-delay: 0ms;
       -webkit-timing-function: ease-in;
     }
@@ -92,7 +94,7 @@ body {
       transform: translateY(-7rem) ;
       transition: transform $main-transition-in, opacity $main-transition-in;
       -webkit-transition-property: transform, opacity;
-      -webkit-transition-duration: 200ms;
+      -webkit-transition-duration: 150ms;
       -webkit-transition-delay: 0ms;
       -webkit-timing-function: ease-in;
     }
@@ -101,7 +103,7 @@ body {
       transform: translateY(-9rem) ;
       transition: transform $main-transition-in, opacity $main-transition-in;
       -webkit-transition-property: transform, opacity;
-      -webkit-transition-duration: 200ms;
+      -webkit-transition-duration: 150ms;
       -webkit-transition-delay: 0ms;
       -webkit-timing-function: ease-in;
     }
@@ -110,7 +112,7 @@ body {
       transform: translateY(-12rem) ;
       transition: transform $main-transition-in, opacity $main-transition-in;
       -webkit-transition-property: transform, opacity;
-      -webkit-transition-duration: 200ms;
+      -webkit-transition-duration: 150ms;
       -webkit-transition-delay: 0ms;
       -webkit-timing-function: ease-in;
     }
@@ -592,10 +594,6 @@ footer {
       font-family: 'Poppins', sans-serif;
       font-size: 1.6rem;
       line-height: 2.4rem;
-
-      &:active {
-        background: $orange-30;
-      }
 
       &.current {
         background: $orange-30;
