@@ -113,7 +113,7 @@ function touchController() {
     function getSwipeDirection() {
         const x = from.x - to.x
         const y = from.y - to.y
-        const gap = 100
+        const gap = 80
 
         if (x < -gap) {
             swipeDirection.x = 'right'
@@ -135,8 +135,8 @@ function touchController() {
 
     function xSwipeStabilizer (y, gap) {
         if (swipeDirection.x !== 'center' &&
-            y < gap + 200 &&
-            y > gap - 200) {
+            y < gap + 300 &&
+            y > gap - 300) {
 
             bodyScrollBlock(true)
             return

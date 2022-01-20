@@ -13,7 +13,7 @@ $main-transition-in: 250ms ease-in 0s;
   -webkit-appearance: none;
   -moz-appearance: none;
   appearance: none;
-  scroll-behavior: smooth;
+  //scroll-behavior: smooth;
 
   ::selection {
     background: $orange-50;
@@ -861,14 +861,15 @@ footer {
     &[data-id='2'],
     &[data-id='3'],
     &[data-id='4'],
-    &[data-id='5'] {
+    &[data-id='5'],
+    &[data-id='6']{
       opacity: 1;
       display: block;
-      transition: left 250ms ease 0ms;
       -webkit-transition-property: left;
-      -webkit-transition-duration: 250ms;
+      -webkit-transition-duration: 150ms;
       -webkit-transition-delay: 0ms;
       -webkit-timing-function: ease;
+      transition: left 150ms ease 0ms;
     }
 
     &[data-id='0'] {
@@ -893,6 +894,10 @@ footer {
 
     &[data-id='5'] {
       left: 73.6rem;
+    }
+
+    &[data-id='6'] {
+      left: 91.6rem;
     }
   }
 }
