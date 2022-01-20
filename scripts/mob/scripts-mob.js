@@ -73,7 +73,7 @@ function headerScrollSizer() {
         return
     }
 
-    if (header.classList.contains('header-category')) {
+    if (header.classList.contains('header-category') || header.classList.contains('header-not-onborded')  ) {
         return
     }
 
