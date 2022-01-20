@@ -1,8 +1,8 @@
 @import "typography-mob";
 @import "../core/mixins";
 
-$main-transition: 150ms ease-out 0s;
-$main-transition-in: 150ms ease-in 0s;
+$main-transition: 250ms ease-out 0s;
+$main-transition-in: 250ms ease-in 0s;
 
 * {
   position: relative;
@@ -54,15 +54,15 @@ body {
   left: 0;
   transition: max-height $main-transition;
   -webkit-transition-property: max-height;
-  -webkit-transition-duration: 150ms;
+  -webkit-transition-duration: 350ms;
   -webkit-transition-delay: 0ms;
   -webkit-timing-function: ease-out;
   z-index: 5;
 
-  & > .main-info, .description, .more-info{
+  & > .main-info, .description, .more-info, .menu-select{
     transition: transform $main-transition, opacity $main-transition;
     -webkit-transition-property: transform, opacity;
-    -webkit-transition-duration: 100ms;
+    -webkit-transition-duration: 250ms;
     -webkit-transition-delay: 0ms;
     -webkit-timing-function: ease-in;
     will-change: transform, opacity;
@@ -72,7 +72,7 @@ body {
     max-height: 6.4rem;
     transition: max-height $main-transition-in;
     -webkit-transition-property: max-height;
-    -webkit-transition-duration: 150ms;
+    -webkit-transition-duration: 300ms;
     -webkit-transition-delay: 0ms;
     -webkit-timing-function: ease-in;
     overflow: hidden;
@@ -82,7 +82,7 @@ body {
       transform: translateY(-5rem) ;
       transition: transform $main-transition-in, opacity $main-transition-in;
       -webkit-transition-property: transform, opacity;
-      -webkit-transition-duration: 100ms;
+      -webkit-transition-duration: 200ms;
       -webkit-transition-delay: 0ms;
       -webkit-timing-function: ease-in;
     }
@@ -91,7 +91,7 @@ body {
       transform: translateY(-7rem) ;
       transition: transform $main-transition-in, opacity $main-transition-in;
       -webkit-transition-property: transform, opacity;
-      -webkit-transition-duration: 100ms;
+      -webkit-transition-duration: 200ms;
       -webkit-transition-delay: 0ms;
       -webkit-timing-function: ease-in;
     }
@@ -100,9 +100,22 @@ body {
       transform: translateY(-9rem) ;
       transition: transform $main-transition-in, opacity $main-transition-in;
       -webkit-transition-property: transform, opacity;
-      -webkit-transition-duration: 100ms;
+      -webkit-transition-duration: 200ms;
       -webkit-transition-delay: 0ms;
-      -webkit-timing-function: ease-out;
+      -webkit-timing-function: ease-in;
+    }
+    .menu-select {
+      opacity: .1;
+      transform: translateY(-12rem) ;
+      transition: transform $main-transition-in, opacity $main-transition-in;
+      -webkit-transition-property: transform, opacity;
+      -webkit-transition-duration: 200ms;
+      -webkit-transition-delay: 0ms;
+      -webkit-timing-function: ease-in;
+    }
+
+    .category-list {
+      z-index: 3;
     }
   }
 
@@ -561,13 +574,15 @@ footer {
   .menu-types {
     display: none;
     width: 100%;
+    max-height: 14.4rem;
     position: absolute;
     left: 0;
     top: 100%;
     box-shadow: .2rem .5rem 1.5rem 0 rgba(9, 18, 70, 0.1);
     background: $white;
     border-radius: .8rem;
-    overflow: hidden;
+    overflow-x: hidden;
+    overflow-y: auto;
 
     .menu-type {
       width: 100%;

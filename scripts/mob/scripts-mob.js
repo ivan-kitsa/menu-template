@@ -35,19 +35,23 @@ function menuSelect() {
     }
 
     selectNode.ontouchend = function (){
-        this.classList.toggle('open')
+        document.body.style.cssText = 'height: 100vh; overflow: hidden;'
+        this.classList.add('open')
     }
 
     selectList.forEach((s) => {
-        s.ontouchstart = (e) => {
+        s.onclick = (e) => {
             selectNode.querySelector('.menu-type.current').classList.remove('current')
             e.target.classList.add('current')
+            selectNode.classList.remove('open')
+            document.body.style.cssText = ''
         }
     })
 
     document.ontouchend = function (e) {
-        if (!e.target?.classList?.contains('menu-select')) {
+        if (!e.target?.classList?.contains('menu-type') && !e.target?.classList?.contains('menu-select')) {
             selectNode.classList.remove('open')
+            document.body.style.cssText = ''
         }
     }
 }
@@ -144,7 +148,17 @@ function setRadio(id) {
     resizeSliders()
 }
 
+function headerHandlers() {
+    document.getElementById('header-description').ontouchstart = (e) => {
+        e.currentTarget.classList.remove('min')
+    }
+    document.getElementById('more-handler').ontouchstart = () => {
+        document.getElementById('more-info').classList.toggle('closed')
+    }
+}
+
 function initUi() {
+    headerHandlers()
     menuSelect()
     customSelect()
     headerScrollSizer()
