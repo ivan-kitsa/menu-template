@@ -53,7 +53,6 @@ body {
 
 .header-wrapper {
   @include flexColumn;
-  max-height: 50rem;
   padding: 2rem 1.6rem 4.4rem;
   background: $orange-30;
   position: fixed;
@@ -77,8 +76,13 @@ body {
   //}
 
   &.header-min {
-    max-height: 6.4rem;
+    height: 0;
     overflow: hidden;
+
+    & > *:not(.category-list) {
+      display: none;
+    }
+
     //-webkit-transition-property: max-height;
     //-webkit-transition-duration: 0ms;
     //-webkit-transition-delay: 0ms;
@@ -126,10 +130,6 @@ body {
     //  -webkit-transition: -webkit-transform 250ms;
     //  transition: transform $main-transition-in;
     //}
-
-    .category-list {
-      z-index: 3;
-    }
   }
 
   .main-info {

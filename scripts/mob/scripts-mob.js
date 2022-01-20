@@ -189,7 +189,7 @@ function popupHandlers() {
 
 function bodyScrollBlock(isBlocked) {
     if (isBlocked) {
-        document.body.style.cssText = 'max-height: 100vh; overflow: hidden;'
+        document.body.style.cssText = 'height: 100vh; max-height: 100vh; overflow: hidden; touch-action: none; -ms-touch-action: none;'
         return
     }
     document.body.style.cssText = ''

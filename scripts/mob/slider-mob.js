@@ -135,8 +135,8 @@ function touchController() {
 
     function xSwipeStabilizer (y, gap) {
         if (swipeDirection.x !== 'center' &&
-            y < gap + 300 &&
-            y > gap - 300) {
+            y < gap + 250 &&
+            y > gap - 250) {
 
             bodyScrollBlock(true)
             return
