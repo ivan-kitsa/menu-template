@@ -1,7 +1,7 @@
 @import "typography-mob";
 @import "../core/mixins";
 
-$main-transition: .3s ease-out;
+$main-transition: 150ms ease-out;
 
 * {
   position: relative;
@@ -14,6 +14,13 @@ $main-transition: .3s ease-out;
   ::selection {
     background: $orange-50;
   }
+
+  ::-webkit-scrollbar {
+    display: none;
+  }
+
+  -ms-overflow-style: none;
+  scrollbar-width: none;
 }
 
 img {
@@ -38,39 +45,57 @@ body {
 
 .header-wrapper {
   @include flexColumn;
-  max-height: 100%;
+  max-height: 50rem;
   padding: 2rem 1.6rem 4.4rem;
   background: $orange-30;
   position: fixed;
   top: 0;
   left: 0;
   transition: max-height $main-transition;
+  -webkit-transition-property: max-height;
+  -webkit-transition-duration: 150ms;
+  -webkit-timing-function: ease-out;
   z-index: 5;
 
   & > .main-info, .description, .more-info{
     transition: transform $main-transition, opacity $main-transition;
+    -webkit-transition-property: transform, opacity;
+    -webkit-transition-duration: 150ms;
+    -webkit-timing-function: ease-out;
     will-change: transform, opacity;
   }
 
   &.header-min {
     max-height: 6.4rem;
     transition: max-height $main-transition;
+    -webkit-transition-property: max-height;
+    -webkit-transition-duration: 150ms;
+    -webkit-timing-function: ease-out;
     overflow: hidden;
 
     .main-info {
       opacity: .1;
       transform: translateY(-5rem) ;
       transition: transform $main-transition, opacity $main-transition;
+      -webkit-transition-property: transform, opacity;
+      -webkit-transition-duration: 150ms;
+      -webkit-timing-function: ease-out;
     }
     .description {
       opacity: .1;
       transform: translateY(-7rem) ;
       transition: transform $main-transition, opacity $main-transition;
+      -webkit-transition-property: transform, opacity;
+      -webkit-transition-duration: 150ms;
+      -webkit-timing-function: ease-out;
     }
     .more-info {
       opacity: .1;
       transform: translateY(-9rem) ;
       transition: transform $main-transition, opacity $main-transition;
+      -webkit-transition-property: transform, opacity;
+      -webkit-transition-duration: 150ms;
+      -webkit-timing-function: ease-out;
     }
   }
 
@@ -168,15 +193,18 @@ body {
 
   .more-info {
     width: calc(100% + 3.2rem);
-    max-height: 60rem;
+    max-height: max-content;
     left: -1.6rem;
     overflow: hidden;
     padding-bottom: 2.6rem;
     margin-bottom: 2.5rem;
-    transition: .25s ease-in-out;
 
     &.closed {
       max-height: 2.6rem;
+
+      &>:not(.more-handler) {
+        visibility: hidden;
+      }
 
       .more-handler {
         span {
@@ -194,6 +222,7 @@ body {
       display: flex;
       width: calc(100% );
       padding: 1.6rem;
+      margin-bottom: .8rem;
       overflow-x: auto;
       overflow-y: hidden;
 
@@ -612,7 +641,7 @@ body {
     color: $gray-500;
     cursor: pointer;
     z-index: 3;
-    transition: .15s ease-in-out;
+    transition: 150ms ease-in-out;
     user-select: none;
 
     &:hover {
@@ -683,7 +712,7 @@ body {
     [data-id='-1'], &[data-id='0'], &[data-id='1'], &[data-id='2'], &[data-id='3'], &[data-id='4'], &[data-id='5'] {
       opacity: 1;
       display: block;
-      transition: .25s ease 0s;
+      transition: 250ms ease 0s;
     }
 
     &[data-id='0'] {

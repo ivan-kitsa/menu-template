@@ -39,11 +39,15 @@ p, span, i, a, button, li {
   list-style-type: none;
   -webkit-appearance: none;
   -moz-appearance: none;
-  appearance: none; }
+  appearance: none;
+  -ms-overflow-style: none;
+  scrollbar-width: none; }
   * ::-moz-selection {
     background: #FFEED7; }
   * ::selection {
     background: #FFEED7; }
+  * ::-webkit-scrollbar {
+    display: none; }
 
 img {
   -webkit-user-select: none;
@@ -62,9 +66,9 @@ body {
   width: 100%;
   padding: 0 1.6rem;
   margin: 0;
-  -webkit-transition: 0.3s ease-out;
-  -o-transition: 0.3s ease-out;
-  transition: 0.3s ease-out; }
+  -webkit-transition: 150ms ease-out;
+  -o-transition: 150ms ease-out;
+  transition: 150ms ease-out; }
 
 .header-wrapper {
   display: -webkit-box;
@@ -80,59 +84,77 @@ body {
   -webkit-box-pack: start;
   -ms-flex-pack: start;
   justify-content: flex-start;
-  max-height: 100%;
+  max-height: 50rem;
   padding: 2rem 1.6rem 4.4rem;
   background: #F9F4E9;
   position: fixed;
   top: 0;
   left: 0;
-  -webkit-transition: max-height 0.3s ease-out;
-  -o-transition: max-height 0.3s ease-out;
-  transition: max-height 0.3s ease-out;
+  -webkit-transition: max-height 150ms ease-out;
+  -o-transition: max-height 150ms ease-out;
+  transition: max-height 150ms ease-out;
+  -webkit-transition-property: max-height;
+  -webkit-transition-duration: 150ms;
+  -webkit-timing-function: ease-out;
   z-index: 5; }
   .header-wrapper > .main-info, .header-wrapper .description, .header-wrapper .more-info {
-    -webkit-transition: opacity 0.3s ease-out, -webkit-transform 0.3s ease-out;
-    transition: opacity 0.3s ease-out, -webkit-transform 0.3s ease-out;
-    -o-transition: transform 0.3s ease-out, opacity 0.3s ease-out;
-    transition: transform 0.3s ease-out, opacity 0.3s ease-out;
-    transition: transform 0.3s ease-out, opacity 0.3s ease-out, -webkit-transform 0.3s ease-out;
+    -webkit-transition: opacity 150ms ease-out, -webkit-transform 150ms ease-out;
+    transition: opacity 150ms ease-out, -webkit-transform 150ms ease-out;
+    -o-transition: transform 150ms ease-out, opacity 150ms ease-out;
+    transition: transform 150ms ease-out, opacity 150ms ease-out;
+    transition: transform 150ms ease-out, opacity 150ms ease-out, -webkit-transform 150ms ease-out;
+    -webkit-transition-property: transform, opacity;
+    -webkit-transition-duration: 150ms;
+    -webkit-timing-function: ease-out;
     will-change: transform, opacity; }
   .header-wrapper.header-min {
     max-height: 6.4rem;
-    -webkit-transition: max-height 0.3s ease-out;
-    -o-transition: max-height 0.3s ease-out;
-    transition: max-height 0.3s ease-out;
+    -webkit-transition: max-height 150ms ease-out;
+    -o-transition: max-height 150ms ease-out;
+    transition: max-height 150ms ease-out;
+    -webkit-transition-property: max-height;
+    -webkit-transition-duration: 150ms;
+    -webkit-timing-function: ease-out;
     overflow: hidden; }
     .header-wrapper.header-min .main-info {
       opacity: .1;
       -webkit-transform: translateY(-5rem);
       -ms-transform: translateY(-5rem);
       transform: translateY(-5rem);
-      -webkit-transition: opacity 0.3s ease-out, -webkit-transform 0.3s ease-out;
-      transition: opacity 0.3s ease-out, -webkit-transform 0.3s ease-out;
-      -o-transition: transform 0.3s ease-out, opacity 0.3s ease-out;
-      transition: transform 0.3s ease-out, opacity 0.3s ease-out;
-      transition: transform 0.3s ease-out, opacity 0.3s ease-out, -webkit-transform 0.3s ease-out; }
+      -webkit-transition: opacity 150ms ease-out, -webkit-transform 150ms ease-out;
+      transition: opacity 150ms ease-out, -webkit-transform 150ms ease-out;
+      -o-transition: transform 150ms ease-out, opacity 150ms ease-out;
+      transition: transform 150ms ease-out, opacity 150ms ease-out;
+      transition: transform 150ms ease-out, opacity 150ms ease-out, -webkit-transform 150ms ease-out;
+      -webkit-transition-property: transform, opacity;
+      -webkit-transition-duration: 150ms;
+      -webkit-timing-function: ease-out; }
     .header-wrapper.header-min .description {
       opacity: .1;
       -webkit-transform: translateY(-7rem);
       -ms-transform: translateY(-7rem);
       transform: translateY(-7rem);
-      -webkit-transition: opacity 0.3s ease-out, -webkit-transform 0.3s ease-out;
-      transition: opacity 0.3s ease-out, -webkit-transform 0.3s ease-out;
-      -o-transition: transform 0.3s ease-out, opacity 0.3s ease-out;
-      transition: transform 0.3s ease-out, opacity 0.3s ease-out;
-      transition: transform 0.3s ease-out, opacity 0.3s ease-out, -webkit-transform 0.3s ease-out; }
+      -webkit-transition: opacity 150ms ease-out, -webkit-transform 150ms ease-out;
+      transition: opacity 150ms ease-out, -webkit-transform 150ms ease-out;
+      -o-transition: transform 150ms ease-out, opacity 150ms ease-out;
+      transition: transform 150ms ease-out, opacity 150ms ease-out;
+      transition: transform 150ms ease-out, opacity 150ms ease-out, -webkit-transform 150ms ease-out;
+      -webkit-transition-property: transform, opacity;
+      -webkit-transition-duration: 150ms;
+      -webkit-timing-function: ease-out; }
     .header-wrapper.header-min .more-info {
       opacity: .1;
       -webkit-transform: translateY(-9rem);
       -ms-transform: translateY(-9rem);
       transform: translateY(-9rem);
-      -webkit-transition: opacity 0.3s ease-out, -webkit-transform 0.3s ease-out;
-      transition: opacity 0.3s ease-out, -webkit-transform 0.3s ease-out;
-      -o-transition: transform 0.3s ease-out, opacity 0.3s ease-out;
-      transition: transform 0.3s ease-out, opacity 0.3s ease-out;
-      transition: transform 0.3s ease-out, opacity 0.3s ease-out, -webkit-transform 0.3s ease-out; }
+      -webkit-transition: opacity 150ms ease-out, -webkit-transform 150ms ease-out;
+      transition: opacity 150ms ease-out, -webkit-transform 150ms ease-out;
+      -o-transition: transform 150ms ease-out, opacity 150ms ease-out;
+      transition: transform 150ms ease-out, opacity 150ms ease-out;
+      transition: transform 150ms ease-out, opacity 150ms ease-out, -webkit-transform 150ms ease-out;
+      -webkit-transition-property: transform, opacity;
+      -webkit-transition-duration: 150ms;
+      -webkit-timing-function: ease-out; }
   .header-wrapper .main-info {
     display: -webkit-box;
     display: -ms-flexbox;
@@ -237,16 +259,17 @@ body {
         pointer-events: auto; }
   .header-wrapper .more-info {
     width: calc(100% + 3.2rem);
-    max-height: 60rem;
+    max-height: -webkit-max-content;
+    max-height: -moz-max-content;
+    max-height: max-content;
     left: -1.6rem;
     overflow: hidden;
     padding-bottom: 2.6rem;
-    margin-bottom: 2.5rem;
-    -webkit-transition: .25s ease-in-out;
-    -o-transition: .25s ease-in-out;
-    transition: .25s ease-in-out; }
+    margin-bottom: 2.5rem; }
     .header-wrapper .more-info.closed {
       max-height: 2.6rem; }
+      .header-wrapper .more-info.closed > :not(.more-handler) {
+        visibility: hidden; }
       .header-wrapper .more-info.closed .more-handler span:after {
         content: 'More'; }
       .header-wrapper .more-info.closed .more-handler span:before {
@@ -259,6 +282,7 @@ body {
       display: flex;
       width: calc(100%);
       padding: 1.6rem;
+      margin-bottom: .8rem;
       overflow-x: auto;
       overflow-y: hidden; }
       .header-wrapper .more-info .tags-list .tag {
@@ -664,9 +688,9 @@ body {
     color: #77797B;
     cursor: pointer;
     z-index: 3;
-    -webkit-transition: .15s ease-in-out;
-    -o-transition: .15s ease-in-out;
-    transition: .15s ease-in-out;
+    -webkit-transition: 150ms ease-in-out;
+    -o-transition: 150ms ease-in-out;
+    transition: 150ms ease-in-out;
     -webkit-user-select: none;
     -moz-user-select: none;
     -ms-user-select: none;
@@ -731,9 +755,9 @@ body {
     .cards-slider .card [data-id='-1'], .cards-slider .card[data-id='0'], .cards-slider .card[data-id='1'], .cards-slider .card[data-id='2'], .cards-slider .card[data-id='3'], .cards-slider .card[data-id='4'], .cards-slider .card[data-id='5'] {
       opacity: 1;
       display: block;
-      -webkit-transition: .25s ease 0s;
-      -o-transition: .25s ease 0s;
-      transition: .25s ease 0s; }
+      -webkit-transition: 250ms ease 0s;
+      -o-transition: 250ms ease 0s;
+      transition: 250ms ease 0s; }
     .cards-slider .card[data-id='0'] {
       -webkit-transform: translateX(-16.4rem);
       -ms-transform: translateX(-16.4rem);
