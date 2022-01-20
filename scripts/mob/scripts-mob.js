@@ -34,22 +34,33 @@ function menuSelect() {
         return
     }
 
-    selectNode.ontouchend = function (){
-        this.classList.toggle('open')
-    }
-
-    selectList.forEach((s) => {
-        s.ontouchstart = (e) => {
-            selectNode.querySelector('.menu-type.current').classList.remove('current')
-            e.target.classList.add('current')
+    selectNode.addEventListener('touchend', (e) => {
+        if (e.target.classList.contains('open')) {
+            document.body.style.cssText = ''
+            e.target.classList.remove('open')
+            return
         }
+        document.body.style.cssText = 'height: 100vh; overflow: hidden;'
+        e.target.classList.add('open')
     })
 
-    document.ontouchend = function (e) {
-        if (!e.target?.classList?.contains('menu-select')) {
+    selectList.forEach((s) => {
+        s.addEventListener('click', (e) => {
+            selectNode.querySelector('.menu-type.current').classList.remove('current')
+            e.target.classList.add('current')
+            setTimeout(() => {
+                selectNode.classList.remove('open')
+                document.body.style.cssText = ''
+            }, 100)
+        } )
+    })
+
+    document.addEventListener('touchend', (e) => {
+        if (!e.target?.classList?.contains('menu-type') && !e.target?.classList?.contains('menu-select')) {
             selectNode.classList.remove('open')
+            document.body.style.cssText = ''
         }
-    }
+    })
 }
 
 function headerScrollSizer() {
@@ -144,7 +155,17 @@ function setRadio(id) {
     resizeSliders()
 }
 
+function headerHandlers() {
+    document.getElementById('header-description').ontouchstart = (e) => {
+        e.currentTarget.classList.remove('min')
+    }
+    document.getElementById('more-handler').ontouchstart = () => {
+        document.getElementById('more-info').classList.toggle('closed')
+    }
+}
+
 function initUi() {
+    headerHandlers()
     menuSelect()
     customSelect()
     headerScrollSizer()

@@ -73,11 +73,6 @@ class Slider {
     init() {
         this.setSizes()
         this.slider.addEventListener('touchend', () => this.swipeControls())
-        if (this.cards.length - 1 < this.getMaxViewsSlides()) {
-            this.rightButton.classList.add('hidden')
-        }
-
-        console.log(this.getMaxViewsSlides())
     }
 }
 
@@ -100,16 +95,16 @@ function touchController() {
         const x = from.x - to.x
         const y = from.y - to.y
 
-        if (x < -100) {
+        if (x < -50) {
             swipeDirection.x = 'right'
-        } else if  (x > 100) {
+        } else if  (x > 50) {
             swipeDirection.x = 'left'
         } else {
             swipeDirection.x = 'center'
         }
-        if (y < -100) {
+        if (y < -50) {
             swipeDirection.y = 'bottom'
-        } else if (y > 100) {
+        } else if (y > 50) {
             swipeDirection.y = 'top'
         } else {
             swipeDirection.y = 'center'

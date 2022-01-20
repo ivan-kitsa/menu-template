@@ -1,7 +1,8 @@
 @import "typography-mob";
 @import "../core/mixins";
 
-$main-transition: .3s ease-out;
+$main-transition: 250ms ease-out 0s;
+$main-transition-in: 250ms ease-in 0s;
 
 * {
   position: relative;
@@ -10,10 +11,18 @@ $main-transition: .3s ease-out;
   padding: 0;
   list-style-type: none;
   appearance: none;
+  scroll-behavior: smooth;
 
   ::selection {
     background: $orange-50;
   }
+
+  ::-webkit-scrollbar {
+    display: none;
+  }
+
+  -ms-overflow-style: none;
+  scrollbar-width: none;
 }
 
 img {
@@ -38,39 +47,76 @@ body {
 
 .header-wrapper {
   @include flexColumn;
-  max-height: 100%;
+  max-height: 50rem;
   padding: 2rem 1.6rem 4.4rem;
   background: $orange-30;
   position: fixed;
   top: 0;
   left: 0;
   transition: max-height $main-transition;
+  -webkit-transition-property: max-height;
+  -webkit-transition-duration: 350ms;
+  -webkit-transition-delay: 0ms;
+  -webkit-timing-function: ease-out;
   z-index: 5;
 
-  & > .main-info, .description, .more-info{
+  & > .main-info, .description, .more-info, .menu-select{
     transition: transform $main-transition, opacity $main-transition;
+    -webkit-transition-property: transform, opacity;
+    -webkit-transition-duration: 250ms;
+    -webkit-transition-delay: 0ms;
+    -webkit-timing-function: ease-in;
     will-change: transform, opacity;
   }
 
   &.header-min {
     max-height: 6.4rem;
-    transition: max-height $main-transition;
+    transition: max-height $main-transition-in;
+    -webkit-transition-property: max-height;
+    -webkit-transition-duration: 300ms;
+    -webkit-transition-delay: 0ms;
+    -webkit-timing-function: ease-in;
     overflow: hidden;
 
     .main-info {
       opacity: .1;
       transform: translateY(-5rem) ;
-      transition: transform $main-transition, opacity $main-transition;
+      transition: transform $main-transition-in, opacity $main-transition-in;
+      -webkit-transition-property: transform, opacity;
+      -webkit-transition-duration: 200ms;
+      -webkit-transition-delay: 0ms;
+      -webkit-timing-function: ease-in;
     }
     .description {
       opacity: .1;
       transform: translateY(-7rem) ;
-      transition: transform $main-transition, opacity $main-transition;
+      transition: transform $main-transition-in, opacity $main-transition-in;
+      -webkit-transition-property: transform, opacity;
+      -webkit-transition-duration: 200ms;
+      -webkit-transition-delay: 0ms;
+      -webkit-timing-function: ease-in;
     }
     .more-info {
       opacity: .1;
       transform: translateY(-9rem) ;
-      transition: transform $main-transition, opacity $main-transition;
+      transition: transform $main-transition-in, opacity $main-transition-in;
+      -webkit-transition-property: transform, opacity;
+      -webkit-transition-duration: 200ms;
+      -webkit-transition-delay: 0ms;
+      -webkit-timing-function: ease-in;
+    }
+    .menu-select {
+      opacity: .1;
+      transform: translateY(-12rem) ;
+      transition: transform $main-transition-in, opacity $main-transition-in;
+      -webkit-transition-property: transform, opacity;
+      -webkit-transition-duration: 200ms;
+      -webkit-transition-delay: 0ms;
+      -webkit-timing-function: ease-in;
+    }
+
+    .category-list {
+      z-index: 3;
     }
   }
 
@@ -168,15 +214,18 @@ body {
 
   .more-info {
     width: calc(100% + 3.2rem);
-    max-height: 60rem;
+    max-height: max-content;
     left: -1.6rem;
     overflow: hidden;
     padding-bottom: 2.6rem;
     margin-bottom: 2.5rem;
-    transition: .25s ease-in-out;
 
     &.closed {
       max-height: 2.6rem;
+
+      &>:not(.more-handler) {
+        display: none;
+      }
 
       .more-handler {
         span {
@@ -194,6 +243,7 @@ body {
       display: flex;
       width: calc(100% );
       padding: 1.6rem;
+      margin-bottom: .8rem;
       overflow-x: auto;
       overflow-y: hidden;
 
@@ -419,6 +469,21 @@ body {
   }
 }
 
+footer {
+  @include flex;
+  position: fixed;
+  justify-content: space-between;
+  padding: 1.5rem 1.6rem;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background: $orange-30;
+
+  .button {
+    width: calc(50% - .5rem);
+  }
+}
+
 // Components
 .select {
   background: $orange-30;
@@ -510,13 +575,15 @@ body {
   .menu-types {
     display: none;
     width: 100%;
+    max-height: 14.4rem;
     position: absolute;
     left: 0;
     top: 100%;
     box-shadow: .2rem .5rem 1.5rem 0 rgba(9, 18, 70, 0.1);
     background: $white;
     border-radius: .8rem;
-    overflow: hidden;
+    overflow-x: hidden;
+    overflow-y: auto;
 
     .menu-type {
       width: 100%;
@@ -525,6 +592,10 @@ body {
       font-family: 'Poppins', sans-serif;
       font-size: 1.6rem;
       line-height: 2.4rem;
+
+      &:active {
+        background: $orange-30;
+      }
 
       &.current {
         background: $orange-30;
@@ -567,16 +638,23 @@ body {
 .button {
   font-family: 'Poppins', sans-serif;
   font-weight: 700;
+  font-size: 1.6rem;
+  line-height: 2rem;
   width: 100%;
-  height: 4.8rem;
+  height: 4.4rem;
   background: $orange-500;
   border-radius: .8rem;
   border: none;
   box-shadow: none;
   cursor: pointer;
 
-  &:hover {
+  &:active {
     background: $orange-700;
+  }
+
+  &.clear {
+    background: none;
+    border: 1px solid $gray-800;
   }
 
   &.light {
@@ -612,7 +690,7 @@ body {
     color: $gray-500;
     cursor: pointer;
     z-index: 3;
-    transition: .15s ease-in-out;
+    transition: 150ms ease-in-out;
     user-select: none;
 
     &:hover {
@@ -651,24 +729,6 @@ body {
     max-width: 100%;
     overflow: hidden;
     display: flex;
-
-    &:before, &:after {
-      //display: none !important;
-      content: '';
-      position: absolute;
-      right: 0;
-      top: 0;
-      width: 4rem;
-      height: 100%;
-      background: linear-gradient(270deg, #F9F4E9 0%, rgba(249, 244, 233, 0) 75%);
-      pointer-events: none;
-      z-index: 2;
-    }
-    &:before {
-      right: auto;
-      left: 0;
-      background: linear-gradient(90deg, #F9F4E9 0%, rgba(249, 244, 233, 0) 75%);
-    }
   }
 
   .card {
@@ -683,7 +743,11 @@ body {
     [data-id='-1'], &[data-id='0'], &[data-id='1'], &[data-id='2'], &[data-id='3'], &[data-id='4'], &[data-id='5'] {
       opacity: 1;
       display: block;
-      transition: .25s ease 0s;
+      transition: 250ms ease 0s;
+      -webkit-transition-property: transform;
+      -webkit-transition-duration: 250ms;
+      -webkit-transition-delay: 0ms;
+      -webkit-timing-function: ease;
     }
 
     &[data-id='0'] {
