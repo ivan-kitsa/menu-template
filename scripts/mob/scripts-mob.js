@@ -36,29 +36,32 @@ function menuSelect() {
 
     selectNode.addEventListener('touchend', (e) => {
         if (e.target.classList.contains('open')) {
-            document.body.style.cssText = ''
             e.target.classList.remove('open')
+            bodyScrollBlock(false)
             return
         }
-        document.body.style.cssText = 'height: 100vh; overflow: hidden;'
         e.target.classList.add('open')
+        bodyScrollBlock(true)
     })
 
     selectList.forEach((s) => {
         s.addEventListener('click', (e) => {
             selectNode.querySelector('.menu-type.current').classList.remove('current')
             e.target.classList.add('current')
+
             setTimeout(() => {
                 selectNode.classList.remove('open')
-                document.body.style.cssText = ''
+                bodyScrollBlock(false)
             }, 100)
         } )
     })
 
     document.addEventListener('touchend', (e) => {
-        if (!e.target?.classList?.contains('menu-type') && !e.target?.classList?.contains('menu-select')) {
+        if (selectNode.classList.contains('open') &&
+            !e.target?.classList?.contains('menu-type') &&
+            !e.target?.classList?.contains('menu-select')) {
             selectNode.classList.remove('open')
-            document.body.style.cssText = ''
+            bodyScrollBlock(false)
         }
     })
 }
@@ -163,9 +166,37 @@ function headerHandlers() {
         document.getElementById('more-info').classList.toggle('closed')
     }
 }
+function popupHandlers() {
+    const closers = document.querySelectorAll('footer *[data-popup-closer]')
+    const handlers = document.querySelectorAll('footer *[data-popup-handler]')
+
+    closers.forEach(c => {
+        c.ontouchend = () => {
+            const id = `${c.getAttribute('data-popup-closer')}`
+            document.getElementById(id).classList.remove('open')
+            bodyScrollBlock(false)
+        }
+    })
+    handlers.forEach(c => {
+        c.ontouchend = () => {
+            const id = `${c.getAttribute('data-popup-handler')}`
+            document.getElementById(id).classList.add('open')
+            bodyScrollBlock(true)
+        }
+    })
+}
+
+function bodyScrollBlock(isBlocked) {
+    if (isBlocked) {
+        document.body.style.cssText = 'max-height: 100vh; overflow: hidden;'
+        return
+    }
+    document.body.style.cssText = ''
+}
 
 function initUi() {
     headerHandlers()
+    popupHandlers()
     menuSelect()
     customSelect()
     headerScrollSizer()

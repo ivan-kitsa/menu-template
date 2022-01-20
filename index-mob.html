@@ -97,8 +97,8 @@
             <div class='menu-type current' id='breakfast-menu'>Breakfast menu</div>
             <div class='menu-type' id='dinner-menu'>Dinner menu</div>
             <div class='menu-type' id='wine-menu'>Wine menu</div>
-            <div class='menu-type' id='wine-menu'>Wine menu</div>
-            <div class='menu-type' id='wine-menu'>Wine menu</div>
+            <div class='menu-type' id='test1-menu'>Test1 menu</div>
+            <div class='menu-type' id='test2-menu'>Test2 menu</div>
         </div>
     </div>
     <div class='category-list'>
@@ -332,8 +332,51 @@
     </section>
 </main>
 <footer>
-    <button class='button clear'>Share</button>
-    <button class='button'>Order</button>
+    <button class='button clear' data-popup-handler='share-popup'>Share</button>
+    <button class='button' data-popup-handler='order-popup'>Order</button>
+    <div class='footer-popup' id='share-popup'>
+        <div class='background' data-popup-closer='share-popup'></div>
+        <div class='popup'>
+            <div class='popup-head'>
+                <b>Share to</b>
+                <img src='./shared/icons/cross-black.svg' width='16' height='16' alt='x'
+                     data-popup-closer='share-popup' />
+            </div>
+            <div class='popup-body'>
+                <a data-link='#share-link' class='share-link'>
+                    <div class='img'>
+                        <img src='./shared/icons/share-link-white.svg' width='24' height='24' alt='share'>
+                    </div>
+                    <b>Copy Link</b>
+                </a>
+                <a data-link='#message-link' class='share-link'>
+                    <div class='img green'>
+                        <img src='./shared/icons/message-white.svg' width='24' height='24' alt='share'>
+                    </div>
+                    <b>Message</b>
+                </a>
+                <a data-link='#share-link' class='share-link'>
+                    <div class='img whatsapp'>
+                        <img src='./shared/icons/whatsapp.svg' width='24' height='24' alt='share'>
+                    </div>
+                    <b>WhatsApp</b>
+                </a>
+            </div>
+        </div>
+    </div>
+    <div class='footer-popup' id='order-popup'>
+        <div class='background' data-popup-closer='order-popup'></div>
+        <div class='popup'>
+            <div class='popup-head'>
+                <b>Order</b>
+                <img src='./shared/icons/cross-black.svg' width='16' height='16' alt='x'
+                     data-popup-closer='order-popup' />
+            </div>
+            <div class='popup-body'>
+
+            </div>
+        </div>
+    </div>
 </footer>
 
 <script src='./scripts/smoothscroll.min.js'></script>
