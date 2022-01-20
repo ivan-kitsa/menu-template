@@ -1,0 +1,193 @@
+<!doctype html>
+<html lang='en'>
+<head>
+    <meta charset='UTF-8'>
+    <meta name='viewport'
+          content='width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0'>
+    <meta http-equiv='X-UA-Compatible' content='ie=edge'>
+    <link rel='preload' href='./styles/mob/styles-mob.css' as='style'>
+    <link rel='preload' href='./scripts/mob/scripts-mob.js' as='script'>
+    <link rel='preload' href='./scripts/mob/slider-mob.js' as='script'>
+    <link rel='preconnect' href='https://fonts.googleapis.com'>
+    <link rel='preconnect' href='https://fonts.gstatic.com' crossorigin>
+    <link rel='stylesheet' href='https://fonts.googleapis.com/css2?family=Inter:wght@400;700&family=Poppins:wght@400;600;700&display=swap'>
+    <link rel='stylesheet' href='./styles/mob/styles-mob.css'>
+    <link rel='icon' href='./shared/favicon.png' type='image/png'>
+    <title>Menu</title>
+</head>
+<body>
+
+<header class='header-wrapper header-category'>
+    <a href='./index-mob.html' class='forward-link'>
+        <img src='./shared/icons/arrow-left-gray.svg' width='24' height='24' alt='<'>
+    </a>
+    <h1>Cocktails</h1>
+</header>
+<main class='main-wrapper'>
+    <section class='category-section' id='general-menu'>
+        <div class='general-menu column-2'>
+            <div class='food-card'>
+                <div class='img-wrapper'>
+                    <img src='./shared/mocks/mock-food.png' alt='img' />
+                    <span class='cost'>$15</span>
+                </div>
+                <h4>Margherita</h4>
+            </div>
+            <div class='food-card'>
+                <div class='img-wrapper'>
+                    <img src='./shared/mocks/mock-food.png' alt='img' />
+                    <span class='cost'>$15</span>
+                </div>
+                <h4>Pepperoni</h4>
+            </div>
+            <div class='food-card'>
+                <div class='img-wrapper'>
+                    <img src='./shared/mocks/coctail-1.png' alt='img' />
+                    <span class='cost'>$15</span>
+                </div>
+                <h4>D4 Pork Soup Dumplings</h4>
+            </div>
+            <div class='food-card'>
+                <div class='img-wrapper'>
+                    <img src='./shared/mocks/coctail-2.png' alt='img' />
+                    <span class='cost'>$15</span>
+                </div>
+                <h4>D4 Pork Soup</h4>
+            </div>
+            <div class='food-card'>
+                <div class='img-wrapper'>
+                    <img src='./shared/mocks/coctail-2.png' alt='img' />
+                    <span class='cost'>$15</span>
+                </div>
+                <h4>D4 Pork Soup</h4>
+            </div>
+        </div>
+    </section>
+</main>
+<footer>
+    <button class='button small clear' data-popup-handler='share-popup'>Share</button>
+    <button class='button small' data-popup-handler='order-popup'>Order</button>
+    <div class='footer-popup' id='share-popup'>
+        <div class='background' data-popup-closer='share-popup'></div>
+        <div class='popup'>
+            <div class='popup-head'>
+                <b>Share to</b>
+                <div class='closer' data-popup-closer='share-popup'>
+                    <img src='./shared/icons/cross-black.svg' width='16' height='16' alt='x' />
+                </div>
+            </div>
+            <div class='popup-body'>
+                <a data-link='#share-link' class='share-link'>
+                    <div class='img'>
+                        <img src='./shared/icons/share-link-white.svg' width='24' height='24' alt='share'>
+                    </div>
+                    <b>Copy Link</b>
+                </a>
+                <a data-link='#message-link' class='share-link'>
+                    <div class='img green'>
+                        <img src='./shared/icons/message-white.svg' width='24' height='24' alt='share'>
+                    </div>
+                    <b>Message</b>
+                </a>
+                <a data-link='#share-link' class='share-link'>
+                    <div class='img whatsapp'>
+                        <img src='./shared/icons/whatsapp.svg' width='24' height='24' alt='share'>
+                    </div>
+                    <b>WhatsApp</b>
+                </a>
+            </div>
+        </div>
+    </div>
+    <div class='footer-popup' id='order-popup'>
+        <div class='background' data-popup-closer='order-popup'></div>
+        <div class='popup'>
+            <div class='popup-head'>
+                <b>How you wanna get your food?</b>
+                <div class='closer' data-popup-closer='order-popup' >
+                    <img src='./shared/icons/cross-black.svg' width='16' height='16' alt='x' />
+                </div>
+            </div>
+            <div class='popup-body'>
+                <div class='order-select'>
+                    <div class='select-head'>
+                        <img class='select-ico' src='./shared/icons/order/online-order.svg' width='24' height='24' alt='ico' />
+                        <b class='select-title' data-amt='4'>Online order</b>
+                        <img src='./shared/icons/arrow-bottom.svg' width='28' height='28' alt='V'>
+                    </div>
+                    <div class='select-items'>
+                        <label for='postmates'>
+                            <input type="radio" name="order" id="postmates">
+                            <img src='./shared/icons/order/postmates.svg' width='24' height='24' alt='ico' />
+                            <b>Postmates</b>
+                            <div class='custom-radio'></div>
+                        </label>
+                        <label for='doordash'>
+                            <input type="radio" name="order" id="doordash">
+                            <img src='./shared/icons/order/doordash.svg' width='24' height='24' alt='ico' />
+                            <b>Doordash</b>
+                            <div class='custom-radio'></div>
+                        </label>
+                        <label for='caviar'>
+                            <input type="radio" name="order" id="caviar">
+                            <img src='./shared/icons/order/caviar.svg' width='24' height='24' alt='ico' />
+                            <b>Caviar</b>
+                            <div class='custom-radio'></div>
+                        </label>
+                        <label for='grubhub'>
+                            <input type="radio" name="order" id="grubhub">
+                            <img src='./shared/icons/order/grub-hub.svg' width='24' height='24' alt='ico' />
+                            <b>GrubHub</b>
+                            <div class='custom-radio'></div>
+                        </label>
+                    </div>
+                </div>
+                <div class='order-select'>
+                    <div class='select-head'>
+                        <img class='select-ico' src='./shared/icons/order/book-a-table.svg' width='24' height='24' alt='ico' />
+                        <b class='select-title' data-amt='2'>Book a table</b>
+                        <img src='./shared/icons/arrow-bottom.svg' width='28' height='28' alt='V'>
+                    </div>
+                    <div class='select-items'>
+                        <label for='opentable'>
+                            <input type="radio" name="order" id="opentable">
+                            <img src='./shared/icons/order/opentable.svg' width='24' height='24' alt='ico' />
+                            <b>Opentable</b>
+                            <div class='custom-radio'></div>
+                        </label>
+                        <label for='resy'>
+                            <input type="radio" name="order" id="resy">
+                            <img src='./shared/icons/order/resy.svg' width='24' height='24' alt='ico' />
+                            <b>Resy</b>
+                            <div class='custom-radio'></div>
+                        </label>
+                    </div>
+                </div>
+                <div class='order-mono-select'>
+                    <input type="radio" name="order" id="cash">
+                    <label for='cash'>
+                        <img class='select-ico' src='./shared/icons/order/call-to-order.svg' width='24' height='24' alt='ico' />
+                        <b class='select-title'>Call to order</b>
+                        <div class='custom-radio'></div>
+                    </label>
+                    <div class='select-items'>
+                        <div>
+                            <img src='./shared/icons/cursor-light-gray.svg' width='24' height='24' alt='ico' />
+                            <span>28 Anacapa ST Unit E Santa Barbara,CA 93109</span>
+                        </div>
+                        <div>
+                            <img src='./shared/icons/phone-light-gray.svg' width='24' height='24' alt='ico' />
+                            <a href='tel:+1 909-371-5964'>+1 909-371-5964</a>
+                        </div>
+                    </div>
+                </div>
+                <button class='button disabled' id='order-continue'>Continue</button>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<script src='./scripts/smoothscroll.min.js'></script>
+<script src='./scripts/mob/slider-mob.js'></script>
+<script src='./scripts/mob/scripts-mob.js'></script>
+</body>
+</html>

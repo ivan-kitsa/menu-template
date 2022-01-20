@@ -159,12 +159,16 @@ function setRadio(id) {
 }
 
 function headerHandlers() {
-    document.getElementById('header-description').ontouchstart = (e) => {
+    const headerDescription = document.getElementById('header-description')
+    const moreHandler = document.getElementById('more-handler')
+
+    headerDescription ? headerDescription.ontouchstart = (e) => {
         e.currentTarget.classList.remove('min')
-    }
-    document.getElementById('more-handler').ontouchstart = () => {
+    } : null
+
+    moreHandler ? moreHandler.ontouchstart = () => {
         document.getElementById('more-info').classList.toggle('closed')
-    }
+    } : null
 }
 
 function popupHandlers() {
@@ -206,6 +210,10 @@ function orderHandlers() {
     const orderTypes = orderPopup.querySelectorAll('input[type="radio"]')
     const button = document.getElementById('order-continue')
 
+    if (!orderPopup || !orderSelects || !orderTypes || button) {
+        return
+    }
+
     orderSelects.forEach(s => {
         s.onclick = (e) => {
             setTimeout(() => {
@@ -241,9 +249,9 @@ function refreshOrderPopup() {
     orderTypes.forEach(i => {
         i.checked = false
     })
-    button.classList.add('disabled')
-    button.classList.remove('hidden')
-    orderPopup.querySelector('.order-select.open')?.classList.remove('open')
+    button?.classList.add('disabled')
+    button?.classList.remove('hidden')
+    orderPopup?.querySelector('.order-select.open')?.classList.remove('open')
 }
 
 function initUi() {
