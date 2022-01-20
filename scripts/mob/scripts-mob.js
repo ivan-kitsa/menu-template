@@ -210,10 +210,6 @@ function orderHandlers() {
     const orderTypes = orderPopup.querySelectorAll('input[type="radio"]')
     const button = document.getElementById('order-continue')
 
-    if (!orderPopup || !orderSelects || !orderTypes || button) {
-        return
-    }
-
     orderSelects.forEach(s => {
         s.onclick = (e) => {
             setTimeout(() => {
@@ -228,15 +224,15 @@ function orderHandlers() {
     })
     orderTypes.forEach(i => {
         i.oninput = (e) => {
-            button.classList.remove('disabled')
+            button?.classList.remove('disabled')
 
             if (e.target.id === 'cash') {
                 orderPopup.querySelector('.order-select.open')?.classList.remove('open')
-                button.classList.add('hidden')
+                button?.classList.add('hidden')
                 return
             }
 
-            button.classList.remove('hidden')
+            button?.classList.remove('hidden')
         }
     })
 }
