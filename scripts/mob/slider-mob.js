@@ -106,17 +106,18 @@ function touchController() {
     function getSwipeDirection() {
         const x = from.x - to.x
         const y = from.y - to.y
+        const gap = 40
 
-        if (x < -10) {
+        if (x < -gap) {
             swipeDirection.x = 'right'
-        } else if  (x > 10) {
+        } else if  (x > gap) {
             swipeDirection.x = 'left'
         } else {
             swipeDirection.x = 'center'
         }
-        if (y < -10) {
+        if (y < -gap) {
             swipeDirection.y = 'bottom'
-        } else if (y > 10) {
+        } else if (y > gap) {
             swipeDirection.y = 'top'
         } else {
             swipeDirection.y = 'center'

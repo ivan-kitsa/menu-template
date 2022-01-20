@@ -1,8 +1,8 @@
 @import "typography-mob";
 @import "../core/mixins";
 
-$main-transition: 150ms ease-out 0s;
-$main-transition-in: 150ms ease-in 0s;
+$main-transition: 250ms ease-out 0s;
+$main-transition-in: 250ms ease-in 0s;
 
 * {
   position: relative;
@@ -13,7 +13,7 @@ $main-transition-in: 150ms ease-in 0s;
   -webkit-appearance: none;
   -moz-appearance: none;
   appearance: none;
-  scroll-behavior: smooth;
+  //scroll-behavior: smooth;
 
   ::selection {
     background: $orange-50;
@@ -25,6 +25,10 @@ $main-transition-in: 150ms ease-in 0s;
 
   -ms-overflow-style: none;
   scrollbar-width: none;
+
+  @media (prefers-reduced-motion: reduce) {
+
+  }
 }
 
 img {
@@ -55,69 +59,71 @@ body {
   position: fixed;
   top: 0;
   left: 0;
-  transition: max-height $main-transition;
   -webkit-transition-property: max-height;
-  -webkit-transition-duration: 150ms;
+  -webkit-transition-duration: 250ms;
   -webkit-transition-delay: 0ms;
   -webkit-timing-function: ease-out;
+  transition: max-height 250ms ease-out 0ms;
   z-index: 5;
 
   & > .main-info, .description, .more-info, .menu-select {
-    transition: transform $main-transition, opacity $main-transition;
-    -webkit-transition-property: transform, opacity;
-    -webkit-transition-duration: 150ms;
+    -webkit-transition-property: transform;
+    -webkit-transition-duration: 250ms;
     -webkit-transition-delay: 0ms;
     -webkit-timing-function: ease-in;
-    will-change: transform, opacity;
+    -webkit-transition: -webkit-transform 250ms;
+    transition: transform $main-transition;
   }
 
   &.header-min {
     max-height: 6.4rem;
-    transition: max-height $main-transition-in;
     -webkit-transition-property: max-height;
-    -webkit-transition-duration: 150ms;
+    -webkit-transition-duration: 0ms;
     -webkit-transition-delay: 0ms;
     -webkit-timing-function: ease-in;
+    transition: max-height 0ms ease-in;
     overflow: hidden;
 
     .main-info {
-      opacity: .1;
       transform: translateY(-5rem);
-      transition: transform $main-transition-in, opacity $main-transition-in;
-      -webkit-transition-property: transform, opacity;
-      -webkit-transition-duration: 150ms;
+      -webkit-transition-property: transform;
+      -webkit-transition-duration: 250ms;
       -webkit-transition-delay: 0ms;
       -webkit-timing-function: ease-in;
+      -webkit-transition: -webkit-transform 250ms;
+      transition: transform $main-transition-in;
     }
 
     .description {
-      opacity: .1;
       transform: translateY(-7rem);
-      transition: transform $main-transition-in, opacity $main-transition-in;
-      -webkit-transition-property: transform, opacity;
-      -webkit-transition-duration: 150ms;
+      -webkit-transition-property: transform;
+      -webkit-transition-duration: 250ms;
       -webkit-transition-delay: 0ms;
       -webkit-timing-function: ease-in;
+      -webkit-transition: -webkit-transform 250ms;
+      transition: transform $main-transition-in;
     }
 
     .more-info {
-      opacity: .1;
+      //opacity: 0;
       transform: translateY(-9rem);
-      transition: transform $main-transition-in, opacity $main-transition-in;
-      -webkit-transition-property: transform, opacity;
-      -webkit-transition-duration: 150ms;
+      -webkit-transition-property: transform;
+      -webkit-transition-duration: 250ms;
       -webkit-transition-delay: 0ms;
       -webkit-timing-function: ease-in;
+      -webkit-transition: -webkit-transform 250ms;
+      transition: transform $main-transition-in;
     }
 
     .menu-select {
-      opacity: .1;
+      opacity: 0;
       transform: translateY(-12rem);
-      transition: transform $main-transition-in, opacity $main-transition-in;
-      -webkit-transition-property: transform, opacity;
-      -webkit-transition-duration: 150ms;
+      -webkit-transition-property: transform;
+      -webkit-transition-duration: 250ms;
       -webkit-transition-delay: 0ms;
       -webkit-timing-function: ease-in;
+      -webkit-transition: -webkit-transform 250ms;
+      transition: transform $main-transition-in;
     }
 
     .category-list {
@@ -491,9 +497,88 @@ footer {
   left: 0;
   width: 100%;
   background: $orange-30;
+  z-index: 5;
 
   .button {
     width: calc(50% - .5rem);
+  }
+
+  .footer-popup {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    display: none;
+
+    &.open {
+      display: block;
+    }
+
+    .background {
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      width: 100%;
+      height: 100vh;
+      background: $black-40;
+    }
+
+    .popup {
+      width: 100%;
+      background: $orange-30;
+      border-radius: 1.2rem 1.2rem 0 0;
+
+      .popup-head {
+        @include flexCenter;
+        width: 100%;
+        padding: 1.6rem;
+
+        b{
+          font-family: 'Poppins', sans-serif;
+          font-size: 1.6rem;
+          line-height: 2.4rem;
+        }
+
+        img {
+          position: absolute;
+          right: 2rem;
+        }
+      }
+      .popup-body {
+        @include flexColumn;
+        padding-bottom: 1.6rem;
+        width: 100%;
+
+        .share-link {
+          @include flex;
+          align-items: center;
+          width: 100%;
+          padding: 1.2rem 2.8rem;
+
+          .img {
+            @include flexCenter;
+            width: 3.2rem;
+            height: 3.2rem;
+            border-radius: 50%;
+            background: $orange-500;
+            margin-right: 1.6rem;
+
+            &.green {
+              background: $green-bright;
+            }
+            &.whatsapp {
+              background: #65CF72;
+            }
+          }
+
+          b {
+            font-family: 'Poppins', sans-serif;
+            font-size: 1.6rem;
+            line-height: 2.4rem;
+          }
+        }
+      }
+    }
   }
 }
 
@@ -759,8 +844,6 @@ footer {
     position: absolute;
     top: 0;
     left: 0;
-    transform: translateX(0);
-    will-change: transform;
 
     [data-id='-1'],
     &[data-id='0'],
@@ -771,35 +854,35 @@ footer {
     &[data-id='5'] {
       opacity: 1;
       display: block;
-      transition: 250ms ease 0ms;
-      -webkit-transition-property: transform;
+      transition: left 250ms ease 0ms;
+      -webkit-transition-property: left;
       -webkit-transition-duration: 250ms;
       -webkit-transition-delay: 0ms;
       -webkit-timing-function: ease;
     }
 
     &[data-id='0'] {
-      transform: translateX(-16.4rem);
+      left: -16.4rem;
     }
 
     &[data-id='1'] {
-      transform: translateX(1.6rem);
+      left: 1.6rem;
     }
 
     &[data-id='2'] {
-      transform: translateX(19.6rem);
+      left: 19.6rem;
     }
 
     &[data-id='3'] {
-      transform: translateX(37.6rem);
+      left: 37.6rem;
     }
 
     &[data-id='4'] {
-      transform: translateX(55.6rem);
+      left: 55.6rem;
     }
 
     &[data-id='5'] {
-      transform: translateX(73.6rem);
+      left: 73.6rem;
     }
   }
 }
