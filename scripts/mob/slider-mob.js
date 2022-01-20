@@ -98,17 +98,25 @@ function touchController() {
         from.y = e.changedTouches[0].clientY
     }, false)
 
-    // document.addEventListener('touchend', (e) => {
-    //     to.x = e.changedTouches[0].clientX
-    //     to.y = e.changedTouches[0].clientY
-    //     getSwipeDirection()
-    // }, false)
+    document.addEventListener('touchend', (e) => {
+        to.x = e.changedTouches[0].clientX
+        to.y = e.changedTouches[0].clientY
+        getSwipeDirection()
+        clear()
+    }, false)
 
     document.addEventListener('touchmove', (e) => {
         to.x = e.changedTouches[0].clientX
         to.y = e.changedTouches[0].clientY
         getSwipeDirection()
     }, false)
+
+    function clear() {
+        from.x = 0
+        from.y = 0
+        to.x = 0
+        to.y = 0
+    }
 
     function getSwipeDirection() {
         const x = from.x - to.x
@@ -130,19 +138,19 @@ function touchController() {
             swipeDirection.y = 'center'
         }
 
-        xSwipeStabilizer(y, gap)
+        // xSwipeStabilizer(y, gap)
     }
 
-    function xSwipeStabilizer (y, gap) {
-        if (swipeDirection.x !== 'center' &&
-            y < gap + 250 &&
-            y > gap - 250) {
-
-            bodyScrollBlock(true)
-            return
-        }
-        bodyScrollBlock(false)
-    }
+    // function xSwipeStabilizer (y, gap) {
+    //     if (swipeDirection.x !== 'center' &&
+    //         y < gap + 250 &&
+    //         y > gap - 250) {
+    //
+    //         bodyScrollBlock(true)
+    //         return
+    //     }
+    //     bodyScrollBlock(false)
+    // }
 }
 
 function getAllSlidersIds() {
