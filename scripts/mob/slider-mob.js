@@ -31,6 +31,10 @@ class Slider {
     }
     moveToRight() {
         if (+this.cards[0].getAttribute('data-id') === 1) {
+            this.slider.classList.add('left-end')
+            setTimeout(() => {
+                this.slider.classList.remove('left-end')
+            }, 150)
             return
         }
         for (let i = 0, dataId = 0; i < this.cards.length; i++) {
@@ -40,7 +44,11 @@ class Slider {
     }
     moveToLeft() {
         if (+this.cards[this.cards.length - 1].getAttribute('data-id') === this.getMaxViewsSlides()) {
-            return;
+            this.slider.classList.add('right-end')
+            setTimeout(() => {
+                this.slider.classList.remove('right-end')
+            }, 150)
+            return
         }
         for (let i = 0, dataId = 0; i < this.cards.length; i++) {
             dataId = +this.cards[i].getAttribute('data-id')
@@ -71,24 +79,29 @@ class Slider {
     }
     init() {
         this.setSizes()
-        this.slider.addEventListener('touchend', () => this.swipeControls())
+        this.slider.addEventListener('touchend', (e) => {
+            this.swipeControls()
+        })
     }
 }
 
 function touchController() {
     const from = {x: 0, y: 0}
     const to = {x: 0, y: 0}
+    let atMoment = ''
 
     document.addEventListener('touchstart', (e) => {
         from.x = e.changedTouches[0].clientX
         from.y = e.changedTouches[0].clientY
+        atMoment = ''
+    }, false)
 
-    })
     document.addEventListener('touchend', (e) => {
         to.x = e.changedTouches[0].clientX
         to.y = e.changedTouches[0].clientY
+        atMoment = ''
         getSwipeDirection()
-    })
+    }, false)
 
     function getSwipeDirection() {
         const x = from.x - to.x
