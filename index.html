@@ -413,11 +413,98 @@
         <div class='powered-by-block'>
             <span class='title'>Powered by:</span>
             <img class='mustard-logo' src='./shared/logo-mustard.svg' width='142' height='24' alt='Mustard'>
-            <button class='button'>Order</button>
+            <button class='button' data-popup-handler='order-popup'>Order</button>
             <button class='button light'>Share with friends</button>
         </div>
     </div>
 </main>
+<div class='popup-wrapper' id='order-popup'>
+    <div class='background' data-popup-closer='order-popup'></div>
+    <div class='popup'>
+        <div class='popup-head'>
+            <b>How you wanna get your food?</b>
+            <span>Choose the best service</span>
+            <div class='closer' data-popup-closer='order-popup' >
+                <img src='./shared/icons/cross-black.svg' width='16' height='16' alt='x' />
+            </div>
+        </div>
+        <div class='popup-body'>
+            <div class='order-select'>
+                <div class='select-head'>
+                    <img class='select-ico' src='./shared/icons/order/online-order.svg' width='24' height='24' alt='ico' />
+                    <b class='select-title' data-amt='4'>Online order</b>
+                    <img src='./shared/icons/arrow-bottom.svg' width='28' height='28' alt='V'>
+                </div>
+                <div class='select-items'>
+                    <label for='postmates'>
+                        <input type="radio" name="order" id="postmates">
+                        <img src='./shared/icons/order/postmates.svg' width='24' height='24' alt='ico' />
+                        <b>Postmates</b>
+                        <div class='custom-radio'></div>
+                    </label>
+                    <label for='doordash'>
+                        <input type="radio" name="order" id="doordash">
+                        <img src='./shared/icons/order/doordash.svg' width='24' height='24' alt='ico' />
+                        <b>Doordash</b>
+                        <div class='custom-radio'></div>
+                    </label>
+                    <label for='caviar'>
+                        <input type="radio" name="order" id="caviar">
+                        <img src='./shared/icons/order/caviar.svg' width='24' height='24' alt='ico' />
+                        <b>Caviar</b>
+                        <div class='custom-radio'></div>
+                    </label>
+                    <label for='grubhub'>
+                        <input type="radio" name="order" id="grubhub">
+                        <img src='./shared/icons/order/grub-hub.svg' width='24' height='24' alt='ico' />
+                        <b>GrubHub</b>
+                        <div class='custom-radio'></div>
+                    </label>
+                </div>
+            </div>
+            <div class='order-select'>
+                <div class='select-head'>
+                    <img class='select-ico' src='./shared/icons/order/book-a-table.svg' width='24' height='24' alt='ico' />
+                    <b class='select-title' data-amt='2'>Book a table</b>
+                    <img src='./shared/icons/arrow-bottom.svg' width='28' height='28' alt='V'>
+                </div>
+                <div class='select-items'>
+                    <label for='opentable'>
+                        <input type="radio" name="order" id="opentable">
+                        <img src='./shared/icons/order/opentable.svg' width='24' height='24' alt='ico' />
+                        <b>Opentable</b>
+                        <div class='custom-radio'></div>
+                    </label>
+                    <label for='resy'>
+                        <input type="radio" name="order" id="resy">
+                        <img src='./shared/icons/order/resy.svg' width='24' height='24' alt='ico' />
+                        <b>Resy</b>
+                        <div class='custom-radio'></div>
+                    </label>
+                </div>
+            </div>
+            <div class='order-mono-select'>
+                <input type="radio" name="order" id="cash">
+                <label for='cash'>
+                    <img class='select-ico' src='./shared/icons/order/call-to-order.svg' width='24' height='24' alt='ico' />
+                    <b class='select-title'>Call to order</b>
+                    <div class='custom-radio'></div>
+                </label>
+                <div class='select-items'>
+                    <div>
+                        <img src='./shared/icons/cursor-light-gray.svg' width='24' height='24' alt='ico' />
+                        <span>28 Anacapa ST Unit E Santa Barbara,CA 93109</span>
+                    </div>
+                    <div>
+                        <img src='./shared/icons/phone-light-gray.svg' width='24' height='24' alt='ico' />
+                        <a href='tel:+1 909-371-5964'>+1 909-371-5964</a>
+                    </div>
+                </div>
+            </div>
+            <button class='button big disabled' id='order-continue'>Continue</button>
+        </div>
+    </div>
+</div>
 <footer class='footer-wrapper'>
     <div class='footer-content'>
         <h5>Find your next bite through Mustard!</h5>

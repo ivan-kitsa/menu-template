@@ -118,11 +118,92 @@ function setRadio(id) {
     resizeSliders()
 }
 
+function popupHandlers() {
+    const closers = document.querySelectorAll('*[data-popup-closer]')
+    const handlers = document.querySelectorAll('*[data-popup-handler]')
+
+    closers.forEach(c => {
+        c.onclick = () => {
+            const id = `${c.getAttribute('data-popup-closer')}`
+            document.getElementById(id).classList.remove('open')
+            bodyScrollBlock(false)
+
+            if (id === 'order-popup') {
+                refreshOrderPopup()
+            }
+        }
+    })
+    handlers.forEach(c => {
+        c.onclick = () => {
+            const id = `${c.getAttribute('data-popup-handler')}`
+            document.getElementById(id).classList.add('open')
+            bodyScrollBlock(true)
+        }
+    })
+}
+
+function orderHandlers() {
+    const orderPopup = document.getElementById('order-popup')
+    const orderSelects = orderPopup.querySelectorAll('.select-head')
+    const orderTypes = orderPopup.querySelectorAll('input[type="radio"]')
+    const button = document.getElementById('order-continue')
+
+    orderSelects.forEach(s => {
+        s.onclick = (e) => {
+            setTimeout(() => {
+                if (e.target.parentElement.classList.contains('open')) {
+                    e.target.parentElement.classList.remove('open')
+                    return
+                }
+                orderPopup.querySelector('.order-select.open')?.classList.remove('open')
+                e.target.parentElement.classList.toggle('open')
+            }, 0)
+        }
+    })
+    orderTypes.forEach(i => {
+        i.oninput = (e) => {
+            button?.classList.remove('disabled')
+
+            if (e.target.id === 'cash') {
+                orderPopup.querySelector('.order-select.open')?.classList.remove('open')
+                button?.classList.add('hidden')
+                return
+            }
+
+            button?.classList.remove('hidden')
+        }
+    })
+}
+
+function refreshOrderPopup() {
+    const orderPopup = document.getElementById('order-popup')
+    const button = document.getElementById('order-continue')
+    const orderTypes = orderPopup.querySelectorAll('input[type="radio"]')
+
+    orderTypes.forEach(i => {
+        i.checked = false
+    })
+    button?.classList.add('disabled')
+    button?.classList.remove('hidden')
+    orderPopup?.querySelector('.order-select.open')?.classList.remove('open')
+}
+
+function bodyScrollBlock(isBlocked) {
+    if (isBlocked) {
+        document.body.style.cssText = 'height: 100vh; max-height: 100vh; overflow: hidden;' +
+            ' touch-action: none; -ms-touch-action: none;'
+        return
+    }
+    document.body.style.cssText = ''
+}
+
 function initUi() {
     customSelect()
     headerScrollSizer()
     categoriesSmoothScroll()
     initMenuRadio()
+    popupHandlers()
+    orderHandlers()
 }
 
 initUi()
