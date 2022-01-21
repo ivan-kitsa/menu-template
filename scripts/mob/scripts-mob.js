@@ -48,6 +48,8 @@ function menuSelect() {
         s.addEventListener('click', (e) => {
             selectNode.querySelector('.menu-type.current').classList.remove('current')
             e.target.classList.add('current')
+            selectNode.children[0].innerText = e.target.textContent
+
 
             setTimeout(() => {
                 selectNode.classList.remove('open')
@@ -175,7 +177,7 @@ function headerHandlers() {
         headerDescription.style.cssText = ''
     }
 
-    moreHandler ? moreHandler.ontouchstart = () => {
+    moreHandler ? moreHandler.ontouchend = () => {
         document.getElementById('more-info').classList.toggle('closed')
     } : null
 }
