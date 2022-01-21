@@ -61,78 +61,35 @@ input[type='radio'] {
   position: fixed;
   top: 0;
   left: 0;
-  z-index: 5;
+  z-index: 6;
+  max-height: 70rem;
 
-  //-webkit-transition-property: max-height;
-  //-webkit-transition-duration: 250ms;
-  //-webkit-transition-delay: 0ms;
-  //-webkit-timing-function: ease-out;
-  //transition: max-height 250ms ease-out 0ms;
+  -webkit-transition-property: max-height;
+  -webkit-transition-duration: 250ms;
+  -webkit-transition-delay: 50ms;
+  -webkit-timing-function: linear;
+  transition: max-height 250ms linear 50ms;
 
-  //& > .main-info, .description, .more-info, .menu-select {
-  //  -webkit-transition-property: transform;
-  //  -webkit-transition-duration: 250ms;
-  //  -webkit-transition-delay: 0ms;
-  //  -webkit-timing-function: ease-in;
-  //  -webkit-transition: -webkit-transform 250ms;
-  //  transition: transform $main-transition;
-  //}
+  & > *:not(.category-list) {
+    opacity: 1;
+    -webkit-transition-property: opacity;
+    -webkit-transition-duration: 250ms;
+    -webkit-transition-delay: 50ms;
+    -webkit-timing-function: linear;
+    transition: opacity 250ms linear 50ms;
+  }
 
   &.header-min {
-    height: 0;
-    overflow: hidden;
+    max-height: 0;
 
     & > *:not(.category-list) {
-      display: none;
+      opacity: 0;
+      -webkit-transition-property: opacity;
+      -webkit-transition-duration: 200ms;
+      -webkit-transition-delay: 50ms;
+      -webkit-timing-function: linear;
+      transition: opacity 200ms linear 50ms;
     }
-
-    //-webkit-transition-property: max-height;
-    //-webkit-transition-duration: 0ms;
-    //-webkit-transition-delay: 0ms;
-    //-webkit-timing-function: ease-in;
-    //transition: max-height 0ms ease-in;
-
-    //.main-info {
-    //  transform: translateY(-5rem);
-    //  -webkit-transition-property: transform;
-    //  -webkit-transition-duration: 250ms;
-    //  -webkit-transition-delay: 0ms;
-    //  -webkit-timing-function: ease-in;
-    //  -webkit-transition: -webkit-transform 250ms;
-    //  transition: transform $main-transition-in;
-    //}
-    //
-    //.description {
-    //  transform: translateY(-7rem);
-    //  -webkit-transition-property: transform;
-    //  -webkit-transition-duration: 250ms;
-    //  -webkit-transition-delay: 0ms;
-    //  -webkit-timing-function: ease-in;
-    //  -webkit-transition: -webkit-transform 250ms;
-    //  transition: transform $main-transition-in;
-    //}
-    //
-    //.more-info {
-    //  //opacity: 0;
-    //  transform: translateY(-9rem);
-    //  -webkit-transition-property: transform;
-    //  -webkit-transition-duration: 250ms;
-    //  -webkit-transition-delay: 0ms;
-    //  -webkit-timing-function: ease-in;
-    //  -webkit-transition: -webkit-transform 250ms;
-    //  transition: transform $main-transition-in;
-    //}
-    //
-    //.menu-select {
-    //  opacity: 0;
-    //  transform: translateY(-12rem);
-    //  -webkit-transition-property: transform;
-    //  -webkit-transition-duration: 250ms;
-    //  -webkit-transition-delay: 0ms;
-    //  -webkit-timing-function: ease-in;
-    //  -webkit-transition: -webkit-transform 250ms;
-    //  transition: transform $main-transition-in;
-    //}
   }
 
   &.header-category {
@@ -247,20 +204,22 @@ input[type='radio'] {
   }
 
   .description {
-    &.min {
-      @include textEclipsis(2);
-      max-height: 3.6rem;
-      padding-right: 4rem;
-      pointer-events: none;
+    @media (orientation: portrait) {
+      &.min {
+        @include textEclipsis(2);
+        max-height: 3.6rem;
+        padding-right: 4rem;
+        pointer-events: none;
 
-      &:after {
-        content: 'More';
-        padding: .8rem;
-        position: absolute;
-        right: -.3rem;
-        bottom: -.8rem;
-        color: $black-40;
-        pointer-events: auto;
+        &:after {
+          content: 'More';
+          padding: .8rem;
+          position: absolute;
+          right: -.3rem;
+          bottom: -.8rem;
+          color: $black-40;
+          pointer-events: auto;
+        }
       }
     }
   }
@@ -272,6 +231,10 @@ input[type='radio'] {
     overflow: hidden;
     padding-bottom: 2.6rem;
     margin: 1.6rem 0 2.5rem;
+
+    @media (orientation: landscape) {
+      display: none;
+    }
 
     &.closed {
       max-height: 2.6rem;
@@ -445,6 +408,12 @@ input[type='radio'] {
   min-height: 100vh;
   padding-top: 30rem;
   padding-bottom: 7.5rem;
+
+  -webkit-transition-property: padding-top;
+  -webkit-transition-duration: 150ms;
+  -webkit-transition-delay: 0ms;
+  -webkit-timing-function: ease-out;
+  transition: padding-top 150ms ease-out 0ms;
 
   .category-section {
     width: 100%;
@@ -912,7 +881,7 @@ footer {
   @include flexCenter;
   width: 100%;
   height: 4.2rem;
-  margin-bottom: 1.9rem;
+  margin: 1.6rem 0 1.9rem;
   border-radius: .8rem;
   background: $orange-20;
   z-index: 3;

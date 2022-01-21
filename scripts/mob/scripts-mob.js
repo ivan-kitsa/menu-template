@@ -89,11 +89,15 @@ function headerScrollSizer() {
 
     function initScroll() {
         window.addEventListener('scroll', function()  {
-            if (this.scrollY > 120 ) {
-                header.classList.add('header-min')
-                return
+            const headerIsMin = header.classList.contains('header-min')
+
+            if (this.scrollY < 500 && swipeDirection.y !== 'top' && headerIsMin) {
+                header.classList.remove('header-min')
             }
-            header.classList.remove('header-min')
+
+            if (this.scrollY > 150 && swipeDirection.y !== 'bottom' && !headerIsMin) {
+                header.classList.add('header-min')
+            }
         })
     }
 }
