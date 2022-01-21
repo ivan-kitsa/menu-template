@@ -56,7 +56,6 @@ input[type='radio'] {
 }
 
 .header-wrapper {
-  @include flexColumn;
   padding: 2rem 1.6rem 4.4rem;
   background: $orange-30;
   position: fixed;
@@ -248,8 +247,6 @@ input[type='radio'] {
   }
 
   .description {
-    margin-bottom: 1.6rem;
-
     &.min {
       @include textEclipsis(2);
       max-height: 3.6rem;
@@ -260,7 +257,7 @@ input[type='radio'] {
         content: 'More';
         padding: .8rem;
         position: absolute;
-        right: .2rem;
+        right: -.3rem;
         bottom: -.8rem;
         color: $black-40;
         pointer-events: auto;
@@ -274,7 +271,7 @@ input[type='radio'] {
     left: -1.6rem;
     overflow: hidden;
     padding-bottom: 2.6rem;
-    margin-bottom: 2.5rem;
+    margin: 1.6rem 0 2.5rem;
 
     &.closed {
       max-height: 2.6rem;

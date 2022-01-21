@@ -89,7 +89,7 @@ function headerScrollSizer() {
 
     function initScroll() {
         window.addEventListener('scroll', function()  {
-            if (this.scrollY > 40 ) {
+            if (this.scrollY > 120 ) {
                 header.classList.add('header-min')
                 return
             }
@@ -162,9 +162,14 @@ function headerHandlers() {
     const headerDescription = document.getElementById('header-description')
     const moreHandler = document.getElementById('more-handler')
 
-    headerDescription ? headerDescription.ontouchstart = (e) => {
-        e.currentTarget.classList.remove('min')
-    } : null
+    if (headerDescription) {
+        if (headerDescription.offsetHeight > 36) {
+            headerDescription.classList.add('min')
+        }
+
+        headerDescription.ontouchstart = (e) =>  e.currentTarget.classList.remove('min')
+        headerDescription.style.cssText = ''
+    }
 
     moreHandler ? moreHandler.ontouchstart = () => {
         document.getElementById('more-info').classList.toggle('closed')
@@ -251,14 +256,14 @@ function refreshOrderPopup() {
 }
 
 function initUi() {
-    orderHandlers()
     headerHandlers()
-    popupHandlers()
     menuSelect()
     customSelect()
     headerScrollSizer()
     categoriesSmoothScroll()
     initMenuRadio()
+    popupHandlers()
+    orderHandlers()
 }
 
 initUi()
