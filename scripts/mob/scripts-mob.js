@@ -34,7 +34,7 @@ function menuSelect() {
         return
     }
 
-    selectNode.addEventListener('touchend', (e) => {
+    selectNode.addEventListener('click', (e) => {
         if (e.target.classList.contains('open')) {
             e.target.classList.remove('open')
             bodyScrollBlock(false)
@@ -70,6 +70,7 @@ function menuSelect() {
 
 function headerScrollSizer() {
     const header = document.querySelector('.header-wrapper')
+    const mainWrapper = document.querySelector('.main-wrapper')
 
     if (!header) {
         return
@@ -79,13 +80,16 @@ function headerScrollSizer() {
         return
     }
 
-    if (header.nextElementSibling?.getBoundingClientRect().y < 0) {
+
+    if (window.scrollY > 200) {
         setTimeout(() => {
             header.classList.add('header-min')
             initScroll()
-        }, 500)
+        }, 400)
         return
     }
+
+    mainWrapper ? mainWrapper.style.cssText = `padding-top: ${header.offsetHeight}px` : null
 
     initScroll()
 
@@ -97,7 +101,7 @@ function headerScrollSizer() {
                 header.classList.remove('header-min')
             }
 
-            if (this.scrollY > 150 && swipeDirection.y !== 'bottom' && !headerIsMin) {
+            if (this.scrollY > 250 && swipeDirection.y !== 'bottom' && !headerIsMin) {
                 header.classList.add('header-min')
             }
         })
@@ -124,6 +128,8 @@ function categoriesSmoothScroll() {
                 top: offsetPosition,
                 behavior: 'smooth'
             })
+
+            document.querySelector('.header-wrapper')?.classList.add('header-min')
         })
     })
 }
@@ -177,7 +183,7 @@ function headerHandlers() {
         headerDescription.style.cssText = ''
     }
 
-    moreHandler ? moreHandler.ontouchend = () => {
+    moreHandler ? moreHandler.onclick = () => {
         document.getElementById('more-info').classList.toggle('closed')
     } : null
 }
