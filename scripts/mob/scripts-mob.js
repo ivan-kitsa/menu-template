@@ -34,7 +34,8 @@ function menuSelect() {
         return
     }
 
-    selectNode.addEventListener('click', (e) => {
+    selectNode.addEventListener('touchstart', (e) => {
+        e.preventDefault()
         if (e.target.classList.contains('open')) {
             e.target.classList.remove('open')
             bodyScrollBlock(false)
@@ -45,7 +46,8 @@ function menuSelect() {
     })
 
     selectList.forEach((s) => {
-        s.addEventListener('click', (e) => {
+        s.addEventListener('touchend', (e) => {
+            e.preventDefault()
             selectNode.querySelector('.menu-type.current').classList.remove('current')
             e.target.classList.add('current')
             selectNode.children[0].innerText = e.target.textContent
@@ -183,7 +185,8 @@ function headerHandlers() {
         headerDescription.style.cssText = ''
     }
 
-    moreHandler ? moreHandler.onclick = () => {
+    moreHandler ? moreHandler.ontouchstart = (e) => {
+        e.preventDefault()
         document.getElementById('more-info').classList.toggle('closed')
     } : null
 }
@@ -193,7 +196,8 @@ function popupHandlers() {
     const handlers = document.querySelectorAll('footer *[data-popup-handler]')
 
     closers.forEach(c => {
-        c.ontouchend = () => {
+        c.ontouchend = (e) => {
+            e.preventDefault()
             const id = `${c.getAttribute('data-popup-closer')}`
             document.getElementById(id).classList.remove('open')
             bodyScrollBlock(false)
@@ -204,7 +208,8 @@ function popupHandlers() {
         }
     })
     handlers.forEach(c => {
-        c.ontouchend = () => {
+        c.ontouchend = (e) => {
+            e.preventDefault()
             const id = `${c.getAttribute('data-popup-handler')}`
             document.getElementById(id).classList.add('open')
             bodyScrollBlock(true)
@@ -267,6 +272,24 @@ function refreshOrderPopup() {
     orderPopup?.querySelector('.order-select.open')?.classList.remove('open')
 }
 
+function shareLinksInit() {
+    function copyLink(id) {
+        const link = document.getElementById(id)
+
+        if (!link) {
+            return
+        }
+
+        link.onclick = async (e) => {
+            const copyValue = e.currentTarget.getAttribute('data-link').trim()
+            await navigator.clipboard.writeText(copyValue)
+        }
+    }
+
+    copyLink('copy-share-link')
+    copyLink('message-share-link')
+}
+
 function initUi() {
     headerHandlers()
     menuSelect()
@@ -276,6 +299,7 @@ function initUi() {
     initMenuRadio()
     popupHandlers()
     orderHandlers()
+    shareLinksInit()
 }
 
 initUi()

@@ -414,7 +414,29 @@
             <span class='title'>Powered by:</span>
             <img class='mustard-logo' src='./shared/logo-mustard.svg' width='142' height='24' alt='Mustard'>
             <button class='button' data-popup-handler='order-popup'>Order</button>
-            <button class='button light'>Share with friends</button>
+            <div class='share-links'>
+                <button class='button light'>Share with friends</button>
+                <div class='links-wrapper'>
+                    <a data-link='#share-link' id='copy-share-link' class='share-link' >
+                        <div class='img'>
+                            <img src='./shared/icons/share-link-white.svg' width='24' height='24' alt='share'>
+                        </div>
+                        <b>Copy Link</b>
+                    </a>
+                    <a data-link='#message-link' id='message-share-link' class='share-link'>
+                        <div class='img green'>
+                            <img src='./shared/icons/message-white.svg' width='24' height='24' alt='share'>
+                        </div>
+                        <b>Message</b>
+                    </a>
+                    <a href='https://wa.me/11111111' target='_blank' id='whatsapp-share-link' class='share-link'>
+                        <div class='img whatsapp'>
+                            <img src='./shared/icons/whatsapp.svg' width='24' height='24' alt='share'>
+                        </div>
+                        <b>WhatsApp</b>
+                    </a>
+                </div>
+            </div>
         </div>
     </div>
 </main>
@@ -493,18 +515,19 @@
                 <div class='select-items'>
                     <div>
                         <img src='./shared/icons/cursor-light-gray.svg' width='24' height='24' alt='ico' />
-                        <span>28 Anacapa ST Unit E Santa Barbara,CA 93109</span>
+                        <a target='_blank' href='https://www.google.com/maps/place/28+Anacapa+St+e,+Santa+Barbara,+CA+93101,+%D0%A1%D0%A8%D0%90/@34.4141361,-119.6908755,17z/data=!3m1!4b1!4m5!3m4!1s0x80e9138e990eea4b:0x9cc80d04746f31a9!8m2!3d34.4141317!4d-119.6886868'>
+                            28 Anacapa ST Unit E Santa Barbara,CA 93109</a>
                     </div>
                     <div>
                         <img src='./shared/icons/phone-light-gray.svg' width='24' height='24' alt='ico' />
-                        <a href='tel:+1 909-371-5964'>+1 909-371-5964</a>
+                        <a class='phone' href='tel:+1 909-371-5964'>+1 909-371-5964</a>
                     </div>
                 </div>
-            </div>
+            </div></div>
             <button class='button big disabled' id='order-continue'>Continue</button>
         </div>
     </div>
-</div>
+
 <footer class='footer-wrapper'>
     <div class='footer-content'>
         <h5>Find your next bite through Mustard!</h5>

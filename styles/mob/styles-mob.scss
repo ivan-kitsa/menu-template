@@ -579,6 +579,10 @@ footer {
     padding: 1.2rem 1.2rem;
     border-radius: .8rem;
 
+    &:focus {
+      background: $orange-30;
+    }
+
     .img {
       @include flexCenter;
       width: 3.2rem;
@@ -711,7 +715,6 @@ footer {
           height: 2.4rem;
           margin-right: 1.6rem;
         }
-
       }
     }
   }
@@ -812,11 +815,11 @@ footer {
           margin: auto 0;
           font-size: 1.5rem;
           line-height: 2rem;
+          text-decoration: none;
         }
-        a {
+        .phone {
           white-space: nowrap;
           font-weight: 600;
-          text-decoration: none;
           color: $orange-500;
         }
       }

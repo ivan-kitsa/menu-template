@@ -197,6 +197,24 @@ function bodyScrollBlock(isBlocked) {
     document.body.style.cssText = ''
 }
 
+function shareLinksInit() {
+    function copyLink(id) {
+        const link = document.getElementById(id)
+
+        if (!link) {
+            return
+        }
+
+        link.onclick = async (e) => {
+            const copyValue = e.currentTarget.getAttribute('data-link').trim()
+            await navigator.clipboard.writeText(copyValue)
+        }
+    }
+
+    copyLink('copy-share-link')
+    copyLink('message-share-link')
+}
+
 function initUi() {
     customSelect()
     headerScrollSizer()
@@ -204,6 +222,7 @@ function initUi() {
     initMenuRadio()
     popupHandlers()
     orderHandlers()
+    shareLinksInit()
 }
 
 initUi()

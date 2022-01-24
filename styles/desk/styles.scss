@@ -463,6 +463,88 @@ input[type='radio'] {
     .button {
       margin-bottom: .8rem;
     }
+
+    .share-links {
+      width: 100%;
+
+      &:hover .links-wrapper {
+        display: block;
+      }
+
+      &:active .links-wrapper .share-link:hover {
+        background: $orange-50;
+      }
+
+      .links-wrapper {
+        display: none;
+        width: 25.8rem;
+        padding: 2.4rem 0;
+        position: absolute;
+        bottom: calc(100% + 1.2rem);
+        left: 50%;
+        transform: translateX(-50%);
+        border-radius: .8rem;
+        background: $white;
+        box-shadow: .2rem .5rem 1.5rem 0 #0912461A;
+
+        &:after {
+          content: '';
+          position: absolute;
+          top: 100%;
+          left: 50%;
+          width: 0;
+          height: 0;
+          transform: translateX(-50%);
+          border: 0 solid transparent;
+          border-left-width: 1rem;
+          border-right-width: 1rem;
+          border-top: 1.2rem solid $white;
+        }
+
+        &:before {
+          content: '';
+          position: absolute;
+          top: 100%;
+          left: 0;
+          width: 100%;
+          height: 1.2rem;
+        }
+
+        .share-link {
+          @include flex;
+          align-items: center;
+          padding: 1.2rem 1.2rem;
+          text-decoration: none;
+          cursor: pointer;
+
+          &:hover {
+            background: $orange-30;
+          }
+
+          .img {
+            @include flexCenter;
+            width: 3.2rem;
+            height: 3.2rem;
+            border-radius: 50%;
+            background: $orange-500;
+            margin-right: 1.6rem;
+
+            &.green {
+              background: $green-bright;
+            }
+            &.whatsapp {
+              background: #65CF72;
+            }
+          }
+
+          b {
+            font-family: 'Poppins', sans-serif;
+            font-size: 1.6rem;
+            line-height: 2.4rem;
+          }
+        }
+      }
+    }
   }
 }
 
@@ -1265,6 +1347,7 @@ input[type='radio'] {
     }
   }
 }
+
 .video-tags {
   position: absolute;
   bottom: .4rem;
@@ -1864,11 +1947,11 @@ input[type='radio'] {
         margin: auto 0;
         font-size: 1.5rem;
         line-height: 2rem;
+        text-decoration: none;
       }
-      a {
+      .phone {
         white-space: nowrap;
         font-weight: 600;
-        text-decoration: none;
         color: $orange-500;
       }
     }
