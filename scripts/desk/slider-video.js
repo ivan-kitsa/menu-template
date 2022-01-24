@@ -1,5 +1,3 @@
-'use strict'
-
 const VIDEOS_MOCK = [
     'https://videodelivery.net/2827bf8f3cccf453ec7ebffaf6aea805/manifest/video.m3u8',
     'https://videodelivery.net/426cdc52b27d4560cb6cfff789b8e5d7/manifest/video.m3u8',
@@ -14,9 +12,8 @@ const VIDEOS_MOCK = [
 ]
 
 class Video {
-    constructor(videosNodes, videosArr) {
-        this.videoNodes = videosNodes
-        this.videos = videosArr
+    constructor() {
+        this.videoNodes = []
         this.muteButton = document.getElementById('mute-button')
     }
 
@@ -24,22 +21,40 @@ class Video {
         return this.videoNodes
     }
 
-    attachSrc() {
-        this.videoNodes.forEach((v, i) => {
-            const hls = new Hls({})
-            hls.loadSource(this.videos[i] || this.videos[0])
-            hls.attachMedia(v)
+    attachParams() {
+        const videos = Array.from(document.querySelectorAll('iframe'))
+
+        this.videoNodes = videos.map((v, i) => {
+
+            console.log(v)
+
+            const player = Stream(v)
+            player.autoplay = false
+            player.controls = false
+            player.preload = true
+            player.muted = true
+
+            if (i < videos.length - 1) {
+                player.addEventListener('ended', () => {
+                    Slider.moveToLeft()
+                })
+            }
+
+            return player
         })
     }
 
     muteHandler(isMuted) {
         this.videoNodes.forEach(v => {
-            v.muted = isMuted
+           if (!v.paused) {
+
+           }
         })
     }
 
     init() {
-        this.attachSrc()
+        // this.attachSrc()
+        this.attachParams()
         this.videoNodes[0].play()
         this.muteButton.addEventListener('click', () => {
             this.muteButton.classList.toggle('muted')
@@ -48,7 +63,7 @@ class Video {
     }
 }
 
-const V = new Video(document.querySelectorAll('video'), VIDEOS_MOCK)
+const V = new Video()
 V.init()
 
 class SliderV {
@@ -101,6 +116,7 @@ class SliderV {
     }
 }
 
-new SliderV('video-slider').init()
+const Slider = new SliderV('video-slider')
+Slider.init()
 
 
