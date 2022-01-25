@@ -135,7 +135,7 @@ function footerScrollSizer() {
     const footer = document.querySelector('footer')
 
     window.addEventListener('touchmove', (e) => {
-        if (e.changedTouches[0].target.classList.contains('menu-type')) {
+        if (e.changedTouches[0].target.classList.contains('menu-type') || document.querySelector('.footer-popup.open')) {
             return
         }
         footer.style.cssText = `transform: translateY(100%); transition: .1s ease-in .15s;`
