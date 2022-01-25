@@ -137,10 +137,10 @@ function footerScrollSizer() {
     const footer = document.querySelector('footer')
 
     window.addEventListener('touchmove', (e) => {
-        footer.style.cssText = `transform: translateY(100%); transition: .15s ease-in .3s;`
+        footer.style.cssText = `transform: translateY(100%); transition: .1s ease-in .15s;`
     })
     window.addEventListener('touchend', (e) => {
-        footer.style.cssText = `transform: translateY(0%); transition: .15s ease-out 1s;`
+        footer.style.cssText = `transform: translateY(0%); transition: .15s ease-out .7s;`
     })
 }
 
