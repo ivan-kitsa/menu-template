@@ -95,6 +95,7 @@ function touchController() {
     const to = {x: 0, y: 0}
 
     document.addEventListener('touchstart', (e) => {
+        clear()
         from.x = e.changedTouches[0].clientX
         from.y = e.changedTouches[0].clientY
     }, false)
@@ -103,7 +104,6 @@ function touchController() {
         to.x = e.changedTouches[0].clientX
         to.y = e.changedTouches[0].clientY
         getSwipeDirection()
-        clear()
     }, false)
 
     document.addEventListener('touchmove', (e) => {

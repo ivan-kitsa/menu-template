@@ -1267,7 +1267,7 @@ input[type='radio'] {
     &[data-id='5'] {
       opacity: 1;
       display: block;
-      transition: .25s ease 0s;
+      transition: .15s ease 0s;
     }
 
     &[data-id='0'] {
@@ -1557,6 +1557,8 @@ input[type='radio'] {
       height: calc(100% - 3px);
       border: 1px solid $gray-200;
       border-radius: .8rem;
+      z-index: 2;
+      pointer-events: none;
     }
 
     img {
@@ -1608,7 +1610,7 @@ input[type='radio'] {
   }
 
   h4 {
-    height: 4.4rem;
+    max-height: 4.4rem;
     margin: 2rem 0 .8rem;
     white-space: nowrap;
     text-overflow: ellipsis;
@@ -1631,7 +1633,7 @@ input[type='radio'] {
     overflow: hidden;
 
     &:not(.small) {
-      height: 5.4rem;
+      max-height: 5.4rem;
       @include textEclipsis(3);
     }
   }

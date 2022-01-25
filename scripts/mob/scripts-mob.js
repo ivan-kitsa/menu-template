@@ -82,32 +82,54 @@ function headerScrollSizer() {
         return
     }
 
+    let headerH = header.offsetHeight
 
-    if (window.scrollY > 200) {
-        setTimeout(() => {
-            header.classList.add('header-min')
-            initScroll()
-        }, 400)
-        return
+    mainWrapper ? mainWrapper.style.cssText = `padding-top: ${header.offsetHeight + 40}px` : null
+
+    window.addEventListener('scroll', () => {
+        if (window.scrollY < headerH) {
+            headerScrollTranslate()
+        }
+    })
+
+    function headerScrollTranslate() {
+        header.style.cssText = `max-height: ${headerH - window.scrollY}px`
+        header.children[0].style.cssText = `transform: translateY(-${window.scrollY * 1.6}px)`
+        header.children[1].style.cssText = `transform: translateY(-${window.scrollY * 1.4}px)`
+        header.children[2].style.cssText = `transform: translateY(-${window.scrollY * 1.2}px)`
+        header.children[3].style.cssText = `transform: translateY(-${window.scrollY * 1.1}px)`
     }
 
-    mainWrapper ? mainWrapper.style.cssText = `padding-top: ${header.offsetHeight}px` : null
+    function headerHandlers() {
+        const headerDescription = document.getElementById('header-description')
+        const moreHandler = document.getElementById('more-handler')
 
-    initScroll()
-
-    function initScroll() {
-        window.addEventListener('scroll', function()  {
-            const headerIsMin = header.classList.contains('header-min')
-
-            if (this.scrollY < 500 && swipeDirection.y !== 'top' && headerIsMin) {
-                header.classList.remove('header-min')
+        if (headerDescription) {
+            if (headerDescription.offsetHeight > 36) {
+                headerDescription.classList.add('min')
             }
 
-            if (this.scrollY > 250 && swipeDirection.y !== 'bottom' && !headerIsMin) {
-                header.classList.add('header-min')
+            headerDescription.ontouchstart = (e) =>  {
+                e.currentTarget.classList.remove('min')
+
+                header.style.cssText = ``
+                headerH = header.offsetHeight
+                headerScrollTranslate()
             }
-        })
+            headerDescription.style.cssText = ''
+        }
+
+        moreHandler ? moreHandler.ontouchstart = (e) => {
+            e.preventDefault()
+            document.getElementById('more-info').classList.toggle('closed')
+
+            header.style.cssText = ``
+            headerH = header.offsetHeight
+            headerScrollTranslate()
+        } : null
     }
+
+    headerHandlers()
 }
 
 function categoriesSmoothScroll() {
@@ -131,7 +153,7 @@ function categoriesSmoothScroll() {
                 behavior: 'smooth'
             })
 
-            document.querySelector('.header-wrapper')?.classList.add('header-min')
+            // document.querySelector('.header-wrapper')?.classList.add('header-min')
         })
     })
 }
@@ -170,25 +192,6 @@ function setRadio(id) {
         }
     })
     resizeSliders()
-}
-
-function headerHandlers() {
-    const headerDescription = document.getElementById('header-description')
-    const moreHandler = document.getElementById('more-handler')
-
-    if (headerDescription) {
-        if (headerDescription.offsetHeight > 36) {
-            headerDescription.classList.add('min')
-        }
-
-        headerDescription.ontouchstart = (e) =>  e.currentTarget.classList.remove('min')
-        headerDescription.style.cssText = ''
-    }
-
-    moreHandler ? moreHandler.ontouchstart = (e) => {
-        e.preventDefault()
-        document.getElementById('more-info').classList.toggle('closed')
-    } : null
 }
 
 function popupHandlers() {
@@ -295,10 +298,9 @@ function shareLinksInit() {
 }
 
 function initUi() {
-    headerHandlers()
+    headerScrollSizer()
     menuSelect()
     customSelect()
-    headerScrollSizer()
     categoriesSmoothScroll()
     initMenuRadio()
     popupHandlers()
