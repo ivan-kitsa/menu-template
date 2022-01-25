@@ -1557,6 +1557,8 @@ input[type='radio'] {
       height: calc(100% - 3px);
       border: 1px solid $gray-200;
       border-radius: .8rem;
+      z-index: 2;
+      pointer-events: none;
     }
 
     img {
