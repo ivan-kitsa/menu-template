@@ -228,9 +228,13 @@ function bodyScrollBlock(isBlocked) {
 
 function orderHandlers() {
     const orderPopup = document.getElementById('order-popup')
-    const orderSelects = orderPopup.querySelectorAll('.select-head')
-    const orderTypes = orderPopup.querySelectorAll('input[type="radio"]')
-    const button = document.getElementById('order-continue')
+    const orderSelects = orderPopup?.querySelectorAll('.select-head')
+    const orderTypes = orderPopup?.querySelectorAll('input[type="radio"]')
+    const button = document?.getElementById('order-continue')
+
+    if (!orderPopup || !orderSelects || !orderTypes || !button) {
+        return
+    }
 
     orderSelects.forEach(s => {
         s.onclick = (e) => {
