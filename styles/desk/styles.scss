@@ -765,136 +765,159 @@ input[type='radio'] {
   .video-info-block {
     @include flexColumn;
     width: 54.3rem;
+    height: 100vh;
     background: $white;
 
-    .head-block {
-      @include flexCenter;
-      justify-content: space-between;
+    .food-info-block {
       width: 100%;
-      padding: 4rem 4rem 0;
 
-      h6 {
-        max-width: 40.7rem;
-        white-space: nowrap;
-        text-overflow: ellipsis;
-        overflow: hidden;
-      }
-
-      .cost {
-        color: $gray-500;
-      }
-    }
-
-    .mentioned-items-block {
-      @include flexColumn;
-      width: 100%;
-      padding: 0 4rem;
-      margin: 1.6rem 0 2.4rem;
-
-      & > .mentioned-item:not(:last-child) {
-        margin-bottom: 1.6rem;
-      }
-
-      // include .mentioned-item
-    }
-
-    .food-block {
-      @include flexColumn;
-      width: 100%;
-      padding: 0 4rem;
-      margin: -.2rem 0 1.6rem;
-
-      .description {
-        color: $gray-500;
-        margin-bottom: 1.6rem;
-      }
-    }
-
-    .activities-block {
-      @include flexCenter;
-      justify-content: flex-start;
-      width: 100%;
-      padding: 1.6rem 4rem;
-      border-top: 1px solid $gray-200;
-
-      .share-links {
+      .head-block {
         @include flexCenter;
-        margin-left: auto;
+        justify-content: space-between;
+        width: 100%;
+        padding: 4rem 4rem 2.4rem;
 
-        .share-title {
-          font-family: 'Poppins', sans-serif;
-          font-weight: 700;
-          font-size: 1.4rem;
-          line-height: 2rem;
-          margin-right: 1.2rem;
+        h6 {
+          max-width: 40.7rem;
+          white-space: nowrap;
+          text-overflow: ellipsis;
+          overflow: hidden;
         }
-        .share {
+
+        .cost {
+          color: $gray-500;
+        }
+      }
+
+      .mentioned-items-block {
+        @include flexColumn;
+        width: calc(100% + 2.4rem);
+        max-height: 23.4rem;
+        min-height: 8.2rem;
+        overflow-x: hidden;
+        overflow-y: auto;
+        padding: 0 4rem;
+
+        & > .mentioned-item {
+          margin-bottom: 1.6rem;
+        }
+
+        // include .mentioned-item
+      }
+
+      .food-block {
+        @include flexColumn;
+        width: 100%;
+        padding: 0 4rem;
+        margin: -2.4rem 0 1.6rem;
+
+        .description {
+          color: $gray-500;
+          margin-bottom: 1.6rem;
+
+          @include textEclipsis(2);
+        }
+      }
+
+      .activities-block {
+        @include flexCenter;
+        justify-content: flex-start;
+        width: 100%;
+        padding: 1.6rem 4rem;
+        border-top: 1px solid $gray-200;
+
+        .share-links {
           @include flexCenter;
-          width: 3.2rem;
-          height: 3.2rem;
-          border-radius: 50%;
-          cursor: pointer;
+          margin-left: auto;
 
-          img {
-            width: 2.4rem;
-            height: 2.4rem;
+          .share-title {
+            font-family: 'Poppins', sans-serif;
+            font-weight: 700;
+            font-size: 1.4rem;
+            line-height: 2rem;
+            margin-right: 1.2rem;
           }
+          .share {
+            @include flexCenter;
+            width: 3.2rem;
+            height: 3.2rem;
+            border-radius: 50%;
+            cursor: pointer;
 
-          &:not(:last-child) {
-            margin-right: .8rem;
-          }
+            img {
+              width: 2.4rem;
+              height: 2.4rem;
+            }
 
-          &.share-link {
-            background: $orange-500;
-          }
-          &.share-message {
-            background: $green-bright;
-          }
-          &.share-instagram {
-            background: radial-gradient(92.18% 99.11% at 26.56% 107.7%, #FFDD55 0%, #FFDD55 10%, #FF543E 50%, #C837AB 100%);
-            &:before {
-              content: '';
-              @include absoluteCenter;
-              width: 100%;
-              height: 100%;
-              border-radius: 50%;
-              background: radial-gradient(179.06% 43.44% at -16.75% 7.2%, #3771C8 0%, #3771C8 12.8%, rgba(102, 0, 255, 0) 100%);
-              opacity: .8;
+            &:not(:last-child) {
+              margin-right: .8rem;
+            }
+
+            &.share-link {
+              background: $orange-500;
+            }
+            &.share-message {
+              background: $green-bright;
+            }
+            &.share-instagram {
+              background: radial-gradient(92.18% 99.11% at 26.56% 107.7%, #FFDD55 0%, #FFDD55 10%, #FF543E 50%, #C837AB 100%);
+              &:before {
+                content: '';
+                @include absoluteCenter;
+                width: 100%;
+                height: 100%;
+                border-radius: 50%;
+                background: radial-gradient(179.06% 43.44% at -16.75% 7.2%, #3771C8 0%, #3771C8 12.8%, rgba(102, 0, 255, 0) 100%);
+                opacity: .8;
+              }
             }
           }
         }
-      }
 
-      .feedbacks {
-        @include flexCenter;
-
-        .feedback {
+        .feedbacks {
           @include flexCenter;
-          margin-right: 1.6rem;
 
-          img {
-            width: 2.4rem;
-            height: 2.4rem;
-            margin-right: .6rem;
-          }
-          span {
-            font-family: 'Poppins', sans-serif;
-            font-size: 1.2rem;
-            line-height: 2rem;
-            font-weight: 600;
+          .feedback {
+            @include flexCenter;
+            margin-right: 1.6rem;
+            cursor: pointer;
+
+            img {
+              width: 2.4rem;
+              height: 2.4rem;
+              margin-right: .6rem;
+            }
+            span {
+              font-family: 'Poppins', sans-serif;
+              font-size: 1.2rem;
+              line-height: 2rem;
+              font-weight: 600;
+            }
           }
         }
       }
     }
 
     .comments-block {
+      @include flexColumn;
       width: 100%;
-      padding: 2.4rem 4rem;
+      height: 100%;
       background: #F9F4E9;
+      overflow: hidden;
 
       h6 {
-        margin-bottom: 2.4rem;
+        padding: 2.4rem 4rem;
       }
+
+      .comments {
+        width: calc(100% + 2.4rem);
+        height: calc(100% - 9.6rem - 5.7rem);
+        min-height: 5rem;
+        padding: 0 4rem;
+        overflow-x: hidden;
+        overflow-y: auto;
+      }
+
       .comment {
         @include flex;
         width: 100%;
@@ -926,11 +949,32 @@ input[type='radio'] {
           }
         }
       }
+
+      .no-comments {
+        @include absoluteCenter;
+        @include flexColumnCenter;
+
+        & > p {
+          margin: 1.2rem auto 1.6rem;
+          font-weight: 600;
+          line-height: 2.2rem;
+          color: $gray-500;
+        }
+
+        img {
+          width: 34.8rem;
+          height: 28.6rem;
+        }
+      }
+
       .add-comment {
         @include flexCenter;
-        width: max-content;
+        justify-content: flex-start;
+        width: 100%;
+        padding: 1.8rem 4rem;
+        margin-top: auto;
+        border-top: 1px solid $gray-200;
         text-decoration: none;
-        margin-top: 3.4rem;
 
         img {
           width: 2rem;
@@ -1082,23 +1126,25 @@ input[type='radio'] {
   font-weight: 700;
   width: 100%;
   height: 4.8rem;
+  padding: 0 2.4rem;
   background: $orange-500;
+  border: 1px solid $orange-500;
   border-radius: .8rem;
-  border: none;
   box-shadow: none;
   cursor: pointer;
 
   &:hover {
-    background: $orange-700;
+    background-color: $orange-700;
+    border-color: $orange-700;
   }
 
   &.light {
     background: $orange-50;
+    border-color: $orange-50;
     color: $orange-700;
   }
 
   &.small {
-    padding: .4rem 2.4rem;
     width: max-content;
     font-size: 1.4rem;
     height: 3.2rem;
@@ -1106,13 +1152,24 @@ input[type='radio'] {
 
   &.big {
     height: 5.6rem;
-    padding: 1.6rem 2.4rem;
+  }
+
+  &.clear {
+    border-color: $orange-500;
+    background: transparent;
+    color: $orange-500;
+
+    &:hover {
+      border-color: $orange-700;
+      color: $orange-700;
+    }
   }
 
   &.disabled {
     pointer-events: none;
     opacity: .5;
   }
+
   &.hidden {
     pointer-events: none;
     visibility: hidden;
