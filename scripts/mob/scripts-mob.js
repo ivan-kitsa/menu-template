@@ -78,26 +78,27 @@ function headerScrollSizer() {
         return
     }
 
+    let headerH = header.offsetHeight
+
     if (header.classList.contains('header-category') || header.classList.contains('header-not-onborded')  ) {
         return
     }
 
-    let headerH = header.offsetHeight
-
     mainWrapper ? mainWrapper.style.cssText = `padding-top: ${header.offsetHeight + 40}px` : null
 
     window.addEventListener('scroll', () => {
-        if (window.scrollY < headerH) {
-            headerScrollTranslate()
-        }
+        headerScrollTranslate()
     })
 
     function headerScrollTranslate() {
-        header.style.cssText = `max-height: ${headerH - window.scrollY}px`
-        header.children[0].style.cssText = `transform: translateY(-${window.scrollY * 1.6}px)`
-        header.children[1].style.cssText = `transform: translateY(-${window.scrollY * 1.4}px)`
-        header.children[2].style.cssText = `transform: translateY(-${window.scrollY * 1.2}px)`
-        header.children[3].style.cssText = `transform: translateY(-${window.scrollY * 1.1}px)`
+        const scrollY = window.scrollY < headerH ? window.scrollY : headerH
+
+        header.style.cssText = `max-height: ${headerH - scrollY > 0 ? headerH - scrollY : 0}px`
+
+        header.children[0].style.cssText = `transform: translateY(-${scrollY * 1.6}px)`
+        header.children[1].style.cssText = `transform: translateY(-${scrollY * 1.4}px)`
+        header.children[2].style.cssText = `transform: translateY(-${scrollY * 1.2}px)`
+        header.children[3].style.cssText = `transform: translateY(-${scrollY * 1.1}px)`
     }
 
     function headerHandlers() {

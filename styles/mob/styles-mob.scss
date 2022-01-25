@@ -1174,17 +1174,20 @@ footer {
 
     &:before {
       content: '';
-      @include absoluteCenter;
-      width: calc(100% - 3px);
-      height: calc(100% - 3px);
+      position: absolute;
+      left: 1px;
+      top: 1px;
+      min-width: calc(16.4rem - 3px);
+      min-height: calc(22.4rem - 3px);
       border: 1px solid $gray-200;
       border-radius: .8rem;
+      pointer-events: none;
     }
 
     img {
-      min-width: 100%;
-      min-height: 100%;
       @include absoluteCenter;
+      max-width: 100%;
+      min-width: 16.4rem;
     }
   }
 
