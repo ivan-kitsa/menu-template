@@ -35,7 +35,6 @@ function menuSelect() {
     }
 
     selectNode.addEventListener('touchstart', (e) => {
-        e.preventDefault()
         if (e.target.classList.contains('open')) {
             e.target.classList.remove('open')
             bodyScrollBlock(false)
@@ -46,8 +45,7 @@ function menuSelect() {
     })
 
     selectList.forEach((s) => {
-        s.addEventListener('touchend', (e) => {
-            e.preventDefault()
+        s.addEventListener('click', (e) => {
             selectNode.querySelector('.menu-type.current').classList.remove('current')
             e.target.classList.add('current')
             selectNode.children[0].innerText = e.target.textContent
@@ -137,6 +135,9 @@ function footerScrollSizer() {
     const footer = document.querySelector('footer')
 
     window.addEventListener('touchmove', (e) => {
+        if (e.changedTouches[0].target.classList.contains('menu-type')) {
+            return
+        }
         footer.style.cssText = `transform: translateY(100%); transition: .1s ease-in .15s;`
     })
     window.addEventListener('touchend', (e) => {
