@@ -133,6 +133,17 @@ function headerScrollSizer() {
     headerHandlers()
 }
 
+function footerScrollSizer() {
+    const footer = document.querySelector('footer')
+
+    window.addEventListener('touchmove', (e) => {
+        footer.style.cssText = `transform: translateY(100%); transition: .15s ease-in .3s;`
+    })
+    window.addEventListener('touchend', (e) => {
+        footer.style.cssText = `transform: translateY(0%); transition: .15s ease-out 1s;`
+    })
+}
+
 function categoriesSmoothScroll() {
     document.querySelectorAll('a[href^="#"]').forEach(link => {
         link.addEventListener('click', function(e) {
@@ -300,6 +311,7 @@ function shareLinksInit() {
 
 function initUi() {
     headerScrollSizer()
+    footerScrollSizer()
     menuSelect()
     customSelect()
     categoriesSmoothScroll()
