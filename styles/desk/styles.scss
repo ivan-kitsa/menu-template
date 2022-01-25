@@ -1608,7 +1608,7 @@ input[type='radio'] {
   }
 
   h4 {
-    height: 4.4rem;
+    max-height: 4.4rem;
     margin: 2rem 0 .8rem;
     white-space: nowrap;
     text-overflow: ellipsis;
@@ -1631,7 +1631,7 @@ input[type='radio'] {
     overflow: hidden;
 
     &:not(.small) {
-      height: 5.4rem;
+      max-height: 5.4rem;
       @include textEclipsis(3);
     }
   }
