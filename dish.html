@@ -134,11 +134,11 @@
             </div>
             <div class='activities-block'>
                 <div class='feedbacks'>
-                    <div class='feedback'>
+                    <div class='feedback' data-popup-handler='app-link-popup'>
                         <img src='./shared/icons/like-gray.svg' width='24' height='24' alt='like'>
                         <span>2,4k</span>
                     </div>
-                    <div class='feedback'>
+                    <div class='feedback' data-popup-handler='app-link-popup'>
                         <img src='./shared/icons/message-gray.svg' width='24' height='24' alt='like'>
                         <span>1,8k</span>
                     </div>
@@ -162,7 +162,7 @@
             <div class='no-comments'>
                 <img src='./shared/images/no-comments.png' width='348' height='286' alt='img' />
                 <p>No comments yet</p>
-                <button class='button small clear'>Leave a comment</button>
+                <button class='button small clear' data-popup-handler='app-link-popup'>Leave a comment</button>
             </div>
         </div>
     </div>
@@ -252,6 +252,24 @@
                 </div>
             </div></div>
         <button class='button big disabled' id='order-continue'>Continue</button>
+    </div>
+</div>
+<div class='popup-wrapper' id='app-link-popup'>
+    <div class='background' data-popup-closer='app-link-popup'></div>
+    <div class='popup'>
+        <div class='popup-head'>
+            <div class='closer' data-popup-closer='app-link-popup' >
+                <img src='./shared/icons/cross-black.svg' width='16' height='16' alt='x' />
+            </div>
+        </div>
+        <div class='popup-body app-link-wrapper'>
+            <img class='logo' src='./shared/logo-mustard.svg' width='142' height='24' alt='Mustard' />
+            <p>Your next bite is few tap away with Mustard app.</p>
+            <a href='https://apps.apple.com/us/app/mustard-experience-food/id1544140069' target='_blank' class='app-link'>
+                <img src='./shared/images/appstore.png' width='213' height='71' alt='appstore' />
+            </a>
+            <img src='./shared/images/app-popup.png' class='main-img' width='440' height='420' alt='img' />
+        </div>
     </div>
 </div>
 

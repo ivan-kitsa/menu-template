@@ -122,6 +122,10 @@ function popupHandlers() {
     const closers = document.querySelectorAll('*[data-popup-closer]')
     const handlers = document.querySelectorAll('*[data-popup-handler]')
 
+    if (!closers || !handlers) {
+        return
+    }
+
     closers.forEach(c => {
         c.onclick = () => {
             const id = `${c.getAttribute('data-popup-closer')}`

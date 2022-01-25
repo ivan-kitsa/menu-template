@@ -966,6 +966,7 @@ input[type='radio'] {
         margin-top: auto;
         border-top: 1px solid $gray-200;
         text-decoration: none;
+        cursor: pointer;
 
         img {
           width: 2rem;
@@ -1772,6 +1773,46 @@ input[type='radio'] {
     .popup-body {
       padding: 0 2.4rem 2.4rem;
       width: 100%;
+    }
+
+    .app-link-wrapper {
+      @include flexColumnCenter;
+
+      .logo {
+        display: block;
+        width: 14.2rem;
+        height: 2.4rem;
+
+        img {
+          width: 100%;
+          height: 100%;
+        }
+      }
+
+      p {
+        font-size: 2.1rem;
+        line-height: 3.2rem;
+        margin: 4rem auto 4.8rem;
+        text-align: center;
+        max-width: 33.6rem;
+      }
+
+      .app-link {
+        display: block;
+        width: 21.3rem;
+        height: 7.1rem;
+        img {
+          width: 100%;
+          height: 100%;
+        }
+      }
+
+      .main-img {
+        width: 44rem;
+        height: 42rem;
+        bottom: -2.4rem;
+        border-radius: 1.2rem;
+      }
     }
   }
 
