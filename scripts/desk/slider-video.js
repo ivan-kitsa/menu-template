@@ -26,8 +26,6 @@ class Video {
 
         this.videoNodes = videos.map((v, i) => {
 
-            console.log(v)
-
             const player = Stream(v)
             player.autoplay = false
             player.controls = false
@@ -40,15 +38,21 @@ class Video {
                 })
             }
 
+            v.parentElement.onclick = () => {
+                if (player.paused) {
+                    player.play()
+                    return
+                }
+                player.pause()
+            }
+
             return player
         })
     }
 
     muteHandler(isMuted) {
         this.videoNodes.forEach(v => {
-           if (!v.paused) {
-
-           }
+            // v.muted = isMuted
         })
     }
 
