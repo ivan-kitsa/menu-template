@@ -227,7 +227,8 @@ input[type='radio'] {
   }
 
   .more-info {
-    width: 100%;
+    width: calc(100% + 3.2rem);
+    left: -1.6rem;
     max-height: max-content;
     padding-bottom: 2.6rem;
     margin: 1.6rem 0 2.5rem;
