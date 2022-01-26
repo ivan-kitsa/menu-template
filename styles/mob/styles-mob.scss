@@ -1088,65 +1088,72 @@ footer {
   .cards {
     width: 100%;
     max-width: 100%;
-    overflow: hidden;
+    overflow-x: auto;
+    overflow-y: hidden;
     display: flex;
   }
 
   .card {
-    opacity: 0;
-    display: none;
+    margin-right: 1.6rem;
+
+    &:first-child {
+      margin-left: 1.6rem;
+    }
+
+    //opacity: 0;
+    //display: none;
 
     //position: absolute;
     //top: 0;
     //left: 0;
     //width: 0;
 
-    width: 0;
+    //width: 0;
 
-    &[data-id='0'],
-    &[data-id='1'],
-    &[data-id='2'],
-    &[data-id='3'],
-    &[data-id='4'],
-    &[data-id='5'],
-    &[data-id='6']{
-      opacity: 1;
-      display: block;
-      -webkit-transition-property: left;
-      -webkit-transition-duration: 150ms;
-      -webkit-transition-delay: 0ms;
-      -webkit-timing-function: ease;
-      transition: left 150ms ease 0ms;
-    }
-
-
-    &[data-id='0'] {
-      left: -16.4rem;
-    }
-
-    &[data-id='1'] {
-      left: 1.6rem;
-    }
-
-    &[data-id='2'] {
-      left: 19.6rem;
-    }
-
-    &[data-id='3'] {
-      left: 37.6rem;
-    }
-
-    &[data-id='4'] {
-      left: 55.6rem;
-    }
-
-    &[data-id='5'] {
-      left: 73.6rem;
-    }
-
-    &[data-id='6'] {
-      left: 91.6rem;
-    }
+    //&[data-id='0'],
+    //&[data-id='1'],
+    //&[data-id='2'],
+    //&[data-id='3'],
+    //&[data-id='4'],
+    //&[data-id='5'],
+    //&[data-id='6']{
+    //  opacity: 1;
+    //  display: block;
+    //  -webkit-transition-property: left;
+    //  -webkit-transition-duration: 150ms;
+    //  -webkit-transition-delay: 0ms;
+    //  -webkit-timing-function: ease;
+    //  transition: left 150ms ease 0ms;
+    //}
+    //
+    //
+    //&[data-id='0'] {
+    //  left: -16.4rem;
+    //}
+    //
+    //&[data-id='1'] {
+    //  left: 1.6rem;
+    //}
+    //
+    //&[data-id='2'] {
+    //  left: 19.6rem;
+    //}
+    //
+    //&[data-id='3'] {
+    //  left: 37.6rem;
+    //}
+    //
+    //&[data-id='4'] {
+    //  left: 55.6rem;
+    //}
+    //
+    //&[data-id='5'] {
+    //  left: 73.6rem;
+    //}
+    //
+    //&[data-id='6'] {
+    //  left: 91.6rem;
+    //}
   }
 }
 

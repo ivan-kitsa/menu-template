@@ -1,5 +1,74 @@
 'use strict'
 
+const swipeDirection = {
+    x: '',
+    y: ''
+}
+
+function touchController() {
+    const from = {x: 0, y: 0}
+    const to = {x: 0, y: 0}
+
+    document.addEventListener('touchstart', (e) => {
+        clear()
+        from.x = e.changedTouches[0].clientX
+        from.y = e.changedTouches[0].clientY
+    }, false)
+
+    document.addEventListener('touchend', (e) => {
+        to.x = e.changedTouches[0].clientX
+        to.y = e.changedTouches[0].clientY
+        getSwipeDirection()
+    }, false)
+
+    document.addEventListener('touchmove', (e) => {
+        to.x = e.changedTouches[0].clientX
+        to.y = e.changedTouches[0].clientY
+        getSwipeDirection()
+    }, false)
+
+    function clear() {
+        from.x = 0
+        from.y = 0
+        to.x = 0
+        to.y = 0
+    }
+
+    function getSwipeDirection() {
+        const x = from.x - to.x
+        const y = from.y - to.y
+        const gap = 80
+
+        if (x < -gap) {
+            swipeDirection.x = 'right'
+        } else if  (x > gap) {
+            swipeDirection.x = 'left'
+        } else {
+            swipeDirection.x = 'center'
+        }
+        if (y < -gap) {
+            swipeDirection.y = 'bottom'
+        } else if (y > gap) {
+            swipeDirection.y = 'top'
+        } else {
+            swipeDirection.y = 'center'
+        }
+
+        // xSwipeStabilizer(y, gap)
+    }
+
+    // function xSwipeStabilizer (y, gap) {
+    //     if (swipeDirection.x !== 'center' &&
+    //         y < gap + 250 &&
+    //         y > gap - 250) {
+    //
+    //         bodyScrollBlock(true)
+    //         return
+    //     }
+    //     bodyScrollBlock(false)
+    // }
+}
+
 function customSelect() {
     const selectNode = document.getElementById('select')
     const currentSelect = document.getElementById('current-select')
@@ -320,6 +389,7 @@ function initUi() {
     popupHandlers()
     orderHandlers()
     shareLinksInit()
+    touchController()
 }
 
 initUi()
