@@ -63,7 +63,6 @@ input[type='radio'] {
   left: 0;
   z-index: 5;
   max-height: 70rem;
-  will-change: max-height;
 
   &.header-category {
     @include flex;
@@ -107,7 +106,6 @@ input[type='radio'] {
     width: 100%;
     margin-bottom: 1.8rem;
     margin-top: 2rem;
-    will-change: transform;
 
     .logo {
       width: 4.4rem;
@@ -179,8 +177,6 @@ input[type='radio'] {
   }
 
   .description {
-    will-change: transform;
-
     @media (orientation: portrait) {
       &.min {
         @include textEclipsis(2);
@@ -207,7 +203,6 @@ input[type='radio'] {
     max-height: max-content;
     padding-bottom: 2.6rem;
     margin: 1.6rem 0 2.5rem;
-    will-change: transform;
 
     @media (orientation: landscape) {
       display: none;
@@ -351,7 +346,6 @@ input[type='radio'] {
 
   .menu-select {
     margin: 1.6rem 0 1.2rem;
-    will-change: transform;
   }
 
   & > *:nth-last-child(2) {
