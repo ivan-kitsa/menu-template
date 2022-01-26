@@ -37,7 +37,7 @@ function touchController() {
     function getSwipeDirection() {
         const x = from.x - to.x
         const y = from.y - to.y
-        const gap = 80
+        const gap = 100
 
         if (x < -gap) {
             swipeDirection.x = 'right'
@@ -209,13 +209,16 @@ function footerScrollSizer() {
     const footer = document.querySelector('footer')
 
     window.addEventListener('touchmove', (e) => {
-        if (e.changedTouches[0].target.classList.contains('menu-type') || document.querySelector('.footer-popup.open')) {
+        if (swipeDirection.y === 'center' ||
+            e.changedTouches[0].target.classList.contains('menu-type') ||
+            document.querySelector('.footer-popup.open')
+            ) {
             return
         }
-        footer.style.cssText = `transform: translateY(100%); transition: .1s ease-in .15s;`
+        footer.style.cssText = `transform: translateY(100%); transition: .075s linear .25s;`
     })
     window.addEventListener('touchend', (e) => {
-        footer.style.cssText = `transform: translateY(0%); transition: .15s ease-out .7s;`
+        footer.style.cssText = `transform: translateY(0%); transition: .15s ease-out .75s;`
     })
 }
 
