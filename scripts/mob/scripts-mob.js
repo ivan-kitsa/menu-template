@@ -153,24 +153,20 @@ function headerScrollSizer() {
 
     mainWrapper ? mainWrapper.style.cssText = `padding-top: ${header.offsetHeight + 40}px` : null
 
+    const headerChild = Array.from(header.children)
+    const biasArr = [1.6, 1.4, 1.3, 1.2]
+    const minHeight = categoryList ? 64 : 0
+
     window.addEventListener('scroll', () => {
         headerScrollTranslate()
     })
 
     function headerScrollTranslate() {
         const scrollY = window.scrollY < headerH ? window.scrollY : headerH
-        const scrollPercent = (headerH - scrollY) / headerH * 100
-        const biasArr = [1.6, 1.4, 1.2, 1.1]
-
-        let minHeight = 0
-
-        if (categoryList) {
-            minHeight = 64
-        }
+        // const scrollPercent = (headerH - scrollY) / headerH * 100
 
         header.style.cssText = `max-height: ${headerH - scrollY > minHeight ? headerH - scrollY : minHeight}px`
-
-        Array.from(header.children, (c, i) => {
+        headerChild?.forEach((c, i) => {
             if (!c.classList.contains('category-list-wrapper')) {
                 c.style.cssText = `transform: translateY(-${scrollY * biasArr[i]}px)`
             }
