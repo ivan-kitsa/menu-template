@@ -57,7 +57,8 @@ input[type='radio'] {
 }
 
 .header-wrapper {
-  padding: 2rem 1.6rem 4.4rem;
+  //padding: 2rem 1.6rem 4.4rem;
+  padding: 0 1.6rem ;
   background: $orange-30;
   position: fixed;
   top: 0;
@@ -134,6 +135,7 @@ input[type='radio'] {
     justify-content: flex-start;
     width: 100%;
     margin-bottom: 1.8rem;
+    margin-top: 2rem;
 
     .logo {
       width: 4.4rem;
@@ -226,10 +228,8 @@ input[type='radio'] {
   }
 
   .more-info {
-    width: calc(100% + 3.2rem);
+    width: 100%;
     max-height: max-content;
-    left: -1.6rem;
-    overflow: hidden;
     padding-bottom: 2.6rem;
     margin: 1.6rem 0 2.5rem;
 
@@ -371,6 +371,25 @@ input[type='radio'] {
         }
       }
     }
+  }
+
+  .menu-select {
+    margin: 1.6rem 0 1.2rem;
+  }
+
+  & > *:nth-last-child(2) {
+    margin-bottom: 6.4rem !important;
+  }
+  & > *:last-child:not(.category-list-wrapper) {
+    margin-top: -6.4rem;
+    margin-bottom: 1.2rem;
+  }
+
+  .category-list-wrapper {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
   }
 
   .category-list {
@@ -887,10 +906,8 @@ footer {
   @include flexCenter;
   width: 100%;
   height: 4.2rem;
-  margin: 1.6rem 0 1.9rem;
   border-radius: .8rem;
   background: $orange-20;
-
 
   &.open {
     background: $orange-50;

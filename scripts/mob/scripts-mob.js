@@ -140,12 +140,12 @@ function menuSelect() {
 function headerScrollSizer() {
     const header = document.querySelector('.header-wrapper')
     const mainWrapper = document.querySelector('.main-wrapper')
+    const categoryList = header?.querySelector('.category-list')
+    let headerH = header?.offsetHeight
 
     if (!header) {
         return
     }
-
-    let headerH = header.offsetHeight
 
     if (header.classList.contains('header-category') || header.classList.contains('header-not-onborded')  ) {
         return
@@ -159,13 +159,22 @@ function headerScrollSizer() {
 
     function headerScrollTranslate() {
         const scrollY = window.scrollY < headerH ? window.scrollY : headerH
+        const scrollPercent = (headerH - scrollY) / headerH * 100
+        const biasArr = [1.6, 1.4, 1.2, 1.1]
 
-        header.style.cssText = `max-height: ${headerH - scrollY > 0 ? headerH - scrollY : 0}px`
+        let minHeight = 0
 
-        header.children[0].style.cssText = `transform: translateY(-${scrollY * 1.6}px)`
-        header.children[1].style.cssText = `transform: translateY(-${scrollY * 1.4}px)`
-        header.children[2].style.cssText = `transform: translateY(-${scrollY * 1.2}px)`
-        header.children[3].style.cssText = `transform: translateY(-${scrollY * 1.1}px)`
+        if (categoryList) {
+            minHeight = 64
+        }
+
+        header.style.cssText = `max-height: ${headerH - scrollY > minHeight ? headerH - scrollY : minHeight}px`
+
+        Array.from(header.children, (c, i) => {
+            if (!c.classList.contains('category-list-wrapper')) {
+                c.style.cssText = `transform: translateY(-${scrollY * biasArr[i]}px)`
+            }
+        })
     }
 
     function headerHandlers() {
