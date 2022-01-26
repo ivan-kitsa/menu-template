@@ -64,6 +64,11 @@ input[type='radio'] {
   left: 0;
   z-index: 5;
   max-height: 70rem;
+  transition: .05s ease-out;
+
+  & > * {
+    transition: .05s ease-out;
+  }
 
   //-webkit-transition-property: max-height;
   //-webkit-transition-duration: 250ms;
