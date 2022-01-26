@@ -49,7 +49,6 @@ body {
   width: 100%;
   padding: 0 1.6rem;
   margin: 0;
-  //transition: $main-transition;
 }
 
 input[type='radio'] {
@@ -64,39 +63,7 @@ input[type='radio'] {
   left: 0;
   z-index: 5;
   max-height: 70rem;
-  transition: .05s ease-out;
-
-  & > * {
-    transition: .05s ease-out;
-  }
-
-  //-webkit-transition-property: max-height;
-  //-webkit-transition-duration: 250ms;
-  //-webkit-transition-delay: 50ms;
-  //-webkit-timing-function: linear;
-  //transition: max-height 250ms linear 50ms;
-
-  //& > *:not(.category-list) {
-  //  opacity: 1;
-  //  -webkit-transition-property: opacity;
-  //  -webkit-transition-duration: 250ms;
-  //  -webkit-transition-delay: 150ms;
-  //  -webkit-timing-function: linear;
-  //  transition: opacity 250ms linear 150ms;
-  //}
-
-  //&.header-min {
-  //  max-height: 0;
-  //
-  //  & > *:not(.category-list) {
-  //    opacity: 0;
-  //    -webkit-transition-property: opacity;
-  //    -webkit-transition-duration: 200ms;
-  //    -webkit-transition-delay: 50ms;
-  //    -webkit-timing-function: linear;
-  //    transition: opacity 200ms linear 50ms;
-  //  }
-  //}
+  will-change: max-height;
 
   &.header-category {
     @include flex;
@@ -140,6 +107,7 @@ input[type='radio'] {
     width: 100%;
     margin-bottom: 1.8rem;
     margin-top: 2rem;
+    will-change: transform;
 
     .logo {
       width: 4.4rem;
@@ -211,6 +179,8 @@ input[type='radio'] {
   }
 
   .description {
+    will-change: transform;
+
     @media (orientation: portrait) {
       &.min {
         @include textEclipsis(2);
@@ -237,6 +207,7 @@ input[type='radio'] {
     max-height: max-content;
     padding-bottom: 2.6rem;
     margin: 1.6rem 0 2.5rem;
+    will-change: transform;
 
     @media (orientation: landscape) {
       display: none;
@@ -380,6 +351,7 @@ input[type='radio'] {
 
   .menu-select {
     margin: 1.6rem 0 1.2rem;
+    will-change: transform;
   }
 
   & > *:nth-last-child(2) {

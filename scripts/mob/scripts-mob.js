@@ -215,10 +215,10 @@ function footerScrollSizer() {
             ) {
             return
         }
-        footer.style.cssText = `transform: translateY(100%); transition: .075s linear .25s;`
+        footer.style.cssText = `transform: translateY(100%); transition: .075s linear .2s;`
     })
     window.addEventListener('touchend', (e) => {
-        footer.style.cssText = `transform: translateY(0%); transition: .15s ease-out .75s;`
+        footer.style.cssText = `transform: translateY(0%); transition: .15s ease-out 1.2s;`
     })
 }
 
