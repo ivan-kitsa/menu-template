@@ -380,9 +380,16 @@ input[type='radio'] {
   & > *:nth-last-child(2) {
     margin-bottom: 6.4rem !important;
   }
-  & > *:last-child:not(.category-list) {
+  & > *:last-child:not(.category-list-wrapper) {
     margin-top: -6.4rem;
     margin-bottom: 1.2rem;
+  }
+
+  .category-list-wrapper {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
   }
 
   .category-list {

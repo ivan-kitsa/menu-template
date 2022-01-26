@@ -102,7 +102,7 @@ function headerScrollSizer() {
         header.style.cssText = `max-height: ${headerH - scrollY > minHeight ? headerH - scrollY : minHeight}px`
 
         Array.from(header.children, (c, i) => {
-            if (!c.classList.contains('category-list')) {
+            if (!c.classList.contains('category-list-wrapper')) {
                 c.style.cssText = `transform: translateY(-${scrollY * biasArr[i]}px)`
             }
         })
