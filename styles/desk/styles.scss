@@ -1253,16 +1253,11 @@ input[type='radio'] {
   }
 
   .card {
+    width: 0;
     opacity: 0;
     display: none;
-
-    //position: absolute;
-    //top: 0;
-    //left: 0;
-
     transform: translateX(0);
     will-change: transform;
-    width: 0;
 
     &[data-id='0'],
     &[data-id='1'],
