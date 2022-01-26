@@ -48,8 +48,8 @@ function headerScrollSizer() {
     initScroll()
 
     function initScroll() {
-        window.addEventListener('scroll', function()  {
-            if (this.scrollY > 40 ) {
+        window.addEventListener('scroll', () =>  {
+            if (window.scrollY > 40 ) {
                 header.classList.add('header-min')
                 return
             }

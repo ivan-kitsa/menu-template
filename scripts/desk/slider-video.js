@@ -11,64 +11,7 @@ const VIDEOS_MOCK = [
     'https://videodelivery.net/5d5bc37ffcf54c9b82e996823bffbb81/manifest/video.m3u8',
 ]
 
-class Video {
-    constructor() {
-        this.videoNodes = []
-        this.muteButton = document.getElementById('mute-button')
-    }
-
-    get getNodes() {
-        return this.videoNodes
-    }
-
-    attachParams() {
-        const videos = Array.from(document.querySelectorAll('iframe'))
-
-        this.videoNodes = videos.map((v, i) => {
-
-            const player = Stream(v)
-            player.autoplay = false
-            player.controls = false
-            player.preload = true
-            player.muted = true
-
-            if (i < videos.length - 1) {
-                player.addEventListener('ended', () => {
-                    Slider.moveToLeft()
-                })
-            }
-
-            v.parentElement.onclick = () => {
-                if (player.paused) {
-                    player.play()
-                    return
-                }
-                player.pause()
-            }
-
-            return player
-        })
-    }
-
-    muteHandler(isMuted) {
-        this.videoNodes.forEach(v => {
-            // v.muted = isMuted
-        })
-    }
-
-    init() {
-        // this.attachSrc()
-        this.attachParams()
-        this.videoNodes[0].play()
-        this.muteButton.addEventListener('click', () => {
-            this.muteButton.classList.toggle('muted')
-            this.muteHandler(this.muteButton.classList.contains('muted'))
-        })
-    }
-}
-
-const V = new Video()
-V.init()
+const initVideosArr = []
 
 class SliderV {
     constructor(id) {
@@ -77,6 +20,7 @@ class SliderV {
         this.slides = this.sl.querySelectorAll('.slide')
         this.leftButton = this.sl.querySelector('.left-button')
         this.rightButton = this.sl.querySelector('.right-button')
+        this.muteButton = document.getElementById('mute-button')
     }
 
     moveToRight() {
@@ -87,8 +31,8 @@ class SliderV {
             this.rightButton.classList.remove('hidden')
 
             if (dataId === 0) {
-                V.getNodes[i + 1].pause()
-                V.getNodes[i].play()
+                initVideosArr[i + 1].pause()
+                initVideosArr[i].play()
             }
 
             if (i === dataId) {
@@ -104,8 +48,8 @@ class SliderV {
             this.leftButton.classList.remove('hidden')
 
             if (dataId === 2) {
-                V.getNodes[i - 1].pause()
-                V.getNodes[i].play()
+                initVideosArr[i - 1].pause()
+                initVideosArr[i].play()
             }
 
             if (this.slides[this.slides.length - 1].getAttribute('data-id') === '1') {
@@ -114,13 +58,146 @@ class SliderV {
         }
     }
 
+    muteHandler() {
+        this.muteButton.classList.toggle('muted')
+        initVideosArr.forEach((v) => {
+            v.isMuted(this.muteButton.classList.contains('muted'))
+        })
+    }
+
     init() {
         this.rightButton.addEventListener('mousedown', () => this.moveToLeft())
         this.leftButton.addEventListener('mousedown', () => this.moveToRight())
+        this.muteButton.addEventListener('click', () => this.muteHandler())
     }
 }
 
-const Slider = new SliderV('video-slider')
-Slider.init()
+const Slider = (function initSlider() {
+    const slider = new SliderV('video-slider')
+    slider.init()
+    return slider
+}())
+
+class Video {
+    constructor(vSlide, index) {
+        this.vSlide = vSlide
+        this.iframe = vSlide.querySelector('iframe')
+        this.progressBar = vSlide.querySelector('.progress')
+        this.index = index
+        this.player = null
+
+        this.duration = 0
+        this.currentTime = 0
+        this.progress = 0
+    }
+
+    get getPlayer() {
+        return this.player
+    }
+
+    get getProgress() {
+        return this.progress
+    }
+
+    play() {
+        this.player.play()
+    }
+    pause() {
+        this.player.pause()
+    }
+
+    isMuted(boolean) {
+        this.player.muted = boolean
+    }
+
+    resetProgress() {
+        this.player.currentTime = 0
+        this.currentTime = 0
+        this.progress = 0
+        this.progressBar ? this.progressBar.style.width = '0%' : null
+    }
+
+    #progressBar() {
+        this.currentTime = this.player.currentTime
+        this.progress = 100 - (this.duration - this.currentTime) / this.duration * 100
+        this.progressBar ? this.progressBar.style.width = `${this.progress}%` : null
+    }
+
+    #attachParams() {
+        this.player = Stream(this.iframe)
+        this.player.autoplay = false
+        this.player.controls = false
+        this.player.preload = true
+        this.player.muted = true
+    }
+
+    #attachListeners() {
+        let interval = 0
+
+        this.player.addEventListener('playing', () => {
+            if (!this.player.paused) {
+                this.duration = this.player.duration
+
+                clearInterval(interval)
+
+                interval = setInterval(() => {
+                    if (this.duration) {
+                        this.#progressBar()
+                    }
+                }, 10)
+            }
+        })
+
+        this.player.addEventListener('play', () => {
+            console.log('----PLAY----')
+        })
+
+        this.player.addEventListener('pause', () => {
+            clearInterval(interval)
+
+            console.log('----PAUSE----')
+        })
+
+        this.player.addEventListener('ended', () => {
+            if (this.index < initVideosArr.length - 1) {
+                Slider.moveToLeft()
+                this.resetProgress()
+            }
+
+            console.log('----ENDED----')
+        })
+
+        this.vSlide.addEventListener('click', (e) => {
+            if (e.target.classList.contains('tag')) {
+                const percent = parseInt(e.target.style.left)
+
+                this.player.currentTime = this.duration / 100 * percent
+                this.#progressBar()
+
+                return
+            }
+
+            if (e.target.classList.contains('iframe-wrapper')) {
+                this.player.paused ? this.player.play() : this.player.pause()
+            }
+        })
+    }
+
+    init() {
+        this.#attachParams()
+        this.#attachListeners()
+    }
+}
+
+(function initVideos() {
+    const vSlides = document.querySelectorAll('.v-slide')
+
+    vSlides.forEach((vs, i) => {
+        initVideosArr.push(new Video(vs, i))
+        initVideosArr[i].init()
+    })
+
+    initVideosArr[0].play()
+}())
 
 

@@ -5,16 +5,16 @@
     <meta name='viewport'
           content='width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0'>
     <meta http-equiv='X-UA-Compatible' content='ie=edge'>
-    <link rel='preload' href='styles/desk/styles.css' as='style'>
+    <link rel='preload' href='./styles/desk/styles.css' as='style'>
     <link rel='preconnect' href='https://fonts.googleapis.com'>
     <link rel='preconnect' href='https://fonts.gstatic.com' crossorigin>
     <link rel='stylesheet' href='https://fonts.googleapis.com/css2?family=Inter:wght@400;700&family=Poppins:wght@400;600;700&display=swap'>
-    <link rel='stylesheet' href='styles/desk/styles.css'>
+    <link rel='stylesheet' href='./styles/desk/styles.css'>
     <link rel='icon' href='./shared/favicon.png' type='image/png'>
     <title>Video</title>
 </head>
 <body>
-<div class='video-page-wrapper'>
+<main class='video-page-wrapper'>
     <a href='./index.html' class='forward-link'>
         <img src='./shared/icons/arrow-left-white.svg' width='24' height='24' alt='<'>
     </a>
@@ -39,18 +39,20 @@
                         </div>
                     </div>
                 </div>
+                <div class='iframe-wrapper'>
                     <iframe src="https://iframe.cloudflarestream.com/8659eaac974c44ff92949b837e915147"
-                            allow="accelerometer; gyroscope; autoplay; encrypted-media; picture-in-picture;"
+                            allow="autoplay; fullscreen"
                             id="v1"
                     ></iframe>
+                </div>
                 <div class='video-tags'>
-                    <div class='progress' style='width: 80%'></div>
+                    <div class='progress' style='width: 0%'></div>
                     <div class='tag' style='left: 10%'>
                         <img src='./shared/icons/categories/cocktails.svg' width='24' height='24' alt='cocktails'>
                         <div class='tag-popover'>
                             <p class='name'><b>Bright-Eyed & Bushy-Tailed</b><b>$17</b></p>
                             <p class='description'>Espresso Bean infused Broken Shed Vodka, Oat Milk, Vanilla, Cold Brew Nitro, Cinnamon Dust</p>
-                            <button class='button small'>Order</button>
+                            <button class='button small' data-popup-handler='order-popup'>Order</button>
                         </div>
                     </div>
                     <div class='tag' style='left: 50%'>
@@ -58,7 +60,7 @@
                         <div class='tag-popover'>
                             <p class='name'><b>Truffle</b><b>$60</b></p>
                             <p class='description'>Double Fior di Latte, Pecorino, Basil, Shaved Black Truffle, Truffle Oil</p>
-                            <button class='button small'>Order</button>
+                            <button class='button small' data-popup-handler='order-popup'>Order</button>
                         </div>
                     </div>
                     <div class='tag' style='left: 80%'>
@@ -66,7 +68,7 @@
                         <div class='tag-popover'>
                             <p class='name'><b>Diavola</b><b>$28</b></p>
                             <p class='description'>Tomato, Fior di Latte, Pecorino, Spicy Salame, Calabrian Chili</p>
-                            <button class='button small'>Order</button>
+                            <button class='button small' data-popup-handler='order-popup'>Order</button>
                         </div>
                     </div>
                 </div>
@@ -84,18 +86,20 @@
                         </div>
                     </div>
                 </div>
-                <iframe src="https://iframe.cloudflarestream.com/2827bf8f3cccf453ec7ebffaf6aea805"
-                        allow="accelerometer; gyroscope; autoplay; muted; encrypted-media; picture-in-picture;"
-                        id="v2"
-                ></iframe>
+                <div class='iframe-wrapper'>
+                    <iframe src="https://iframe.cloudflarestream.com/2827bf8f3cccf453ec7ebffaf6aea805"
+                            allow="autoplay; fullscreen"
+                            id="v2"
+                    ></iframe>
+                </div>
                 <div class='video-tags'>
-                    <div class='progress' style='width: 80%'></div>
+                    <div class='progress' style='width: 0%'></div>
                     <div class='tag' style='left: 10%'>
                         <img src='./shared/icons/categories/cocktails.svg' width='24' height='24' alt='cocktails'>
                         <div class='tag-popover'>
                             <p class='name'><b>Bright-Eyed & Bushy-Tailed</b><b>$17</b></p>
                             <p class='description'>Espresso Bean infused Broken Shed Vodka, Oat Milk, Vanilla, Cold Brew Nitro, Cinnamon Dust</p>
-                            <button class='button small'>Order</button>
+                            <button class='button small' data-popup-handler='order-popup'>Order</button>
                         </div>
                     </div>
                     <div class='tag' style='left: 50%'>
@@ -103,7 +107,7 @@
                         <div class='tag-popover'>
                             <p class='name'><b>Truffle</b><b>$60</b></p>
                             <p class='description'>Double Fior di Latte, Pecorino, Basil, Shaved Black Truffle, Truffle Oil</p>
-                            <button class='button small'>Order</button>
+                            <button class='button small' data-popup-handler='order-popup'>Order</button>
                         </div>
                     </div>
                     <div class='tag' style='left: 80%'>
@@ -111,7 +115,7 @@
                         <div class='tag-popover'>
                             <p class='name'><b>Diavola</b><b>$28</b></p>
                             <p class='description'>Tomato, Fior di Latte, Pecorino, Spicy Salame, Calabrian Chili</p>
-                            <button class='button small'>Order</button>
+                            <button class='button small' data-popup-handler='order-popup'>Order</button>
                         </div>
                     </div>
                 </div>
@@ -129,17 +133,20 @@
                         </div>
                     </div>
                 </div>
-                <iframe src="https://iframe.videodelivery.net/2827bf8f3cccf453ec7ebffaf6aea805"
-                        id="v3"
-                ></iframe>
+                <div class='iframe-wrapper'>
+                    <iframe src="https://iframe.videodelivery.net/2827bf8f3cccf453ec7ebffaf6aea805"
+                            allow="autoplay; fullscreen"
+                            id="v3"
+                    ></iframe>
+                </div>
                 <div class='video-tags'>
-                    <div class='progress' style='width: 80%'></div>
+                    <div class='progress' style='width: 0%'></div>
                     <div class='tag' style='left: 10%'>
                         <img src='./shared/icons/categories/cocktails.svg' width='24' height='24' alt='cocktails'>
                         <div class='tag-popover'>
                             <p class='name'><b>Bright-Eyed & Bushy-Tailed</b><b>$17</b></p>
                             <p class='description'>Espresso Bean infused Broken Shed Vodka, Oat Milk, Vanilla, Cold Brew Nitro, Cinnamon Dust</p>
-                            <button class='button small'>Order</button>
+                            <button class='button small' data-popup-handler='order-popup'>Order</button>
                         </div>
                     </div>
                     <div class='tag' style='left: 50%'>
@@ -147,7 +154,7 @@
                         <div class='tag-popover'>
                             <p class='name'><b>Truffle</b><b>$60</b></p>
                             <p class='description'>Double Fior di Latte, Pecorino, Basil, Shaved Black Truffle, Truffle Oil</p>
-                            <button class='button small'>Order</button>
+                            <button class='button small' data-popup-handler='order-popup'>Order</button>
                         </div>
                     </div>
                     <div class='tag' style='left: 80%'>
@@ -155,7 +162,7 @@
                         <div class='tag-popover'>
                             <p class='name'><b>Diavola</b><b>$28</b></p>
                             <p class='description'>Tomato, Fior di Latte, Pecorino, Spicy Salame, Calabrian Chili</p>
-                            <button class='button small'>Order</button>
+                            <button class='button small' data-popup-handler='order-popup'>Order</button>
                         </div>
                     </div>
                 </div>
@@ -173,17 +180,20 @@
                         </div>
                     </div>
                 </div>
-                <iframe src="https://iframe.videodelivery.net/2827bf8f3cccf453ec7ebffaf6aea805"
-                        id="v4"
-                ></iframe>
+                <div class='iframe-wrapper'>
+                    <iframe src="https://iframe.videodelivery.net/2827bf8f3cccf453ec7ebffaf6aea805"
+                            allow="autoplay; fullscreen"
+                            id="v4"
+                    ></iframe>
+                </div>
                 <div class='video-tags'>
-                    <div class='progress' style='width: 80%'></div>
+                    <div class='progress' style='width: 0%'></div>
                     <div class='tag' style='left: 10%'>
                         <img src='./shared/icons/categories/cocktails.svg' width='24' height='24' alt='cocktails'>
                         <div class='tag-popover'>
                             <p class='name'><b>Bright-Eyed & Bushy-Tailed</b><b>$17</b></p>
                             <p class='description'>Espresso Bean infused Broken Shed Vodka, Oat Milk, Vanilla, Cold Brew Nitro, Cinnamon Dust</p>
-                            <button class='button small'>Order</button>
+                            <button class='button small' data-popup-handler='order-popup'>Order</button>
                         </div>
                     </div>
                     <div class='tag' style='left: 50%'>
@@ -191,7 +201,7 @@
                         <div class='tag-popover'>
                             <p class='name'><b>Truffle</b><b>$60</b></p>
                             <p class='description'>Double Fior di Latte, Pecorino, Basil, Shaved Black Truffle, Truffle Oil</p>
-                            <button class='button small'>Order</button>
+                            <button class='button small' data-popup-handler='order-popup'>Order</button>
                         </div>
                     </div>
                     <div class='tag' style='left: 80%'>
@@ -199,7 +209,7 @@
                         <div class='tag-popover'>
                             <p class='name'><b>Diavola</b><b>$28</b></p>
                             <p class='description'>Tomato, Fior di Latte, Pecorino, Spicy Salame, Calabrian Chili</p>
-                            <button class='button small'>Order</button>
+                            <button class='button small' data-popup-handler='order-popup'>Order</button>
                         </div>
                     </div>
                 </div>
@@ -217,17 +227,20 @@
                         </div>
                     </div>
                 </div>
-                <iframe src="https://iframe.videodelivery.net/2827bf8f3cccf453ec7ebffaf6aea805"
-                        id="v5"
-                ></iframe>
+                <div class='iframe-wrapper'>
+                    <iframe src="https://iframe.videodelivery.net/2827bf8f3cccf453ec7ebffaf6aea805"
+                            allow="autoplay; fullscreen"
+                            id="v5"
+                    ></iframe>
+                </div>
                 <div class='video-tags'>
-                    <div class='progress' style='width: 80%'></div>
+                    <div class='progress' style='width: 0%'></div>
                     <div class='tag' style='left: 10%'>
                         <img src='./shared/icons/categories/cocktails.svg' width='24' height='24' alt='cocktails'>
                         <div class='tag-popover'>
                             <p class='name'><b>Bright-Eyed & Bushy-Tailed</b><b>$17</b></p>
                             <p class='description'>Espresso Bean infused Broken Shed Vodka, Oat Milk, Vanilla, Cold Brew Nitro, Cinnamon Dust</p>
-                            <button class='button small'>Order</button>
+                            <button class='button small' data-popup-handler='order-popup'>Order</button>
                         </div>
                     </div>
                     <div class='tag' style='left: 50%'>
@@ -235,7 +248,7 @@
                         <div class='tag-popover'>
                             <p class='name'><b>Truffle</b><b>$60</b></p>
                             <p class='description'>Double Fior di Latte, Pecorino, Basil, Shaved Black Truffle, Truffle Oil</p>
-                            <button class='button small'>Order</button>
+                            <button class='button small' data-popup-handler='order-popup'>Order</button>
                         </div>
                     </div>
                     <div class='tag' style='left: 80%'>
@@ -243,7 +256,7 @@
                         <div class='tag-popover'>
                             <p class='name'><b>Diavola</b><b>$28</b></p>
                             <p class='description'>Tomato, Fior di Latte, Pecorino, Spicy Salame, Calabrian Chili</p>
-                            <button class='button small'>Order</button>
+                            <button class='button small' data-popup-handler='order-popup'>Order</button>
                         </div>
                     </div>
                 </div>
@@ -490,7 +503,7 @@
             </div>
         </div>
     </div>
-</div>
+</main>
 <div class='popup-wrapper' id='order-popup'>
     <div class='background' data-popup-closer='order-popup'></div>
     <div class='popup'>
