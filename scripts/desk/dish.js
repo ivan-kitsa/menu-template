@@ -1,16 +1,3 @@
-const VIDEOS_MOCK = [
-    'https://videodelivery.net/2827bf8f3cccf453ec7ebffaf6aea805/manifest/video.m3u8',
-    'https://videodelivery.net/426cdc52b27d4560cb6cfff789b8e5d7/manifest/video.m3u8',
-    'https://videodelivery.net/5d5bc37ffcf54c9b82e996823bffbb81/manifest/video.m3u8',
-    'https://videodelivery.net/426cdc52b27d4560cb6cfff789b8e5d7/manifest/video.m3u8',
-    'https://videodelivery.net/5d5bc37ffcf54c9b82e996823bffbb81/manifest/video.m3u8',
-    'https://videodelivery.net/5d5bc37ffcf54c9b82e996823bffbb81/manifest/video.m3u8',
-    'https://videodelivery.net/426cdc52b27d4560cb6cfff789b8e5d7/manifest/video.m3u8',
-    'https://videodelivery.net/5d5bc37ffcf54c9b82e996823bffbb81/manifest/video.m3u8',
-    'https://videodelivery.net/426cdc52b27d4560cb6cfff789b8e5d7/manifest/video.m3u8',
-    'https://videodelivery.net/5d5bc37ffcf54c9b82e996823bffbb81/manifest/video.m3u8',
-]
-
 const initVideosArr = []
 
 class SliderV {
