@@ -50,7 +50,7 @@ class Video {
         this.player.autoplay = false
         this.player.controls = false
         this.player.preload = true
-        this.player.muted = true
+        this.player.muted = false
     }
 
     #attachListeners() {
