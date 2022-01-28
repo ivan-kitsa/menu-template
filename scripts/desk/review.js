@@ -56,10 +56,13 @@ class Video {
     #attachListeners() {
         let interval = 0
 
+        this.player.addEventListener('loadedmetadata', () => {
+            this.duration = this.player.duration
+            this.#attachTagsPosition()
+        })
+
         this.player.addEventListener('playing', () => {
             if (!this.player.paused) {
-                this.duration = this.player.duration
-
                 clearInterval(interval)
 
                 interval = setInterval(() => {
@@ -91,11 +94,10 @@ class Video {
 
         this.vSlide.addEventListener('click', (e) => {
             if (e.target.classList.contains('tag')) {
-                const percent = parseInt(e.target.style.left)
+                const timestamp = parseInt(e.target.getAttribute('data-timestamp'))
 
-                this.player.currentTime = this.duration / 100 * percent
+                this.player.currentTime = timestamp || this.player.currentTime
                 this.#progressBar()
-
                 return
             }
 
@@ -103,6 +105,21 @@ class Video {
                 this.player.paused ? this.player.play() : this.player.pause()
             }
         })
+    }
+
+    #attachTagsPosition() {
+        const tags = this.vSlide.querySelectorAll('.tag')
+
+        tags.forEach((t, i) => {
+            const timeStamp = parseInt(t.getAttribute('data-timestamp'))
+            const percent = 100 - (this.duration - timeStamp) / this.duration * 100
+
+            console.log(this.duration)
+            console.log(percent)
+
+            t.style.left = `${percent}%`
+        })
+
     }
 
     init() {

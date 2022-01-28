@@ -1,0 +1,354 @@
+<!doctype html>
+<html lang='en'>
+<head>
+    <meta charset='UTF-8'>
+    <meta name='viewport'
+          content='width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0'>
+    <meta http-equiv='X-UA-Compatible' content='ie=edge'>
+    <link rel='preload' href='./styles/mob/styles-mob.css' as='style'>
+    <link rel='preconnect' href='https://fonts.googleapis.com'>
+    <link rel='preconnect' href='https://fonts.gstatic.com' crossorigin>
+    <link rel='stylesheet' href='https://fonts.googleapis.com/css2?family=Inter:wght@400;700&family=Poppins:wght@400;600;700&display=swap'>
+    <link rel='stylesheet' href='./styles/mob/styles-mob.css'>
+    <link rel='icon' href='./shared/favicon.png' type='image/png'>
+    <title>Video</title>
+</head>
+<body>
+<main class='video-page-wrapper'>
+    <a href='./index-mob.html' class='forward-link'>
+        <img src='./shared/icons/arrow-left-white.svg' width='24' height='24' alt='<'>
+    </a>
+    <div class='video-slider' id='video-slider'>
+        <div class='slides'>
+            <div class='slide v-slide' data-id='1'>
+                <div class='iframe-wrapper'>
+                    <iframe src="https://iframe.cloudflarestream.com/18373a9ba1834afea0a9c85c7012bb7c"
+                            allow="autoplay; fullscreen"
+                            id="v1"
+                    ></iframe>
+                </div>
+                <div class='right-bar'>
+                    <div class='video-tags'>
+                        <div class='progress' style='height: 0'></div>
+                        <div class='tags'>
+                            <div class='tag' data-timestamp='5'>
+                                <img src='./shared/icons/categories/cocktails.svg' width='24' height='24' alt='cocktails'>
+                            </div>
+                            <div class='tag' data-timestamp='15'>
+                                <img src='./shared/icons/categories/cocktails.svg' width='24' height='24' alt='cocktails'>
+                            </div>
+                            <div class='tag' data-timestamp='30'>
+                                <img src='./shared/icons/categories/pizza.svg' width='24' height='24' alt='cocktails'>
+                            </div>
+                        </div>
+                    </div>
+                    <div class='bar-button' data-popup-handler='app-link-popup'>
+                        <img src='./shared/icons/like-32.svg' width='32' height='32' alt='like' />
+                        <p>1.1k</p>
+                    </div>
+                    <div class='bar-button' data-popup-handler='comments-popup'>
+                        <img src='./shared/icons/comment-32.svg' width='32' height='32' alt='comments' />
+                        <p>45</p>
+                    </div>
+                    <div class='bar-button' data-popup-handler='share-popup'>
+                        <img src='./shared/icons/share-32.svg' width='32' height='32' alt='share' />
+                    </div>
+                </div>
+                <div class='bottom-bar'>
+                    <div class='profile'>
+                        <div class='avatar'>
+                            <img src='./shared/images/1.png' alt='photo'>
+                        </div>
+                        <div class='user-info'>
+                            <p class='name'>@Nastasia_super</p>
+                            <div class='views'>
+                                <span class='uploaded'>2 hours ago</span>
+                                <span class='amt'>246 views</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class='swipe-message'>
+                        <img src='./shared/icons/keyboard-arrow-right.svg' width='32' height='32' alt='>' />
+                        <span>Swipe to the next dish</span>
+                    </div>
+                </div>
+            </div>
+<!--            <div class='slide v-slide' data-id='2'>-->
+<!--                <div class='iframe-wrapper'>-->
+<!--                    <iframe src="https://iframe.cloudflarestream.com/8659eaac974c44ff92949b837e915147"-->
+<!--                            allow="autoplay; fullscreen"-->
+<!--                            id="v2"-->
+<!--                    ></iframe>-->
+<!--                </div>-->
+<!--                <div class='right-bar'>-->
+<!--                    <div class='avatar' data-popup-handler='app-link-popup'>-->
+<!--                        <img src='./shared/images/1.png' width='40' height='40' alt='avatar' />-->
+<!--                    </div>-->
+<!--                    <div class='bar-button' data-popup-handler='app-link-popup'>-->
+<!--                        <img src='./shared/icons/like-32.svg' width='32' height='32' alt='like' />-->
+<!--                        <p>1.1k</p>-->
+<!--                    </div>-->
+<!--                    <div class='bar-button' data-popup-handler='comments-popup'>-->
+<!--                        <img src='./shared/icons/comment-32.svg' width='32' height='32' alt='comments' />-->
+<!--                        <p>45</p>-->
+<!--                    </div>-->
+<!--                    <div class='bar-button' data-popup-handler='share-popup'>-->
+<!--                        <img src='./shared/icons/share-32.svg' width='32' height='32' alt='share' />-->
+<!--                    </div>-->
+<!--                    <div class='bar-button' data-popup-handler='order-popup'>-->
+<!--                        <img src='./shared/icons/basket-32.svg' width='32' height='32' alt='order' />-->
+<!--                    </div>-->
+<!--                </div>-->
+<!--                <div class='bottom-bar'>-->
+<!--                    <div class='food-description'>-->
+<!--                        <p class='dish'>-->
+<!--                            <span class='name'>Bright-Eyed & Bushy-Tailed</span>-->
+<!--                            <span class='cost'>$15.0</span>-->
+<!--                        </p>-->
+<!--                        <p class='description min' data-popup-handler='details-popup'>-->
+<!--                            Espresso Bean infused Broken Shed Vodka, Oat Milk, Vanilla, Cold Brew Nitro,-->
+<!--                            Cinnamon Dust Espresso and More and  More and More and More and More and  More and More-->
+<!--                        </p>-->
+<!--                    </div>-->
+<!--                    <div class='swipe-message'>-->
+<!--                        <img src='./shared/icons/keyboard-arrow-right.svg' width='32' height='32' alt='>' />-->
+<!--                        <span>Swipe to the next dish</span>-->
+<!--                    </div>-->
+<!--                </div>-->
+<!--            </div>-->
+<!--            <div class='slide v-slide' data-id='3'>-->
+<!--                <div class='iframe-wrapper'>-->
+<!--                    <iframe src="https://iframe.cloudflarestream.com/2827bf8f3cccf453ec7ebffaf6aea805"-->
+<!--                            allow="autoplay; fullscreen"-->
+<!--                            id="v3"-->
+<!--                    ></iframe>-->
+<!--                </div>-->
+<!--                <div class='right-bar'>-->
+<!--                    <div class='avatar' data-popup-handler='app-link-popup'>-->
+<!--                        <img src='./shared/images/1.png' width='40' height='40' alt='avatar' />-->
+<!--                    </div>-->
+<!--                    <div class='bar-button' data-popup-handler='app-link-popup'>-->
+<!--                        <img src='./shared/icons/like-32.svg' width='32' height='32' alt='like' />-->
+<!--                        <p>1.1k</p>-->
+<!--                    </div>-->
+<!--                    <div class='bar-button' data-popup-handler='comments-popup'>-->
+<!--                        <img src='./shared/icons/comment-32.svg' width='32' height='32' alt='comments' />-->
+<!--                        <p>45</p>-->
+<!--                    </div>-->
+<!--                    <div class='bar-button' data-popup-handler='share-popup'>-->
+<!--                        <img src='./shared/icons/share-32.svg' width='32' height='32' alt='share' />-->
+<!--                    </div>-->
+<!--                    <div class='bar-button' data-popup-handler='order-popup'>-->
+<!--                        <img src='./shared/icons/basket-32.svg' width='32' height='32' alt='order' />-->
+<!--                    </div>-->
+<!--                </div>-->
+<!--                <div class='bottom-bar'>-->
+<!--                    <div class='food-description'>-->
+<!--                        <p class='dish'>-->
+<!--                            <span class='name'>Bright-Eyed & Bushy-Tailed</span>-->
+<!--                            <span class='cost'>$15.0</span>-->
+<!--                        </p>-->
+<!--                        <p class='description min' data-popup-handler='details-popup'>-->
+<!--                            Espresso Bean infused Broken Shed Vodka, Oat Milk, Vanilla, Cold Brew Nitro,-->
+<!--                            Cinnamon Dust Espresso and More and  More and More and More and More and  More and More-->
+<!--                        </p>-->
+<!--                    </div>-->
+<!--                    <div class='swipe-message'>-->
+<!--                        <img src='./shared/icons/keyboard-arrow-right.svg' width='32' height='32' alt='>' />-->
+<!--                        <span>Swipe to the next dish</span>-->
+<!--                    </div>-->
+<!--                </div>-->
+<!--            </div>-->
+        </div>
+    </div>
+</main>
+<footer class='footer-video'>
+    <div class='footer-popup' id='share-popup'>
+        <div class='background' data-popup-closer='share-popup'></div>
+        <div class='popup'>
+            <div class='popup-head'>
+                <b>Share to</b>
+                <div class='closer' data-popup-closer='share-popup'>
+                    <img src='./shared/icons/cross-black.svg' width='16' height='16' alt='x' />
+                </div>
+            </div>
+            <div class='popup-body'>
+                <a data-link='#share-link' id='copy-share-link' class='share-link' >
+                    <div class='img'>
+                        <img src='./shared/icons/share-link-white.svg' width='24' height='24' alt='share'>
+                    </div>
+                    <b>Copy Link</b>
+                </a>
+                <a data-link='#message-link' id='message-share-link' class='share-link'>
+                    <div class='img green'>
+                        <img src='./shared/icons/message-white.svg' width='24' height='24' alt='share'>
+                    </div>
+                    <b>Message</b>
+                </a>
+                <a href='https://wa.me/11111111' target='_blank' id='whatsapp-share-link' class='share-link'>
+                    <div class='img whatsapp'>
+                        <img src='./shared/icons/whatsapp.svg' width='24' height='24' alt='share'>
+                    </div>
+                    <b>WhatsApp</b>
+                </a>
+            </div>
+        </div>
+    </div>
+    <div class='footer-popup' id='comments-popup'>
+        <div class='background' data-popup-closer='comments-popup'></div>
+        <div class='popup'>
+            <div class='popup-head'>
+                <b>Comments</b>
+                <div class='closer' data-popup-closer='comments-popup'>
+                    <img src='./shared/icons/cross-black.svg' width='16' height='16' alt='x' />
+                </div>
+            </div>
+            <div class='popup-body'>
+                <div class='comments'>
+                    <div class='no-comments'>
+                        <img src='./shared/images/no-comments.png' alt='img' />
+                        <p>No comments yet</p>
+                        <button class='button x-small orange'
+                                data-popup-handler='app-link-popup'
+                                data-popup-closer='comments-popup'>Leave a comment</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class='footer-popup' id='details-popup'>
+        <div class='background' data-popup-closer='details-popup'></div>
+        <div class='popup'>
+            <div class='popup-head'>
+                <b>Dish details</b>
+                <div class='closer' data-popup-closer='details-popup'>
+                    <img src='./shared/icons/cross-black.svg' width='16' height='16' alt='x' />
+                </div>
+            </div>
+            <div class='popup-body'>
+                <div class='details'>
+                    <p class='name'>Bright-Eyed & Bushy-Tailed</p>
+                    <p class='cost'>$15.0</p>
+                    <p>Espresso Bean infused Broken Shed Vodka, Oat Milk, Vanilla, Cold Brew Nitro, Cinnamon Dust
+                        Espresso Bean infused Broken Shed Vodka, Oat Milk, Vanilla, Cold Brew Nitro, Cinnamon Dust</p>
+                </div>
+                <button class='button'
+                        data-popup-handler='order-popup'
+                        data-popup-closer='details-popup'>Order</button>
+            </div>
+        </div>
+    </div>
+    <div class='footer-popup' id='order-popup'>
+        <div class='background' data-popup-closer='order-popup'></div>
+        <div class='popup'>
+            <div class='popup-head'>
+                <b>How you wanna get your food?</b>
+                <div class='closer' data-popup-closer='order-popup' >
+                    <img src='./shared/icons/cross-black.svg' width='16' height='16' alt='x' />
+                </div>
+            </div>
+            <div class='popup-body'>
+                <div class='order-select'>
+                    <div class='select-head'>
+                        <img class='select-ico' src='./shared/icons/order/online-order.svg' width='24' height='24' alt='ico' />
+                        <b class='select-title' data-amt='4'>Online order</b>
+                        <img src='./shared/icons/arrow-bottom.svg' width='28' height='28' alt='V'>
+                    </div>
+                    <div class='select-items'>
+                        <label for='postmates'>
+                            <input type="radio" name="order" id="postmates">
+                            <img src='./shared/icons/order/postmates.svg' width='24' height='24' alt='ico' />
+                            <b>Postmates</b>
+                            <div class='custom-radio'></div>
+                        </label>
+                        <label for='doordash'>
+                            <input type="radio" name="order" id="doordash">
+                            <img src='./shared/icons/order/doordash.svg' width='24' height='24' alt='ico' />
+                            <b>Doordash</b>
+                            <div class='custom-radio'></div>
+                        </label>
+                        <label for='caviar'>
+                            <input type="radio" name="order" id="caviar">
+                            <img src='./shared/icons/order/caviar.svg' width='24' height='24' alt='ico' />
+                            <b>Caviar</b>
+                            <div class='custom-radio'></div>
+                        </label>
+                        <label for='grubhub'>
+                            <input type="radio" name="order" id="grubhub">
+                            <img src='./shared/icons/order/grub-hub.svg' width='24' height='24' alt='ico' />
+                            <b>GrubHub</b>
+                            <div class='custom-radio'></div>
+                        </label>
+                    </div>
+                </div>
+                <div class='order-select'>
+                    <div class='select-head'>
+                        <img class='select-ico' src='./shared/icons/order/book-a-table.svg' width='24' height='24' alt='ico' />
+                        <b class='select-title' data-amt='2'>Book a table</b>
+                        <img src='./shared/icons/arrow-bottom.svg' width='28' height='28' alt='V'>
+                    </div>
+                    <div class='select-items'>
+                        <label for='opentable'>
+                            <input type="radio" name="order" id="opentable">
+                            <img src='./shared/icons/order/opentable.svg' width='24' height='24' alt='ico' />
+                            <b>Opentable</b>
+                            <div class='custom-radio'></div>
+                        </label>
+                        <label for='resy'>
+                            <input type="radio" name="order" id="resy">
+                            <img src='./shared/icons/order/resy.svg' width='24' height='24' alt='ico' />
+                            <b>Resy</b>
+                            <div class='custom-radio'></div>
+                        </label>
+                    </div>
+                </div>
+                <div class='order-mono-select'>
+                    <input type="radio" name="order" id="cash">
+                    <label for='cash'>
+                        <img class='select-ico' src='./shared/icons/order/call-to-order.svg' width='24' height='24' alt='ico' />
+                        <b class='select-title'>Call to order</b>
+                        <div class='custom-radio'></div>
+                    </label>
+                    <div class='select-items'>
+                        <div>
+                            <img src='./shared/icons/cursor-light-gray.svg' width='24' height='24' alt='ico' />
+                            <a target='_blank' href='https://www.google.com/maps/place/28+Anacapa+St+e,+Santa+Barbara,+CA+93101,+%D0%A1%D0%A8%D0%90/@34.4141361,-119.6908755,17z/data=!3m1!4b1!4m5!3m4!1s0x80e9138e990eea4b:0x9cc80d04746f31a9!8m2!3d34.4141317!4d-119.6886868'>
+                                28 Anacapa ST Unit E Santa Barbara,CA 93109</a>
+                        </div>
+                        <div>
+                            <img src='./shared/icons/phone-light-gray.svg' width='24' height='24' alt='ico' />
+                            <a class='phone' href='tel:+1 909-371-5964'>+1 909-371-5964</a>
+                        </div>
+                    </div>
+                </div>
+                <button class='button disabled' id='order-continue'>Continue</button>
+            </div>
+        </div>
+    </div>
+    <div class='footer-popup' id='app-link-popup'>
+        <div class='background' data-popup-closer='app-link-popup'></div>
+        <div class='popup center'>
+            <div class='popup-head'>
+                <div class='closer' data-popup-closer='app-link-popup' >
+                    <img src='./shared/icons/cross-black.svg' width='16' height='16' alt='x' />
+                </div>
+            </div>
+            <div class='popup-body app-link-wrapper'>
+                <img class='logo' src='./shared/logo-mustard.svg' width='142' height='24' alt='Mustard' />
+                <p>Your next bite is few tap away with Mustard app.</p>
+                <a href='https://apps.apple.com/us/app/mustard-experience-food/id1544140069' target='_blank' class='app-link'>
+                    <img src='./shared/images/appstore.png' width='213' height='71' alt='appstore' />
+                </a>
+                <img src='./shared/images/app-popup.png' class='main-img' width='440' height='420' alt='img' />
+            </div>
+        </div>
+    </div>
+</footer>
+
+<!--<script src='https://unpkg.com/hls.js/dist/hls.min.js'></script>-->
+<script src='./scripts/embed-videodelivery-sdk.js'></script>
+<script src='./scripts/mob/scripts-mob.js'></script>
+<script src='./scripts/mob/video-mob.js'></script>
+<script src='./scripts/mob/slider-video-mob.js'></script>
+</body>
+</html>
