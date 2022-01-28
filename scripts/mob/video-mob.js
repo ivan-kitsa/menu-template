@@ -50,7 +50,7 @@ class Video {
         this.player.autoplay = false
         this.player.controls = false
         this.player.preload = true
-        this.player.muted = false
+        this.player.muted = true
     }
 
     #attachListeners() {
@@ -89,12 +89,13 @@ class Video {
             console.log('----ENDED----')
         })
 
-        this.vSlide.addEventListener('click', (e) => {
+        this.vSlide.addEventListener('touchstart', (e) => {
             if (e.target.classList.contains('tag')) {
                 const timestamp = parseInt(e.target.getAttribute('data-timestamp'))
 
                 this.player.currentTime = timestamp || this.player.currentTime
                 this.#progressBar()
+                this.pause()
 
                 return
             }
@@ -103,6 +104,22 @@ class Video {
                 this.player.paused ? this.player.play() : this.player.pause()
             }
         })
+
+        this.vSlide.querySelectorAll('*[data-popup-handler]')?.forEach((h) => {
+            h.addEventListener('touchstart', (e) => {
+                this.pause()
+            })
+        })
+
+        document.querySelectorAll('*[data-popup-closer]')?.forEach((c) => {
+            c.addEventListener('touchstart', (e) => {
+                if (e.currentTarget.getAttribute('data-popup-handler')) {
+                    return
+                }
+                this.play()
+            })
+        })
+
     }
 
     init() {

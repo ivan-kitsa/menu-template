@@ -500,6 +500,7 @@ input[type='radio'] {
     right: .6rem;
     top: 50%;
     transform: translateY(-50%);
+    z-index: 2;
 
     & > *:not(:last-child) {
       margin-bottom: 2.4rem;
@@ -1768,13 +1769,10 @@ footer {
       }
 
       &:before {
-        transform: scale(1.4) translate(-50%, -65%);
+        transform: scale(1.2) translate(-50%, -50%);
       }
       img {
-        transform: scale(1.4) translate(-50%, -70%);
-      }
-      .tag-popover {
-        transform: translateX(-50%) translateY(0%) scale(1);
+        transform: scale(1.2) translate(-50%, -50%);
       }
     }
 
