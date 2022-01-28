@@ -285,8 +285,8 @@ function setRadio(id) {
 }
 
 function popupHandlers() {
-    const closers = document.querySelectorAll('footer *[data-popup-closer]')
-    const handlers = document.querySelectorAll('footer *[data-popup-handler]')
+    const closers = document.querySelectorAll('*[data-popup-closer]')
+    const handlers = document.querySelectorAll('*[data-popup-handler]')
 
     closers.forEach(c => {
         c.ontouchend = (e) => {
@@ -301,7 +301,7 @@ function popupHandlers() {
         }
     })
     handlers.forEach(c => {
-        c.ontouchend = (e) => {
+        c.ontouchstart = (e) => {
             e.preventDefault()
             const id = `${c.getAttribute('data-popup-handler')}`
             document.getElementById(id).classList.add('open')

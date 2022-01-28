@@ -3,8 +3,6 @@ class SliderV {
         this.id = id
         this.sl = document.getElementById(this.id)
         this.slides = this.sl.querySelectorAll('.slide')
-        this.leftButton = this.sl.querySelector('.left-button')
-        this.rightButton = this.sl.querySelector('.right-button')
         this.muteButton = document.getElementById('mute-button')
     }
 
@@ -51,9 +49,7 @@ class SliderV {
     }
 
     init() {
-        this.rightButton.addEventListener('mousedown', () => this.nextSlide())
-        this.leftButton.addEventListener('mousedown', () => this.prevSlide())
-        this.muteButton.addEventListener('click', () => this.muteHandler())
+        // this.muteButton.addEventListener('click', () => this.muteHandler())
     }
 }
 

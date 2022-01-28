@@ -82,7 +82,7 @@ class Video {
 
         this.player.addEventListener('ended', () => {
             if (this.index < initVideosArr.length - 1) {
-                Slider.moveToLeft()
+                Slider.nextSlide()
                 this.resetProgress()
             }
 

@@ -492,6 +492,156 @@ input[type='radio'] {
   }
 }
 
+.video-page-wrapper {
+
+  .right-bar {
+    @include flexColumnCenter;
+    position: fixed;
+    right: .6rem;
+    top: 50%;
+    transform: translateY(-50%);
+
+    & > *:not(:last-child) {
+      margin-bottom: 2.4rem;
+    }
+
+    .bar-button {
+      p {
+        font-weight: 600;
+        font-size: 1.2rem;
+        line-height: 1.5rem;
+        text-align: center;
+        color: $white;
+      }
+    }
+
+    .avatar {
+      @include flexCenter;
+      width: 4.8rem;
+      height: 4.8rem;
+      border-radius: 50%;
+      border: 2px solid fade-out(#FF7A00, .6);
+
+      img {
+        width: 4rem;
+        height: 4rem;
+        border-radius: 50%;
+      }
+    }
+  }
+
+  .bottom-bar {
+    width: 100%;
+    padding: 1.2rem;
+    position: fixed;
+    left: 0;
+    bottom: 0;
+
+    &:before {
+      content: '';
+      width: 100%;
+      height: 16rem;
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      background: linear-gradient(0deg, rgba(0, 0, 0, 0.6) 0%, rgba(0, 0, 0, 0) 100%);
+    }
+
+    .food-description {
+      .dish {
+        @include flexCenter;
+        justify-content: space-between;
+        width: 100%;
+        margin-bottom: .4rem;
+
+        * {
+          font-family: 'Poppins', sans-serif;
+          font-weight: 600;
+          font-size: 1.6rem;
+          line-height: 2rem;
+          color: $white;
+        }
+
+        .name {
+          max-width: calc(100% - 8rem);
+          white-space: nowrap;
+          text-overflow: ellipsis;
+          overflow: hidden;
+        }
+        .cost {
+          max-width: 7rem;
+        }
+      }
+
+      .description {
+        color: $white;
+        font-size: 1.2rem;
+        line-height: 1.6rem;
+
+        &.min {
+          @include textEclipsis(2);
+          max-height: 3.6rem;
+          padding-right: 4rem;
+          pointer-events: none;
+
+          &:after {
+            content: 'More';
+            font-weight: 600;
+            padding: .8rem;
+            position: absolute;
+            right: -.3rem;
+            bottom: -.8rem;
+            pointer-events: auto;
+          }
+        }
+      }
+    }
+
+    .profile {
+      width: 100%;
+
+      .avatar {
+        width: 5.2rem;
+        height: 5.2rem;
+
+        img {
+          width: 4rem;
+          height: 4rem;
+        }
+      }
+      .user-info {
+        .name {
+          font-size: 1.4rem;
+          line-height: 1.4rem;
+          color: $white;
+          transform: none;
+        }
+        .views {
+          display: flex;
+        }
+      }
+    }
+
+    .swipe-message {
+      @include flexCenter;
+      width: 100%;
+      margin-top: 1.6rem;
+
+      img {
+        width: 2.1rem;
+        display: inline-block;
+        transform: rotate(90deg);
+      }
+
+      span {
+        font-size: 1.2rem;
+        line-height: 1.5rem;
+        color: $white;
+      }
+    }
+  }
+}
+
 footer {
   @include flex;
   position: fixed;
@@ -503,7 +653,11 @@ footer {
   background: $orange-30;
   z-index: 5;
 
-  .button.small {
+  &.footer-video {
+    padding: 0;
+  }
+
+  & > .button.small {
     width: calc(50% - .5rem);
   }
 
@@ -512,6 +666,7 @@ footer {
     left: 0;
     bottom: 0;
     width: 100%;
+    min-height: 100vh;
     display: none;
 
     &.open {
@@ -528,11 +683,21 @@ footer {
     }
 
     .popup {
+      position: absolute;
+      bottom: 0;
+      left: 0;
       width: 100%;
       max-height: 100vh;
       overflow-y: auto;
       background: $orange-30;
       border-radius: 1.2rem 1.2rem 0 0;
+
+      &.center {
+        @include absoluteCenter;
+        bottom: auto;
+        width: calc(100% - 4rem);
+        border-radius: 1.2rem;
+      }
 
       .popup-head {
         @include flexCenter;
@@ -549,9 +714,9 @@ footer {
           display: flex;
           position: absolute;
           right: 1.2rem;
-          top: 50%;
-          transform: translateY(-50%);
+          top: 1.2rem;
           padding: .8rem;
+          opacity: .4;
 
           img {
             width: 1.6rem;
@@ -564,6 +729,104 @@ footer {
         padding: 0 2rem 1.6rem;
         width: 100%;
       }
+    }
+  }
+
+  .details {
+    width: 100%;
+    margin-bottom: 2.4rem;
+
+    .name {
+      padding-top: 1.6rem;
+
+      &:before {
+        content: '';
+        position: absolute;
+        left: -2.4rem;
+        bottom: 100%;
+        width: 100vw;
+        height: 1px;
+        background: $gray-200;
+      }
+    }
+
+    .name, .cost {
+      font-family: 'Poppins', sans-serif;
+      font-weight: 700;
+      font-size: 1.6rem;
+      line-height: 2rem;
+      margin-bottom: .8rem;
+    }
+    p {
+      font-size: 1.2rem;
+      line-height: 1.6rem;
+    }
+  }
+
+  .comments {
+    width: 100%;
+
+    .no-comments {
+      @include flexColumnCenter;
+      width: 100%;
+      margin: 0 auto 4rem;
+
+      & > p {
+        margin: 1.2rem auto 1.6rem;
+        font-weight: 600;
+        line-height: 2.2rem;
+        color: $gray-500;
+      }
+
+      img {
+        width: 100%;
+        max-width: 348px;
+        height: auto;
+      }
+
+      .button {
+        width: max-content;
+      }
+    }
+  }
+
+  .app-link-wrapper {
+    padding: 0 !important;
+    align-items: center !important;
+
+    .logo {
+      display: block;
+      width: 14.2rem;
+      height: 2.4rem;
+
+      img {
+        width: 100%;
+        height: 100%;
+      }
+    }
+
+    p {
+      font-size: 1.8rem;
+      line-height: 2.8rem;
+      margin: 2.4rem auto 3.2rem;
+      text-align: center;
+      max-width: 29rem;
+    }
+
+    .app-link {
+      display: block;
+      width: calc(21.3rem * .75);
+      height: auto;
+      img {
+        width: 100%;
+        height: 100%;
+      }
+    }
+
+    .main-img {
+      width: 100%;
+      height: auto;
+      border-radius: 1.2rem;
     }
   }
 
@@ -976,24 +1239,38 @@ footer {
   line-height: 2.4rem;
   width: 100%;
   height: 5.6rem;
+  padding: 0 2.4rem;
   background: $orange-500;
   border-radius: .8rem;
-  border: none;
+  border: 1px solid $orange-500;
   box-shadow: none;
   cursor: pointer;
 
   &:active {
     background: $orange-700;
+    border-color: $orange-700;
   }
 
   &.clear {
     background: none;
-    border: 1px solid $gray-800;
+    border-color: $gray-800;
+  }
+
+  &.orange {
+    background: none;
+    border-color: $orange-500;
+    color: $orange-500;
   }
 
   &.small {
     height: 4.4rem;
     line-height: 2rem;
+  }
+
+  &.x-small {
+    height: 3.2rem;
+    font-size: 1.4rem;
+    line-height: 2.4rem;
   }
 
   &.disabled {
@@ -1141,6 +1418,53 @@ footer {
     //&[data-id='6'] {
     //  left: 91.6rem;
     //}
+  }
+}
+
+.video-slider {
+  width: 100%;
+  height: 100vh;
+
+  .slides {
+    width: 100%;
+    height: 100%;
+  }
+  .slide {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+  }
+
+  .iframe-wrapper {
+    width: 100%;
+    height: 100%;
+
+    iframe {
+      @include absoluteCenter;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      border: none;
+    }
+  }
+}
+
+.forward-link {
+  @include flexCenter;
+  position: fixed;
+  left: 1.2rem;
+  top: 1.2rem;
+  width: 4rem;
+  height: 4rem;
+  border-radius: 50%;
+  background: $white-10;
+  z-index: 2;
+
+  img {
+    width: 2.4rem;
+    height: 2.4rem;
   }
 }
 

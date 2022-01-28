@@ -27,7 +27,7 @@ class Slider {
 
         // this.slider.querySelector('.cards').style.cssText = `height: ${this.cardH}px`
     }
-    moveToRight() {
+    prevSlide() {
         for (let i = 0, dataId = 0; i < this.cards.length; i++) {
             dataId = +this.cards[i].getAttribute('data-id')
 
@@ -39,7 +39,7 @@ class Slider {
             }
         }
     }
-    moveToLeft() {
+    nextSlide() {
         for (let i = 0, dataId = 0; i < this.cards.length; i++) {
             dataId = +this.cards[i].getAttribute('data-id')
 
@@ -59,8 +59,8 @@ class Slider {
     }
     init() {
         this.setSizes()
-        this.rightButton.addEventListener('mousedown', () => this.moveToLeft())
-        this.leftButton.addEventListener('mousedown', () => this.moveToRight())
+        this.rightButton.addEventListener('mousedown', () => this.nextSlide())
+        this.leftButton.addEventListener('mousedown', () => this.prevSlide())
         if (this.cards.length - 1 < this.getMaxViewsSlides()) {
             this.rightButton.classList.add('hidden')
         }
