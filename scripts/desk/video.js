@@ -94,9 +94,9 @@ class Video {
 
         this.vSlide.addEventListener('click', (e) => {
             if (e.target.classList.contains('tag')) {
-                const timestamp = parseInt(e.target.getAttribute('data-timestamp'))
+                const timestamp = e.target.getAttribute('data-timestamp')
 
-                this.player.currentTime = timestamp || this.player.currentTime
+                this.player.currentTime = +timestamp || this.player.currentTime
                 this.#progressBar()
                 return
             }
@@ -110,12 +110,9 @@ class Video {
     #attachTagsPosition() {
         const tags = this.vSlide.querySelectorAll('.tag')
 
-        tags.forEach((t, i) => {
-            const timeStamp = parseInt(t.getAttribute('data-timestamp'))
+        tags.forEach((t) => {
+            const timeStamp = +t.getAttribute('data-timestamp')
             const percent = 100 - (this.duration - timeStamp) / this.duration * 100
-
-            console.log(this.duration)
-            console.log(percent)
 
             t.style.left = `${percent}%`
         })

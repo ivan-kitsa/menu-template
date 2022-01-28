@@ -46,17 +46,10 @@ class SliderV {
 
     init() {
         this.sl.addEventListener('touchend', (e) => {
-            if (e.changedTouches[0].target.classList.contains('iframe-wrapper')) {
-                switch (swipeDirection.y) {
-                    case 'bottom':
-                        this.prevSlide()
-                        break
-                    case 'top':
-                        this.nextSlide()
-                        break
-                    default:
-                        break
-                }
+            console.log(swipeDirection.y)
+
+            if (e.changedTouches[0].target.classList.contains('iframe-wrapper') && swipeDirection.y === 'top') {
+                this.nextSlide()
             }
         })
     }

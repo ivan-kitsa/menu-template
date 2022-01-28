@@ -23,11 +23,9 @@ class Video {
 
     play() {
         this.player.play()
-        this.player.muted = false
     }
     pause() {
         this.player.pause()
-        this.player.muted = true
     }
 
     isMuted(boolean) {
@@ -45,6 +43,22 @@ class Video {
         this.currentTime = this.player.currentTime
         this.progress = 100 - (this.duration - this.currentTime) / this.duration * 100
         this.progressBar ? this.progressBar.style.height = `${this.progress}%` : null
+    }
+
+    #tagsPopovers(timestamp) {
+        const tagsPopovers = this.vSlide.querySelectorAll('.tag-popover')
+
+        tagsPopovers.forEach((t) => {
+            if (t.getAttribute('data-timestamp') === timestamp) {
+                t.style.cssText = ''
+                t.classList.remove('hidden')
+                return
+            }
+
+            t.classList.add('hidden')
+            t.style.cssText = 'position: absolute;'
+
+        })
     }
 
     #attachParams() {
@@ -78,7 +92,6 @@ class Video {
 
         this.player.addEventListener('pause', () => {
             clearInterval(interval)
-
             console.log('----PAUSE----')
         })
 
@@ -91,18 +104,20 @@ class Video {
             console.log('----ENDED----')
         })
 
-        this.vSlide.addEventListener('touchstart', (e) => {
+        this.vSlide.addEventListener('touchend', (e) => {
             if (e.target.classList.contains('tag')) {
-                const timestamp = parseInt(e.target.getAttribute('data-timestamp'))
+                const timestamp = e.target.getAttribute('data-timestamp')
 
-                this.player.currentTime = timestamp || this.player.currentTime
+                this.player.currentTime = +timestamp || this.player.currentTime
+                this.#tagsPopovers(timestamp)
                 this.#progressBar()
                 this.pause()
-                return
+            } else {
+                this.#tagsPopovers('')
             }
 
             if (e.target.classList.contains('iframe-wrapper')) {
-                this.player.paused ? this.player.play() : this.player.pause()
+                this.player.paused ? this.play() : this.pause()
             }
         })
 
