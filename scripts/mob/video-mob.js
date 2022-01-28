@@ -23,9 +23,11 @@ class Video {
 
     play() {
         this.player.play()
+        this.player.muted = false
     }
     pause() {
         this.player.pause()
+        this.player.muted = true
     }
 
     isMuted(boolean) {
@@ -96,7 +98,6 @@ class Video {
                 this.player.currentTime = timestamp || this.player.currentTime
                 this.#progressBar()
                 this.pause()
-
                 return
             }
 
