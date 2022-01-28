@@ -50,7 +50,7 @@ class Video {
         this.player.autoplay = false
         this.player.controls = false
         this.player.preload = true
-        this.player.muted = true
+        this.player.muted = false
     }
 
     #attachListeners() {
@@ -89,7 +89,7 @@ class Video {
             console.log('----ENDED----')
         })
 
-        this.vSlide.addEventListener('click', (e) => {
+        this.vSlide.addEventListener('touchstart', (e) => {
             if (e.target.classList.contains('tag')) {
                 const percent = parseInt(e.target.style.left)
 

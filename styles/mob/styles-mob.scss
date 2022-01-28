@@ -1427,7 +1427,8 @@ footer {
 
   .slides {
     width: 100%;
-    height: 100%;
+    height: 100vh;
+    overflow: hidden;
   }
   .slide {
     position: absolute;
@@ -1435,6 +1436,28 @@ footer {
     top: 0;
     width: 100%;
     height: 100%;
+    display: none;
+
+    transition: .2s ease;
+
+    &[data-id='0'],
+    &[data-id='1'],
+    &[data-id='2'] {
+      display: block;
+    }
+
+    &[data-id='0']  {
+      top: -100vh;
+    }
+
+    &[data-id='1']  {
+      top: 0;
+    }
+
+    &[data-id='2']  {
+      top: 100vh;
+    }
+
   }
 
   .iframe-wrapper {
