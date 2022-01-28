@@ -13,19 +13,20 @@ function touchController() {
         clear()
         from.x = e.changedTouches[0].clientX
         from.y = e.changedTouches[0].clientY
-    }, false)
+    })
 
     document.addEventListener('touchend', (e) => {
         to.x = e.changedTouches[0].clientX
         to.y = e.changedTouches[0].clientY
         clear()
-    }, false)
+        getSwipeDirection()
+    })
 
     document.addEventListener('touchmove', (e) => {
         to.x = e.changedTouches[0].clientX
         to.y = e.changedTouches[0].clientY
         getSwipeDirection()
-    }, false)
+    })
 
     function clear() {
         from.x = 0

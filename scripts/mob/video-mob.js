@@ -108,7 +108,9 @@ class Video {
             if (e.target.classList.contains('tag')) {
                 const timestamp = e.target.getAttribute('data-timestamp')
 
-                this.player.currentTime = +timestamp || this.player.currentTime
+                console.log(timestamp)
+
+                this.player.currentTime = timestamp || this.player.currentTime
                 this.#tagsPopovers(timestamp)
                 this.#progressBar()
                 this.pause()
