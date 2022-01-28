@@ -36,13 +36,13 @@ class Video {
         this.player.currentTime = 0
         this.currentTime = 0
         this.progress = 0
-        this.progressBar ? this.progressBar.style.width = '0%' : null
+        this.progressBar ? this.progressBar.style.height = '0%' : null
     }
 
     #progressBar() {
         this.currentTime = this.player.currentTime
         this.progress = 100 - (this.duration - this.currentTime) / this.duration * 100
-        this.progressBar ? this.progressBar.style.width = `${this.progress}%` : null
+        this.progressBar ? this.progressBar.style.height = `${this.progress}%` : null
     }
 
     #attachParams() {
@@ -50,7 +50,7 @@ class Video {
         this.player.autoplay = false
         this.player.controls = false
         this.player.preload = true
-        this.player.muted = true
+        this.player.muted = false
     }
 
     #attachListeners() {
@@ -91,9 +91,9 @@ class Video {
 
         this.vSlide.addEventListener('click', (e) => {
             if (e.target.classList.contains('tag')) {
-                const percent = parseInt(e.target.style.left)
+                const timestamp = parseInt(e.target.getAttribute('data-timestamp'))
 
-                this.player.currentTime = this.duration / 100 * percent
+                this.player.currentTime = timestamp || this.player.currentTime
                 this.#progressBar()
 
                 return
