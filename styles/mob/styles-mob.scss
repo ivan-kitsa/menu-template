@@ -551,6 +551,8 @@ input[type='radio'] {
     }
 
     .food-description {
+      width: 100%;
+
       .dish {
         @include flexCenter;
         justify-content: space-between;
