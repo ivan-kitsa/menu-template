@@ -97,11 +97,26 @@ function customSelect() {
 
 function menuSelect() {
     const selectNode = document.getElementById('menu-select')
-    const selectList = selectNode?.querySelectorAll('.menu-type')
+    const selectList = selectNode?.querySelectorAll('.menu-info')
     const currentSelect = selectNode?.querySelector('.current')
 
     if (!selectNode || !currentSelect || !selectList) {
         return
+    }
+
+    if (selectList.length > 3) {
+        const wrapper = document.createElement('div')
+        wrapper.style.cssText = 'display: block; position: fixed; z-index: -999; visibility: hidden;'
+        wrapper.classList.add('menu-types')
+        document.body.appendChild(wrapper)
+
+        for(let i = 0; i < 3; i++) {
+            const clone = selectList[i].cloneNode(true)
+            wrapper.appendChild(clone)
+        }
+
+        selectNode.querySelector('.menu-types').style.maxHeight = `${wrapper.offsetHeight}px`
+        wrapper.remove()
     }
 
     selectNode.addEventListener('touchstart', (e) => {
@@ -116,9 +131,9 @@ function menuSelect() {
 
     selectList.forEach((s) => {
         s.addEventListener('click', (e) => {
-            selectNode.querySelector('.menu-type.current').classList.remove('current')
+            selectNode.querySelector('.menu-info.current').classList.remove('current')
             e.target.classList.add('current')
-            selectNode.children[0].innerText = e.target.textContent
+            selectNode.children[0].innerText = e.target.children[0].textContent
 
 
             setTimeout(() => {
@@ -130,7 +145,7 @@ function menuSelect() {
 
     document.addEventListener('touchend', (e) => {
         if (selectNode.classList.contains('open') &&
-            !e.target?.classList?.contains('menu-type') &&
+            !e.target?.classList?.contains('menu-info') &&
             !e.target?.classList?.contains('menu-select')) {
             selectNode.classList.remove('open')
             bodyScrollBlock(false)
