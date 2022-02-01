@@ -50,6 +50,7 @@ class SliderV {
                 this.nextSlide()
             }
         })
+        this.muteButton.addEventListener('click', () => this.muteHandler())
     }
 }
 

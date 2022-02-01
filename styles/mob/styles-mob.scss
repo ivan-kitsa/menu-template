@@ -497,7 +497,7 @@ input[type='radio'] {
   .right-bar {
     @include flexColumnCenter;
     position: fixed;
-    right: .6rem;
+    right: .8rem;
     top: 50%;
     transform: translateY(-50%);
     z-index: 2;
@@ -1584,6 +1584,28 @@ footer {
       pointer-events: none;
       border: none;
     }
+  }
+}
+
+.mute-button {
+  @include flexCenter;
+  position: fixed;
+  right: 1.2rem;
+  top: 1.2rem;
+  width: 4rem;
+  height: 4rem;
+  border: none;
+  border-radius: 50%;
+  background: $white-10;
+  z-index: 2;
+
+  &.muted {
+    opacity: .5;
+  }
+
+  img {
+    width: 2.4rem;
+    height: 2.4rem;
   }
 }
 
