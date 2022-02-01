@@ -14,6 +14,7 @@ $main-transition-exit: .15s ease-in;
 
   ::selection {
     background: $orange-50;
+    color: $orange-700;
   }
 }
 
@@ -669,6 +670,10 @@ input[type='radio'] {
 
     &[data-id='1'] .video-tags {
       display: block;
+    }
+
+    &:not([data-id='1']) .iframe-wrapper{
+      pointer-events: none;
     }
 
     .v-slide-info {
@@ -1340,6 +1345,13 @@ input[type='radio'] {
       top: 50%;
       transform: translateY(-50%);
 
+      &:after {
+        content: '';
+        position: absolute;
+        width: 19.5rem;
+        height: 26.6rem;
+      }
+
       img {
         width: 3.2rem;
         height: 3.2rem;
@@ -1348,10 +1360,18 @@ input[type='radio'] {
 
     &.right-button {
       right: calc(50% - 32rem);
+
+      &:after {
+        right: -23.8rem;
+      }
     }
 
     &.left-button {
       left: calc(50% - 32rem);
+
+      &:after {
+        left: -23.7rem;
+      }
     }
 
     &.mute-button {
