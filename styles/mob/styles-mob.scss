@@ -416,21 +416,31 @@ input[type='radio'] {
     }
 
     h3 {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
       width: 100%;
       margin-bottom: 1.6rem;
+      white-space: nowrap;
+
+      span {
+        font-family: inherit;
+        font-size: inherit;
+        font-weight: inherit;
+        line-height: inherit;
+
+        text-overflow: ellipsis;
+        overflow: hidden;
+      }
 
       a {
-        position: absolute;
-        right: 0;
-        top: 50%;
-        transform: translateY(-50%);
         font-family: 'Poppins', sans-serif;
         font-weight: 700;
         font-size: 1.4rem;
         line-height: 2rem;
         color: $black-40;
         text-decoration: none;
-        padding-right: 1.4rem;
+        padding: 0 1.4rem;
 
         &:after {
           content: '';
