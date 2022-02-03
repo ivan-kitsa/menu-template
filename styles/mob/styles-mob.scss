@@ -594,9 +594,9 @@ input[type='radio'] {
         line-height: 1.6rem;
 
         &.min {
-          @include textEclipsis(2);
+          @include textEclipsis(1);
           max-height: 3.6rem;
-          padding-right: 4rem;
+          padding-right: 4.2rem;
           pointer-events: none;
 
           &:after {
