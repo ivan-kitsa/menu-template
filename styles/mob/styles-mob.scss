@@ -70,6 +70,10 @@ input[type='radio'] {
     padding: .8rem 1.6rem;
 
     .forward-link {
+      position: relative;
+      left: 0;
+      top: 0;
+
       @include flexCenter;
       width: 4.4rem;
       height: 4.4rem;
@@ -92,7 +96,7 @@ input[type='radio'] {
     padding:  1.6rem;
 
     .main-info {
-      margin-bottom: 0;
+      margin: 0;
     }
 
     & ~ .main-wrapper {
@@ -348,10 +352,10 @@ input[type='radio'] {
     margin: 1.6rem 0 1.2rem;
   }
 
-  & > *:nth-last-child(2) {
+  &:not(.header-category):not(.header-not-onborded) > *:nth-last-child(2) {
     margin-bottom: 6.4rem !important;
   }
-  & > *:last-child:not(.category-list-wrapper) {
+  &:not(.header-category):not(.header-not-onborded) > *:last-child:not(.category-list-wrapper) {
     margin-top: -4.2rem;
   }
 
@@ -416,21 +420,31 @@ input[type='radio'] {
     }
 
     h3 {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
       width: 100%;
       margin-bottom: 1.6rem;
+      white-space: nowrap;
+
+      span {
+        font-family: inherit;
+        font-size: inherit;
+        font-weight: inherit;
+        line-height: inherit;
+
+        text-overflow: ellipsis;
+        overflow: hidden;
+      }
 
       a {
-        position: absolute;
-        right: 0;
-        top: 50%;
-        transform: translateY(-50%);
         font-family: 'Poppins', sans-serif;
         font-weight: 700;
         font-size: 1.4rem;
         line-height: 2rem;
         color: $black-40;
         text-decoration: none;
-        padding-right: 1.4rem;
+        padding: 0 1.4rem;
 
         &:after {
           content: '';
@@ -584,9 +598,9 @@ input[type='radio'] {
         line-height: 1.6rem;
 
         &.min {
-          @include textEclipsis(2);
+          @include textEclipsis(1);
           max-height: 3.6rem;
-          padding-right: 4rem;
+          padding-right: 4.2rem;
           pointer-events: none;
 
           &:after {
